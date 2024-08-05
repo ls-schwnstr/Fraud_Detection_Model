@@ -20,6 +20,11 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: List files in app directory
+      run: |
+        echo "Listing files in the app directory:"
+        ls -la app
+
     - name: Generate data for the year
       run: |
         python app/generate_fake_data.py
@@ -27,3 +32,4 @@ jobs:
     - name: Simulate data and retraining for each week
       run: |
         python app/data_insertion.py
+

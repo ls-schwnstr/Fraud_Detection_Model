@@ -7,7 +7,7 @@ data_dir = 'simulated_data'
 os.makedirs(data_dir, exist_ok=True)
 
 # Read the original data
-original_data = pd.read_csv('Fraud.csv', delimiter=";")
+original_data = pd.read_csv('Fraud.csv', delimiter=";", nrows=1000)
 
 # Ensure 'amount' column is numeric, coercing errors to NaN
 original_data['amount'] = pd.to_numeric(original_data['amount'], errors='coerce')
