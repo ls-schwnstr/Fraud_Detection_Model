@@ -27,16 +27,11 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    #- name: List files in app directory
-     # run: |
-      #    ls -la app/
-       #   cat app/Fraud.csv  # Print contents of the CSV file
-
     - name: Generate data for the year
       run: |
-        python app/generate_fake_data.py
+        PYTHONPATH=app python app/generate_fake_data.py
 
     - name: Simulate data and retraining for each week
       run: |
-        python app/data_insertion.py
+        PYTHONPATH=app python app/data_insertion.py
 
