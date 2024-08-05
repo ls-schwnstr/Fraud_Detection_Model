@@ -22,7 +22,7 @@ jobs:
 
     - name: Generate data for the year
       run: |
-        python generate_fake_data.py
+        python app/generate_fake_data.py
 
     - name: Simulate data and retraining for each week
       run: |
