@@ -1,6 +1,9 @@
 name: Monthly Retraining
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 0 1 * *'  # Run on the first day of every month at midnight UTC
 
@@ -15,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |
