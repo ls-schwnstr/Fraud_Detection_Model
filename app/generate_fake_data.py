@@ -8,7 +8,9 @@ os.makedirs(data_dir, exist_ok=True)
 
 # Use absolute path for the file
 file_path = os.path.join(os.path.dirname(__file__), 'Fraud.csv')
-original_data = pd.read_csv(file_path, delimiter=";", nrows=10000)
+original_data = pd.read_csv(file_path, delimiter=";", nrows=1000)
+
+print("Columns in DataFrame:", original_data.columns)
 
 # Ensure 'amount' column is numeric, coercing errors to NaN
 original_data['amount'] = pd.to_numeric(original_data['amount'], errors='coerce')
@@ -37,6 +39,8 @@ for week in range(1, 53):
     simulated_data = introduce_variation(sampled_data, week)
     simulated_data["week"] = week  # Add week column
     all_data = pd.concat([all_data, simulated_data])
+
+    print(all_data.head())
 
 # Save all data to a single CSV file
 file_path = os.path.join(data_dir, 'simulated_data_year.csv')
