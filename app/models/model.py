@@ -6,7 +6,7 @@ from imblearn.over_sampling import SMOTE
 import joblib
 import mlflow
 import mlflow.sklearn
-from app.models.data_quality import check_for_data_drift
+from data_quality import check_for_data_drift
 from app.routes import load_feature_names
 from app.db import get_session, get_predicted_data, RetrainingLog, add_predicted_data
 

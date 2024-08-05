@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from imblearn.over_sampling import SMOTE
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.db import get_predicted_data
+from db import get_predicted_data
 
 
 def get_session():

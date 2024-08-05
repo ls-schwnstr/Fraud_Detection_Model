@@ -3,7 +3,6 @@ from mlflow import MlflowClient
 from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
 import numpy as np
 import mlflow
-from app.trigger_github_action import trigger_github_action
 from app.db import get_reference_data, get_new_data
 
 
