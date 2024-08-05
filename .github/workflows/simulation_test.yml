@@ -26,4 +26,4 @@ jobs:
 
     - name: Simulate data and retraining for each week
       run: |
-        python app/models/data_insertion.py
+        python app/data_insertion.py
