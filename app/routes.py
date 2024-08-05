@@ -4,10 +4,11 @@ from app import app
 import os
 import pandas as pd
 import threading
-from db import get_session, add_raw_data, add_processed_data, \
-    get_latest_raw_data, get_latest_processed_data, add_predicted_data
-from models.model import preprocess_data_for_training, train_model, preprocess_input_data, \
-    make_predictions_and_check_drift
+from db import get_session
+#from db  add_raw_data, add_processed_data, \
+ #   get_latest_raw_data, get_latest_processed_data, add_predicted_data
+#from models.model import preprocess_data_for_training, train_model, preprocess_input_data, \
+ #   make_predictions_and_check_drift
 
 # Load credentials from environment variables
 USERNAME = os.getenv('USERNAME')
@@ -27,6 +28,7 @@ def load_feature_names():
 
 
 def background_train():
+    from models.model import preprocess_data_for_training, train_model, add_predicted_data
     global training_status
     training_status['status'] = 'in_progress'
     try:
@@ -93,6 +95,8 @@ def check_training_status():
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
+    from models.model import preprocess_input_data
+    from db import add_raw_data, add_processed_data, get_latest_raw_data
     if 'username' in flask_session:
         db_session = get_session()
 
@@ -157,6 +161,8 @@ def dashboard():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
+    from models.model import make_predictions_and_check_drift
+    from db import get_latest_processed_data
     db_session = get_session()
     try:
         print("Received prediction request")
