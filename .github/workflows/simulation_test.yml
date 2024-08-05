@@ -29,9 +29,9 @@ jobs:
 
     - name: Generate data for the year
       run: |
-        PYTHONPATH=app python app/generate_fake_data.py
+        PYTHONPATH=app python -m generate_fake_data
 
     - name: Simulate data and retraining for each week
       run: |
-        PYTHONPATH=app python app/data_insertion.py
+        PYTHONPATH=app python -m data_insertion
 
