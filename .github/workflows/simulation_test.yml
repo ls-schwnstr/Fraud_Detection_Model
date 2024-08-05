@@ -10,6 +10,13 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      with:
+        lfs: true  # Fetch Git LFS files
+
+    - name: Set up Git LFS
+      run: |
+          git lfs install
+          git lfs pull
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -22,8 +29,8 @@ jobs:
 
     - name: List files in app directory
       run: |
-        echo "Listing files in the app directory:"
-        ls -la app
+          ls -la app/
+          cat app/Fraud.csv  # Print contents of the CSV file
 
     - name: Generate data for the year
       run: |
