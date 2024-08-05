@@ -3,7 +3,7 @@ from mlflow import MlflowClient
 from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
 import numpy as np
 import mlflow
-from ..db import get_reference_data, get_new_data
+from .db import get_reference_data, get_new_data
 
 
 def calculate_descriptive_statistics(data):
@@ -89,7 +89,6 @@ def check_for_data_drift(session):
                       any(v > 0.5 for v in kl_divergence_results.values()))
 
     if drift_detected:
-        trigger_github_action()  # Trigger GitHub Action for retraining
         print("Data drift detected. Triggering retraining.")
     else:
         print("No data drift detected.")
