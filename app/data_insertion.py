@@ -1,12 +1,10 @@
 import pandas as pd
 from sqlalchemy import create_engine
-import os
 from sqlalchemy.orm import sessionmaker
 
 import app
-from app.models.data_quality import check_for_data_drift
 from app.models.model import preprocess_input_data, make_predictions_and_check_drift
-from db import add_processed_data, get_latest_raw_data, add_raw_data
+from app.db import add_processed_data, get_latest_raw_data, add_raw_data
 
 # Database configuration
 DATABASE_URL = 'sqlite:///fraud_detection.db'

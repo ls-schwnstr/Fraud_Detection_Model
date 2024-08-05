@@ -4,7 +4,7 @@ from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
 import numpy as np
 import mlflow
 from app.trigger_github_action import trigger_github_action
-from db import get_reference_data, get_new_data
+from app.db import get_reference_data, get_new_data
 
 
 def calculate_descriptive_statistics(data):

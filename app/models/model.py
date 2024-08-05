@@ -1,4 +1,3 @@
-import sqlite3
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -7,10 +6,9 @@ from imblearn.over_sampling import SMOTE
 import joblib
 import mlflow
 import mlflow.sklearn
-
 from app.models.data_quality import check_for_data_drift
 from app.routes import load_feature_names
-from db import get_session, get_predicted_data, RetrainingLog, add_predicted_data
+from app.db import get_session, get_predicted_data, RetrainingLog, add_predicted_data
 
 
 def preprocess_data_for_training(data):
