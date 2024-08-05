@@ -1,0 +1,29 @@
+name: MLOps Simulation Test
+
+on:
+  workflow_dispatch:  # Manually trigger this workflow
+
+jobs:
+  simulate-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Generate data for the year
+      run: |
+        python generate_fake_data.py
+
+    - name: Simulate data and retraining for each week
+      run: |
+        python insert_data.py

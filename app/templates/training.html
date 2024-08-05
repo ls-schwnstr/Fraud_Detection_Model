@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Status</title>
+    <script>
+        let attempts = 0;
+        const maxAttempts = 20; // Maximum number of attempts
+        const checkInterval = 7000; // Interval between checks in milliseconds
+
+        function checkTrainingStatus() {
+            fetch('/check-training-status')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'complete') {
+                        window.location.href = '/dashboard';
+                    }
+                    // Optionally handle other statuses or no action needed
+                })
+                .catch(error => {
+                    console.error('Error checking training status:', error);
+                    attempts += 1;
+                    if (attempts >= maxAttempts) {
+                        clearInterval(checkStatusInterval);
+                        // Optionally update the UI or log the error
+                        document.body.innerHTML = '<h1>Unable to Check Training Status</h1><p>Please try again later.</p>';
+                    }
+                });
+        }
+
+        // Start checking the training status at intervals
+        const checkStatusInterval = setInterval(checkTrainingStatus, checkInterval);
+    </script>
+</head>
+<body>
+    <h1>Training in Progress</h1>
+    <p>Please wait while the model is being trained. This may take a few moments.</p>
+</body>
+</html>
