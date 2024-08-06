@@ -16,18 +16,20 @@ engine = create_engine(DATABASE_URL, echo=True)
 
 
 class TestInsertData(unittest.TestCase):
-    @patch('mlflow.start_run')
-    @patch('mlflow.log_metric')
-    @patch('mlflow.log_artifact')
-    @patch('models.model.make_predictions_and_check_drift')
     @patch('db.get_latest_processed_data')
-    def test_insert_data(self,  mock_log_params, mock_log_metric, mock_start_run):
+    @patch('models.model.make_predictions_and_check_drift')
+    @patch('mlflow.log_artifact')
+    @patch('mlflow.log_metric')
+    @patch('mlflow.start_run')
+    def test_insert_data(self, mock_start_run, mock_log_metric, mock_log_artifact, mock_make_predictions, mock_get_latest_processed):
         file_path = 'simulated_data/simulated_data_year.csv'
         all_data = pd.read_csv(file_path, delimiter=';')
         insert_data(all_data)
         mock_start_run.assert_called()
         mock_log_metric.assert_called()
-        mock_log_params.assert_called()
+        mock_log_artifact.assert_called()
+        mock_make_predictions.assert_called()
+        mock_get_latest_processed.assert_called()
 
 
 # Function to insert data into the database
