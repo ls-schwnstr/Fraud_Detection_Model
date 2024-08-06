@@ -11,34 +11,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Create and Set Permissions for mlruns Directory
-        run: |
-          mkdir -p ${{ github.workspace }}/mlruns
-          chmod -R 777 ${{ github.workspace }}/mlruns
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
 
-      - name: Create mlruns directory
-        run: mkdir -p ${{ github.workspace }}/mlruns
-
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
 
-      - name: Set up environment variables
+      - name: Set up MLflow environment variables
         run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
 
-      - name: Start MLflow service
+      - name: Start MLflow server
         run: |
-          docker run -d --name mlflow \
-            -p 5004:5004 \
-            --mount type=bind,source=${{ github.workspace }}/mlruns,target=/mlflow/artifacts \
-            -e MLFLOW_TRACKING_URI=http://localhost:5004 \
-            ghcr.io/mlflow/mlflow:v2.0.1 \
-            mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlflow/artifacts --host 0.0.0.0 --port 5004
+          mkdir -p mlruns
+          mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5004 &
 
       - name: Generate data for the year
         run: |
