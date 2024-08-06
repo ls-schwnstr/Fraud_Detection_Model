@@ -44,5 +44,15 @@ jobs:
           name: simulated-data
           path: app/simulated_data/simulated_data_year.csv
 
+      - name: Download simulated data artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: simulated-data
+
+      - name: Move simulated data to correct directory
+        run: |
+          mkdir -p app/simulated_data
+          mv simulated-data/simulated_data_year.csv app/simulated_data/
+
       - name: Run Simulation Tests
         run: python -m unittest discover -s tests -p "test_simulation.py"

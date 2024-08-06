@@ -33,7 +33,7 @@ class TestInsertData(unittest.TestCase):
         assert login_response.status_code == 200
 
     def test_insert_data(self):
-        file_path = 'simulated_data/simulated_data_year.csv'
+        file_path = 'app/simulated_data/simulated_data_year.csv'
         all_data = pd.read_csv(file_path, delimiter=';')
         self.insert_data(all_data)
 
