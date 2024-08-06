@@ -3,12 +3,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models.model import preprocess_input_data, make_predictions_and_check_drift
 from db import add_processed_data, get_latest_raw_data, add_raw_data, get_latest_processed_data
-from app import app
-from flask import Flask
+import os
+import mlflow
 
 # Database configuration
 DATABASE_URL = 'sqlite:///fraud_detection.db'
 engine = create_engine(DATABASE_URL, echo=True)
+
+mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://mlflow:5004')  # Updated port
+
+# Set MLflow tracking URI
+mlflow.set_tracking_uri(mlflow_tracking_uri)
 
 
 # Function to insert data into the database

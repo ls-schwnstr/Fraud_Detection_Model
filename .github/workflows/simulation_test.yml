@@ -10,13 +10,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-     # with:
-      #  lfs: true  # Fetch Git LFS files
-
-    #- name: Set up Git LFS
-     # run: |
-      #    git lfs install
-       #   git lfs pull
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -26,6 +19,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+
+    - name: Set MLflow tracking URI
+      run: echo "MLFLOW_TRACKING_URI=http://mlflow:5004" >> $GITHUB_ENV
 
     - name: Generate data for the year
       run: |
