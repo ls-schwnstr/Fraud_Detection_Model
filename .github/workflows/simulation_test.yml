@@ -1,10 +1,10 @@
-name: Run Simulation Tests
+name: MLOps Simulation Test
 
 on:
   workflow_dispatch:  # Manually trigger this workflow
 
 jobs:
-  setup-and-test:
+  simulate-and-test:
     runs-on: ubuntu-latest
 
     services:
@@ -18,13 +18,16 @@ jobs:
           MLFLOW_TRACKING_URI: http://localhost:5004
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+
+      - name: Create mlruns directory
+        run: mkdir -p ${{ github.workspace }}/mlruns
 
       - name: Install dependencies
         run: |
