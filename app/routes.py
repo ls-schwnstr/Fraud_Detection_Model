@@ -34,7 +34,7 @@ def background_train():
     try:
         db_session = get_session()
         print("Starting model training...")
-        new_data = pd.read_csv(file_path, delimiter=';', nrows=1000)
+        new_data = pd.read_csv(file_path, delimiter=';', nrows=10000)
         processed_data = preprocess_data_for_training(new_data)
         print("Preprocessed data succesfully")
 
