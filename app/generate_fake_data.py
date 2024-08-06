@@ -2,14 +2,16 @@ import pandas as pd
 import numpy as np
 import os
 
+
 def generate_fake_data():
     # Ensure the directory exists
     data_dir = 'simulated_data'
+    file_path = os.path.join(data_dir, 'simulated_data_year.csv')
     os.makedirs(data_dir, exist_ok=True)
 
     # Use absolute path for the file
-    file_path = os.path.join(os.path.dirname(__file__), 'Fraud.csv')
-    original_data = pd.read_csv(file_path, delimiter=";", nrows=1000)
+    original_file_path = os.path.join(os.path.dirname(__file__), 'Fraud.csv')
+    original_data = pd.read_csv(original_file_path, delimiter=";", nrows=1000)
 
     print("Columns in DataFrame:", original_data.columns)
 
@@ -44,8 +46,8 @@ def generate_fake_data():
         print(all_data.head())
 
     # Save all data to a single CSV file
-    file_path = os.path.join(data_dir, 'simulated_data_year.csv')
     all_data.to_csv(file_path, index=False, sep=";")
+
 
 if __name__ == "__main__":
     generate_fake_data()
