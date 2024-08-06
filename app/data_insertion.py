@@ -2,6 +2,8 @@ import unittest
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from flask_testing import TestCase
+from app import app  # Import your Flask app
 from models.model import preprocess_input_data, make_predictions_and_check_drift
 from db import add_processed_data, get_latest_raw_data, add_raw_data, get_latest_processed_data
 import mlflow
@@ -15,7 +17,11 @@ DATABASE_URL = 'sqlite:///fraud_detection.db'
 engine = create_engine(DATABASE_URL, echo=True)
 
 
-class TestInsertData(unittest.TestCase):
+class TestInsertData(TestCase):
+    def create_app(self):
+        # Return the Flask app instance
+        return app
+
     @patch('db.get_latest_processed_data')
     @patch('models.model.make_predictions_and_check_drift')
     @patch('mlflow.log_artifact')
@@ -24,7 +30,13 @@ class TestInsertData(unittest.TestCase):
     def test_insert_data(self, mock_start_run, mock_log_metric, mock_log_artifact, mock_make_predictions, mock_get_latest_processed):
         file_path = 'simulated_data/simulated_data_year.csv'
         all_data = pd.read_csv(file_path, delimiter=';')
-        insert_data(all_data)
+
+        # Use Flask test client to simulate API calls
+        with self.client as c:
+            response = c.post('/insert_data', data={'data': all_data.to_csv(index=False)})
+            self.assertEqual(response.status_code, 200)
+
+        # Assertions to ensure mocks were called
         mock_start_run.assert_called()
         mock_log_metric.assert_called()
         mock_log_artifact.assert_called()
