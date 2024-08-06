@@ -99,20 +99,16 @@ def dashboard():
 
         if os.path.isfile(model_path) or training_status['status'] == 'complete':
             if request.method == 'POST':
-                if request.is_json:
-                    # Handle JSON input
-                    input_data = request.get_json()
-                else:
-                    # Retrieve form data
-                    input_data = {
-                        'step': 1,
-                        'amount': float(request.form['amount']),
-                        'oldbalanceOrg': float(request.form['oldbalanceOrg']),
-                        'newbalanceOrig': float(request.form['newbalanceOrig']),
-                        'oldbalanceDest': float(request.form['oldbalanceDest']),
-                        'newbalanceDest': float(request.form['newbalanceDest']),
-                        'type': request.form['type']
-                    }
+                # Retrieve form data
+                input_data = {
+                    'step': 1,
+                    'amount': float(request.form['amount']),
+                    'oldbalanceOrg': float(request.form['oldbalanceOrg']),
+                    'newbalanceOrig': float(request.form['newbalanceOrig']),
+                    'oldbalanceDest': float(request.form['oldbalanceDest']),
+                    'newbalanceDest': float(request.form['newbalanceDest']),
+                    'type': request.form['type']
+                }
 
                 # Print the input data for debugging
                 print(f"Received input data: {input_data}")
