@@ -10,12 +10,11 @@ engine = create_engine(DATABASE_URL, echo=True)
 
 
 # Function to insert data into the database
-def insert_data(file_path):
-    all_data = pd.read_csv(file_path, delimiter=';')
+def insert_data(df):
     session = sessionmaker(bind=engine)()
 
     for week in range(1, 53):
-        weekly_data = all_data[all_data['week'] == week]
+        weekly_data = df[df['week'] == week]
         for _, row in weekly_data.iterrows():
             input_data = {
                 'step': row['step'],
@@ -54,6 +53,7 @@ def insert_data(file_path):
         time.sleep(2)  # Simulate time passing (adjust as needed)
 
 
+
 if __name__ == '__main__':
     file_path = 'simulated_data/simulated_data_year.csv'
     all_data = pd.read_csv(file_path, delimiter=';')
@@ -66,5 +66,5 @@ if __name__ == '__main__':
         # Simulate passing of time
         # Sleep for 2 seconds instead of weeks to simulate
         import time
-
         time.sleep(2)
+
