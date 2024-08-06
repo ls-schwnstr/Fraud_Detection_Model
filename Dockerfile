@@ -26,6 +26,7 @@ EXPOSE 5004
 
 # Set environment variables for MLflow
 ENV MLFLOW_SERVER_DEFAULT_ARTIFACT_ROOT=/mlruns
+ENV PYTHONPATZ=/app
 
 # Run the application
 CMD ["python", "run.py"]

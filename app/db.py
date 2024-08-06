@@ -1,8 +1,8 @@
-from datetime import datetime, timezone
+from datetime import timezone
 import sqlalchemy
 from sqlalchemy import DateTime, func, create_engine, Column, Integer, Float, String, Boolean, desc, text
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, load_only
+from sqlalchemy.orm import sessionmaker
 import pandas as pd
 
 # Database setup

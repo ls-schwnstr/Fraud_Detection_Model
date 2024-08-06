@@ -4,7 +4,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models.model import preprocess_input_data, make_predictions_and_check_drift
 from db import add_processed_data, get_latest_raw_data, add_raw_data, get_latest_processed_data
-import os
 import mlflow
 from unittest.mock import patch
 import time
@@ -17,12 +16,12 @@ engine = create_engine(DATABASE_URL, echo=True)
 
 
 class TestInsertData(unittest.TestCase):
-
     @patch('mlflow.start_run')
     @patch('mlflow.log_metric')
-    @patch('mlflow.log_params')
+    @patch('mlflow.log_artifact')
+    @patch('models.model.make_predictions_and_check_drift')
+    @patch('db.get_latest_processed_data')
     def test_insert_data(self,  mock_log_params, mock_log_metric, mock_start_run):
-        # Your test code here to call insert_data and verify it works
         file_path = 'simulated_data/simulated_data_year.csv'
         all_data = pd.read_csv(file_path, delimiter=';')
         insert_data(all_data)
