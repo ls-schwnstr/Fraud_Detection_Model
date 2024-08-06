@@ -38,11 +38,14 @@ jobs:
         run: |
           python app/simulated_data/generate_fake_data.py
 
-      - name: Upload Simulated Data
-        uses: actions/upload-artifact@v3
+      - name: Commit generated data
+        uses: git-auto-commit-action@v4
         with:
-          name: simulated-data
-          path: simulated_data/simulated_data_year.csv
+          commit_message: "Add simulated data file"
+          file_pattern: "app/simulated_data/simulated_data_year.csv"
+          branch: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download Simulated Data
         uses: actions/download-artifact@v3
