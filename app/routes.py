@@ -5,10 +5,7 @@ import os
 import pandas as pd
 import threading
 from db import get_session
-#from db  add_raw_data, add_processed_data, \
- #   get_latest_raw_data, get_latest_processed_data, add_predicted_data
-#from models.model import preprocess_data_for_training, train_model, preprocess_input_data, \
- #   make_predictions_and_check_drift
+
 
 # Load credentials from environment variables
 USERNAME = os.getenv('USERNAME')

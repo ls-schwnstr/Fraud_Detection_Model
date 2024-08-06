@@ -3,6 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models.model import preprocess_input_data, make_predictions_and_check_drift
 from db import add_processed_data, get_latest_raw_data, add_raw_data
+from app import app
+from flask import Flask
 
 # Database configuration
 DATABASE_URL = 'sqlite:///fraud_detection.db'
@@ -43,15 +45,12 @@ def insert_data(df):
             processed_data_dict = processed_data_df.to_dict(orient='records')[0]
             add_processed_data(session, processed_data_dict)
 
-            # Call the prediction function directly
-            with app.app_context():
-                prediction, drift_detected = make_predictions_and_check_drift(processed_data_df)
-                print(f'Prediction: {prediction}, Data Drift Detected: {drift_detected}')
-
+            # Call the prediction function
+            prediction, drift_detected = make_predictions_and_check_drift(processed_data_df)
+            print(f'Prediction: {prediction}, Data Drift Detected: {drift_detected}')
 
         print(f'Inserted data for week {week}')
         time.sleep(2)  # Simulate time passing (adjust as needed)
-
 
 
 if __name__ == '__main__':
