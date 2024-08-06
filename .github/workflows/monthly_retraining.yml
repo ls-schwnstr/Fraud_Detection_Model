@@ -20,9 +20,6 @@ jobs:
           mkdir -p ${{ github.workspace }}/mlruns
           chmod -R 777 ${{ github.workspace }}/mlruns
 
-      - name: Create mlruns directory
-        run: mkdir -p ${{ github.workspace }}/mlruns
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
