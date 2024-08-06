@@ -47,6 +47,7 @@ def generate_fake_data():
 
     # Save all data to a single CSV file
     file_path = os.path.join(data_dir, 'simulated_data_year.csv')
+    print(f"saving the data to the file {file_path}")
     all_data.to_csv(file_path, index=False, sep=";")
 
 
