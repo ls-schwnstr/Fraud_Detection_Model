@@ -36,7 +36,7 @@ jobs:
 
       - name: Generate simulated data
         run: |
-          python generate_fake_data.py
+          python app/generate_fake_data.py
           mkdir -p simulated_data
           mv simulated_data_year.csv simulated_data/
 
