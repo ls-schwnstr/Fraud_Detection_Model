@@ -34,28 +34,5 @@ jobs:
         run: |
           nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host 0.0.0.0 --port 5004 &
 
-      - name: Generate simulated data
-        run: |
-          python app/simulated_data/generate_fake_data.py
-
-      - name: Commit generated data
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Added simulated data file"
-          file_pattern: "app/simulated_data/simulated_data_year.csv"
-          branch: main
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-      - name: Download Simulated Data
-        uses: actions/download-artifact@v3
-        with:
-          name: simulated-data
-
-      - name: Move Simulated Data
-        run: |
-          mkdir -p app/simulated_data
-          mv app/simulated_data/simulated_data_year.csv app/simulated_data/
-
       - name: Run Simulation Tests
         run: python -m unittest discover -s tests -p "test_simulation.py"
