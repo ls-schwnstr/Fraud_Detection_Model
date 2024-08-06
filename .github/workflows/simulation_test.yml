@@ -11,6 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Create and Set Permissions for mlruns Directory
+        run: |
+          mkdir -p ${{ github.workspace }}/mlruns
+          chmod -R 777 ${{ github.workspace }}/mlruns
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
