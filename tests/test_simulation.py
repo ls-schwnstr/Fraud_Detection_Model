@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 import mlflow
 from app import app
 import time
+import os
 
 # Mocking MLflow functions for testing
 mlflow.set_tracking_uri("http://localhost:5004")
@@ -17,6 +18,19 @@ class TestInsertData(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.client = app.test_client()
+
+        # Load credentials from environment variables
+        cls.username = os.getenv('USERNAME')
+        cls.password = os.getenv('PASSWORD')
+
+        # Authenticate and get the session
+        login_response = cls.client.post('/', data={
+            'username': cls.username,
+            'password': cls.password
+        }, follow_redirects=True)
+
+        print(f"Login Response: {login_response.data}")
+        assert login_response.status_code == 200
 
     def test_insert_data(self):
         file_path = 'simulated_data/simulated_data_year.csv'
