@@ -35,7 +35,7 @@ def introduce_variation(data, week):
 # Generate data for each week
 all_data = pd.DataFrame()
 for week in range(1, 53):
-    sampled_data = original_data.sample(n=1000, random_state=week).copy()
+    sampled_data = original_data.sample(n=150, random_state=week).copy()
     simulated_data = introduce_variation(sampled_data, week)
     simulated_data["week"] = week  # Add week column
     all_data = pd.concat([all_data, simulated_data])
