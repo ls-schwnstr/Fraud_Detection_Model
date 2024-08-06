@@ -62,13 +62,17 @@ class TestInsertData(unittest.TestCase):
         cls.username = os.getenv('USERNAME')
         cls.password = os.getenv('PASSWORD')
 
+        # Ensure the environment variables are set
+        assert cls.username is not None, "USERNAME environment variable is not set"
+        assert cls.password is not None, "PASSWORD environment variable is not set"
+
         # Authenticate and get the session
         login_response = cls.client.post('/', data={
             'username': cls.username,
             'password': cls.password
-        }, follow_redirects=True)
+        }, follow_redirects=True, content_type='application/x-www-form-urlencoded')
 
-        print(f"Login Response: {login_response.data}")
+        print(f"Login Response: {login_response.data.decode('utf-8')}")
         assert login_response.status_code == 200
 
         # Generate fake data
