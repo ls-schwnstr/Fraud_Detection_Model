@@ -7,16 +7,6 @@ jobs:
   simulate-and-test:
     runs-on: ubuntu-latest
 
-    services:
-      mlflow:
-        image: ghcr.io/mlflow/mlflow:v2.0.1
-        ports:
-          - 5004:5004
-        options: >-
-          --mount type=bind,source=${{ github.workspace }}/mlruns,target=/mlflow/artifacts
-        env:
-          MLFLOW_TRACKING_URI: http://localhost:5004
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -35,6 +25,15 @@ jobs:
 
       - name: Set up environment variables
         run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+
+      - name: Start MLflow service
+        run: |
+          docker run -d --name mlflow \
+            -p 5004:5004 \
+            --mount type=bind,source=${{ github.workspace }}/mlruns,target=/mlflow/artifacts \
+            -e MLFLOW_TRACKING_URI=http://localhost:5004 \
+            ghcr.io/mlflow/mlflow:v2.0.1 \
+            mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlflow/artifacts --host 0.0.0.0 --port 5004
 
       - name: Generate data for the year
         run: |
