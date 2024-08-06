@@ -41,7 +41,7 @@ jobs:
       - name: Commit generated data
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Add simulated data file"
+          commit_message: "Added simulated data file"
           file_pattern: "app/simulated_data/simulated_data_year.csv"
           branch: main
         env:
