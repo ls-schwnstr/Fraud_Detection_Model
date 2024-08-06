@@ -7,12 +7,11 @@ def generate_fake_data():
     # Ensure the directory exists
     base_dir = os.path.dirname(__file__)
     data_dir = base_dir
-    file_path = os.path.join(data_dir, 'simulated_data_year.csv')
+    file_path = os.path.join(base_dir, '..', 'Fraud.csv')
     os.makedirs(data_dir, exist_ok=True)
 
     # Use absolute path for the file
-    original_file_path = os.path.join(os.path.dirname(__file__), 'Fraud.csv')
-    original_data = pd.read_csv(original_file_path, delimiter=";", nrows=1000)
+    original_data = pd.read_csv(file_path, delimiter=";", nrows=1000)
 
     print("Columns in DataFrame:", original_data.columns)
 
