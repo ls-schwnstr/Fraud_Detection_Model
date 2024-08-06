@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models.model import preprocess_input_data, make_predictions_and_check_drift
-from db import add_processed_data, get_latest_raw_data, add_raw_data
+from db import add_processed_data, get_latest_raw_data, add_raw_data, get_latest_processed_data
 from app import app
 from flask import Flask
 
@@ -41,11 +41,14 @@ def insert_data(df):
             raw_data_df = pd.DataFrame([raw_data_dict])
             print(f"Retrieved raw data DataFrame: {raw_data_df}")
 
+            print(raw_data_df.head())
+
             processed_data_df = preprocess_input_data(raw_data_df)
             processed_data_dict = processed_data_df.to_dict(orient='records')[0]
             add_processed_data(session, processed_data_dict)
 
             # Call the prediction function
+            processed_data_df = get_latest_processed_data(session)
             prediction, drift_detected = make_predictions_and_check_drift(processed_data_df)
             print(f'Prediction: {prediction}, Data Drift Detected: {drift_detected}')
 
