@@ -5,7 +5,8 @@ import os
 
 def generate_fake_data():
     # Ensure the directory exists
-    data_dir = 'app/simulated_data'
+    base_dir = os.path.dirname(__file__)
+    data_dir = base_dir
     file_path = os.path.join(data_dir, 'simulated_data_year.csv')
     os.makedirs(data_dir, exist_ok=True)
 
@@ -46,6 +47,7 @@ def generate_fake_data():
         print(all_data.head())
 
     # Save all data to a single CSV file
+    file_path = os.path.join(data_dir, 'simulated_data_year.csv')
     all_data.to_csv(file_path, index=False, sep=";")
 
 

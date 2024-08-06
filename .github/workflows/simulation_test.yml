@@ -36,26 +36,23 @@ jobs:
 
       - name: Generate simulated data
         run: |
-          python app/generate_fake_data.py
-          mkdir -p simulated_data
-          mv simulated_data_year.csv simulated_data/
+          python app/simulated_data/generate_fake_data.py
 
-      - name: Upload Simulated Data
-        uses: actions/upload-artifact@v3
-        with:
-          name: simulated-data
-          path: simulated_data/simulated_data_year.csv
+      #- name: Upload Simulated Data
+       # uses: actions/upload-artifact@v3
+        #with:
+         # name: simulated-data
+          #path: simulated_data/simulated_data_year.csv
 
-      - name: Download Simulated Data
-        uses: actions/download-artifact@v3
-        with:
-          name: simulated-data
-
-      - name: Create directory
-        run: mkdir -p app/simulated_data
+      #- name: Download Simulated Data
+       # uses: actions/download-artifact@v3
+        #with:
+         # name: simulated-data
 
       - name: Move Simulated Data
-        run: mv simulated-data/simulated_data_year.csv app/simulated_data/
+        run: |
+          mkdir -p app/simulated_data
+          mv app/simulated_data/simulated_data_year.csv app/simulated_data/
 
       - name: Run Simulation Tests
         run: python -m unittest discover -s tests -p "test_simulation.py"
