@@ -99,50 +99,59 @@ def dashboard():
 
         if os.path.isfile(model_path) or training_status['status'] == 'complete':
             if request.method == 'POST':
-                # Retrieve form data
-                input_data = {
-                    'step': 1,
-                    'amount': float(request.form['amount']),
-                    'oldbalanceOrg': float(request.form['oldbalanceOrg']),
-                    'newbalanceOrig': float(request.form['newbalanceOrig']),
-                    'oldbalanceDest': float(request.form['oldbalanceDest']),
-                    'newbalanceDest': float(request.form['newbalanceDest']),
-                    'type': request.form['type']
-                }
+                try:
+                    if request.is_json:
+                        # Handle JSON input
+                        input_data = request.get_json()
+                    else:
+                        # Handle form input
+                        input_data = {
+                            'step': 1,
+                            'amount': float(request.form['amount']),
+                            'oldbalanceOrg': float(request.form['oldbalanceOrg']),
+                            'newbalanceOrig': float(request.form['newbalanceOrig']),
+                            'oldbalanceDest': float(request.form['oldbalanceDest']),
+                            'newbalanceDest': float(request.form['newbalanceDest']),
+                            'type': request.form['type']
+                        }
 
-                # Print the input data for debugging
-                print(f"Received input data: {input_data}")
+                    # Print the input data for debugging
+                    print(f"Received input data: {input_data}")
 
-                # Add data to database
-                add_raw_data(db_session, input_data)
+                    # Add data to database
+                    add_raw_data(db_session, input_data)
 
-                # Retrieve the raw data for preprocessing
-                raw_data_entry = get_latest_raw_data(db_session)
+                    # Retrieve the raw data for preprocessing
+                    raw_data_entry = get_latest_raw_data(db_session)
 
-                # Convert the SQLAlchemy object to a dictionary and exclude internal state
-                raw_data_dict = {column.name: getattr(raw_data_entry, column.name)
-                                 for column in raw_data_entry.__table__.columns}
+                    # Convert the SQLAlchemy object to a dictionary and exclude internal state
+                    raw_data_dict = {column.name: getattr(raw_data_entry, column.name)
+                                     for column in raw_data_entry.__table__.columns}
 
-                # Print the retrieved raw data for debugging
-                print(f"Retrieved raw data: {raw_data_dict}")
+                    # Print the retrieved raw data for debugging
+                    print(f"Retrieved raw data: {raw_data_dict}")
 
-                # Convert to DataFrame
-                raw_data_df = pd.DataFrame([raw_data_dict])
-                print(f"Retrieved raw data DataFrame: {raw_data_df}")
+                    # Convert to DataFrame
+                    raw_data_df = pd.DataFrame([raw_data_dict])
+                    print(f"Retrieved raw data DataFrame: {raw_data_df}")
 
-                # Process the data
-                processed_data_df = preprocess_input_data(raw_data_df)
+                    # Process the data
+                    processed_data_df = preprocess_input_data(raw_data_df)
 
-                # Convert processed data DataFrame to dictionary format
-                processed_data_dict = processed_data_df.to_dict(orient='records')[0]
+                    # Convert processed data DataFrame to dictionary format
+                    processed_data_dict = processed_data_df.to_dict(orient='records')[0]
 
-                # Add data to the database
-                add_processed_data(db_session, processed_data_dict)
+                    # Add data to the database
+                    add_processed_data(db_session, processed_data_dict)
 
-                # Commit the session to save the processed data
-                db_session.commit()
+                    # Commit the session to save the processed data
+                    db_session.commit()
 
-                return redirect(url_for('predict'))
+                    return redirect(url_for('predict'))
+
+                except Exception as e:
+                    print(f"An error occurred: {str(e)}")
+                    return f"An error occurred: {str(e)}", 500
 
             return render_template('dashboard.html')
         elif training_status['status'] == 'in_progress':
