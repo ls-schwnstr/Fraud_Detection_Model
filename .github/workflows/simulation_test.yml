@@ -45,7 +45,7 @@ jobs:
           file_pattern: "app/simulated_data/simulated_data_year.csv"
           branch: main
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Download Simulated Data
         uses: actions/download-artifact@v3
