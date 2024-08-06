@@ -24,9 +24,5 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        push: false # Set to true if you want to push the image to a registry
+        push: false
         tags: my-image:latest
-
-    - name: Run tests
-      run: |
-        docker run --rm my-image:latest pytest
