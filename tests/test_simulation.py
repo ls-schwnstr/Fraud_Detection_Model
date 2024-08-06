@@ -17,7 +17,7 @@ engine = create_engine(DATABASE_URL, echo=True)
 def generate_fake_data():
     # Use absolute path for the file
     base_dir = os.path.dirname(__file__)
-    file_path = os.path.join(base_dir, '..', 'Fraud.csv')
+    file_path = os.path.join(base_dir, '..', 'app', 'Fraud.csv')
 
     # Load original data
     original_data = pd.read_csv(file_path, delimiter=";", nrows=1000)
