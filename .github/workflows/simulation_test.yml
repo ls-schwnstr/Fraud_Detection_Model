@@ -20,7 +20,7 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Set MLflow tracking URI
+    - name: Set up environment variables
       run: echo "MLFLOW_TRACKING_URI=http://mlflow:5004" >> $GITHUB_ENV
 
     - name: Generate data for the year

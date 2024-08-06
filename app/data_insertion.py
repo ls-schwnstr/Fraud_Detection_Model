@@ -1,3 +1,4 @@
+import unittest
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -5,15 +6,27 @@ from models.model import preprocess_input_data, make_predictions_and_check_drift
 from db import add_processed_data, get_latest_raw_data, add_raw_data, get_latest_processed_data
 import os
 import mlflow
+from unittest.mock import patch
+import time
 
-# Database configuration
+# Mocking MLflow functions for testing
+mlflow.set_tracking_uri("http://mlflow:5004")
+
 DATABASE_URL = 'sqlite:///fraud_detection.db'
 engine = create_engine(DATABASE_URL, echo=True)
 
-mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://mlflow:5004')  # Updated port
 
-# Set MLflow tracking URI
-mlflow.set_tracking_uri(mlflow_tracking_uri)
+class TestInsertData(unittest.TestCase):
+
+    @patch('mlflow.start_run')
+    @patch('mlflow.log_metric')
+    def test_insert_data(self, mock_log_metric, mock_start_run):
+        # Your test code here to call insert_data and verify it works
+        file_path = 'simulated_data/simulated_data_year.csv'
+        all_data = pd.read_csv(file_path, delimiter=';')
+        insert_data(all_data)
+        mock_start_run.assert_called()
+        mock_log_metric.assert_called()
 
 
 # Function to insert data into the database
@@ -62,16 +75,15 @@ def insert_data(df):
 
 
 if __name__ == '__main__':
+    # Run the unittests
+    unittest.main(exit=False)
+
+    # Insert data week by week
     file_path = 'simulated_data/simulated_data_year.csv'
     all_data = pd.read_csv(file_path, delimiter=';')
 
-    # Insert data week by week
     for week in range(1, 53):
         weekly_data = all_data[all_data['week'] == week]
         insert_data(weekly_data)
         print(f'Inserted data for week {week}')
-        # Simulate passing of time
-        # Sleep for 2 seconds instead of weeks to simulate
-        import time
-        time.sleep(2)
-
+        time.sleep(2)  # Simulate passing of time
