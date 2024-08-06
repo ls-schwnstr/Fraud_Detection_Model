@@ -1,11 +1,21 @@
-name: MLOps Simulation Test
+name: Run Simulation Tests
 
 on:
   workflow_dispatch:  # Manually trigger this workflow
 
 jobs:
-  simulate-and-test:
+  setup-and-test:
     runs-on: ubuntu-latest
+
+    services:
+      mlflow:
+        image: ghcr.io/mlflow/mlflow:v2.0.1
+        ports:
+          - 5004:5004
+        options: >-
+          --mount type=bind,source=${{ github.workspace }}/mlruns,target=/mlflow/artifacts
+        env:
+          MLFLOW_TRACKING_URI: http://localhost:5004
 
     steps:
       - name: Checkout repository
@@ -19,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+
+      - name: Set up environment variables
+        run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
 
       - name: Generate data for the year
         run: |

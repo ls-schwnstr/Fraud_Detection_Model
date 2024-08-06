@@ -1,15 +1,21 @@
-name: Monthly Retraining
+name: Run Simulation Tests
 
 on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: '0 0 1 * *'  # Run on the first day of every month at midnight UTC
+  workflow_dispatch:  # Manually trigger this workflow
 
 jobs:
-  retrain_model:
+  setup-and-test:
     runs-on: ubuntu-latest
+
+    services:
+      mlflow:
+        image: ghcr.io/mlflow/mlflow:v2.0.1
+        ports:
+          - 5004:5004
+        options: >-
+          --mount type=bind,source=${{ github.workspace }}/mlruns,target=/mlflow/artifacts
+        env:
+          MLFLOW_TRACKING_URI: http://localhost:5004
 
     steps:
       - name: Checkout repository
@@ -22,9 +28,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Monthly Retraining
+      - name: Set up environment variables
+        run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+
+      - name: Generate data for the year
         run: |
-          python app/retrain.py
+          PYTHONPATH=app python -m generate_fake_data
+
+      - name: Simulate data and retraining for each week
+        run: |
+          PYTHONPATH=app python -m data_insertion
