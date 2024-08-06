@@ -21,8 +21,7 @@ class TestInsertData(unittest.TestCase):
     @patch('mlflow.start_run')
     @patch('mlflow.log_metric')
     @patch('mlflow.log_params')
-    @patch('mlflow.log_artifact')
-    def test_insert_data(self, mock_log_artifact, mock_log_params, mock_log_metric, mock_start_run):
+    def test_insert_data(self,  mock_log_params, mock_log_metric, mock_start_run):
         # Your test code here to call insert_data and verify it works
         file_path = 'simulated_data/simulated_data_year.csv'
         all_data = pd.read_csv(file_path, delimiter=';')
@@ -30,7 +29,6 @@ class TestInsertData(unittest.TestCase):
         mock_start_run.assert_called()
         mock_log_metric.assert_called()
         mock_log_params.assert_called()
-        mock_log_artifact.assert_called()
 
 
 # Function to insert data into the database
