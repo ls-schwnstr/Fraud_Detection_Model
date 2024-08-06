@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: simulated-data
-          path: simulated_data/simulated_data_year.csv
+          path: app/simulated_data/simulated_data_year.csv
 
       - name: Run Simulation Tests
         run: python -m unittest discover -s tests -p "test_simulation.py"
