@@ -86,18 +86,17 @@ class TestInsertData(unittest.TestCase):
             weekly_data = df[df['week'] == week]
             for _, row in weekly_data.iterrows():
                 input_data = {
-                    'step': row['step'],
                     'type': row['type'],
                     'amount': row['amount'],
-                    'nameOrig': row['nameOrig'],
                     'oldbalanceOrg': row['oldbalanceOrg'],
                     'newbalanceOrig': row['newbalanceOrig'],
-                    'nameDest': row['nameDest'],
                     'oldbalanceDest': row['oldbalanceDest'],
                     'newbalanceDest': row['newbalanceDest']
                 }
 
+                print(f"Sending data to /dashboard: {input_data}")
                 response = self.client.post('/dashboard', json=input_data)
+                print(f"Response from /dashboard: {response.data.decode('utf-8')}")
                 self.assertEqual(response.status_code, 200)
 
                 # Call the prediction function
