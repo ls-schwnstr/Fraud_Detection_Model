@@ -4,6 +4,7 @@ from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
 import numpy as np
 import mlflow
 from app.db import get_reference_data, get_new_data
+from app.models.retrain import retrain_model
 
 
 def calculate_descriptive_statistics(data):
@@ -90,6 +91,7 @@ def check_for_data_drift(session):
 
     if drift_detected:
         print("Data drift detected. Triggering retraining.")
+        retrain_model()
     else:
         print("No data drift detected.")
 

@@ -7,8 +7,25 @@ import joblib
 import mlflow
 import mlflow.sklearn
 from .data_quality import check_for_data_drift
-from app.routes import load_feature_names
 from app.db import get_session, get_predicted_data, RetrainingLog, add_predicted_data
+import os
+
+
+def get_feature_names_path():
+    # Relative path to feature_names.txt from the directory of this file
+    return os.path.join(os.path.dirname(__file__), 'feature_names.txt')
+
+
+def get_model_path():
+    # Relative path to model.pkl from the directory of this file
+    return os.path.join(os.path.dirname(__file__), 'model.pkl')
+
+
+def load_feature_names():
+    feature_names_path = get_feature_names_path()
+    with open(feature_names_path, 'r') as f:
+        feature_names = [line.strip() for line in f]
+    return feature_names
 
 
 def preprocess_data_for_training(data):
@@ -45,8 +62,11 @@ def train_model():
     # Save feature names
     feature_names = X.columns.tolist()
 
+    # Path to feature names file
+    feature_names_path = get_feature_names_path()
+
     # Save feature names to a file
-    with open('feature_names.txt', 'w') as f:
+    with open(feature_names_path, 'w') as f:
         for name in feature_names:
             f.write(f"{name}\n")
 
@@ -89,8 +109,9 @@ def train_model():
         print(f"Run ID: {run_id}")
 
         # Save the model to a file
-        model_path = 'model.pkl'
+        model_path = get_model_path()
         joblib.dump(model, model_path)
+
 
         print(f"Model saved to {model_path}")
 
@@ -133,7 +154,8 @@ def make_predictions_and_check_drift(processed_data_df):
         print(f"Features after processing: {processed_data_df.head()}")  # Debug
 
         # Load the trained model
-        with open('model.pkl', 'rb') as f:
+        model_path = get_model_path()
+        with open(model_path, 'rb') as f:
             model = joblib.load(f)
 
         # Make predictions

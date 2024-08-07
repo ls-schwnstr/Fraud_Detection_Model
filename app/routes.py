@@ -12,16 +12,10 @@ USERNAME = os.getenv('USERNAME')
 PASSWORD = os.getenv('PASSWORD')
 
 file_path = os.path.join(os.path.dirname(__file__), 'Fraud.csv')
-model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model.pkl')
+model_path = os.path.join(os.path.dirname(__file__), 'models', 'model.pkl')
 
 # Global variable for training status
 training_status = {'status': 'not_started'}
-
-
-def load_feature_names():
-    with open('feature_names.txt', 'r') as f:
-        feature_names = [line.strip() for line in f]
-    return feature_names
 
 
 def background_train():
@@ -31,7 +25,7 @@ def background_train():
     try:
         db_session = get_session()
         print("Starting model training...")
-        new_data = pd.read_csv(file_path, delimiter=';', nrows=10000)
+        new_data = pd.read_csv(file_path, delimiter=';', nrows=500)
         processed_data = preprocess_data_for_training(new_data)
         print("Preprocessed data succesfully")
 

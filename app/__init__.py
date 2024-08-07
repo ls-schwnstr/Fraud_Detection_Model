@@ -1,6 +1,6 @@
 import mlflow
 
-mlflow.set_tracking_uri("http://mlflow:5004")
+mlflow.set_tracking_uri("http://mlflow:5005")
 
 from flask import Flask
 from app.config import Config

@@ -4,9 +4,11 @@ from sqlalchemy import DateTime, func, create_engine, Column, Integer, Float, St
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import pandas as pd
+import os
 
 # Database setup
-DATABASE_URL = 'sqlite:///fraud_detection.db'
+db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
+DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 
@@ -226,10 +228,13 @@ def get_reference_data(session):
 
     last_retraining_time = last_retraining.retraining_timestamp
 
+    print(f"Last retraining time: {last_retraining_time}")
+
     if last_retraining_time.tzinfo is None:
         last_retraining_time = last_retraining_time.replace(tzinfo=timezone.utc)
 
     reference_data = session.query(Prediction).filter(Prediction.timestamp <= last_retraining_time).all()
+    print(f"Number of reference data records retrieved: {len(reference_data)}")
     reference_df = pd.DataFrame([r.__dict__ for r in reference_data])
 
     if '_sa_instance_state' in reference_df.columns:
@@ -254,8 +259,10 @@ def get_new_data(session):
     if last_retraining_time.tzinfo is None:
         last_retraining_time = last_retraining_time.replace(tzinfo=timezone.utc)
 
+    print(f"Last retraining time: {last_retraining_time}")
+
     new_data = session.query(Prediction).filter(Prediction.timestamp > last_retraining_time).all()
-    print("new data retrieved")
+    print(f"Number of new data records retrieved: {len(new_data)}")
     new_data_df = pd.DataFrame([r.__dict__ for r in new_data])
     print("new data converted to DataFrame")
 

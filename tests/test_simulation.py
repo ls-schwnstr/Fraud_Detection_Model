@@ -8,9 +8,11 @@ import os
 import numpy as np
 
 # Mocking MLflow functions for testing
-mlflow.set_tracking_uri("http://localhost:5004")
+mlflow.set_tracking_uri("http://localhost:5005")
 
-DATABASE_URL = 'sqlite:///fraud_detection.db'
+db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
+print(f"Database path: {db_path}")
+DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
 
 
@@ -33,6 +35,7 @@ class TestInsertData(unittest.TestCase):
         print(f"Login Response: {login_response.data}")
         assert login_response.status_code == 200
 
+        cls.ensure_model_trained()
 
     def generate_simulated_data(self):
         # Use absolute path for the file
@@ -67,6 +70,29 @@ class TestInsertData(unittest.TestCase):
             all_data = pd.concat([all_data, simulated_data])
 
         return all_data
+
+    @classmethod
+    def ensure_model_trained(cls):
+        model_path = os.path.join(os.path.dirname(__file__), '..', 'app', 'models', 'model.pkl')
+
+        # Check if the model exists
+        if not os.path.exists(model_path):
+            print("No pre-existing model found. Initiating training.")
+
+            # Call the /train route to train the model
+            response = cls.client.get('/train')
+            print(f"Training response: {response.data}")
+
+            # Optionally wait for the training to complete if it takes time
+            training_complete = False
+            while not training_complete:
+                response = cls.client.get('/train')
+                if b'Model training is still in progress' in response.data:
+                    print("Model training in progress. Waiting...")
+                    time.sleep(5)  # Adjust sleep duration as needed
+                else:
+                    print("Model training completed.")
+                    training_complete = True
 
     def test_insert_data(self):
         all_data = self.generate_simulated_data()

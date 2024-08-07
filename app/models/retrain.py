@@ -6,23 +6,26 @@ from sklearn.ensemble import RandomForestClassifier
 from imblearn.over_sampling import SMOTE
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from db import get_predicted_data, RetrainingLog
+from app.db import get_predicted_data, RetrainingLog, get_session
+import os
 
 
-def get_session():
-    # Setup your database connection here
-    engine = create_engine('sqlite:///fraud_detection.db')
-    Session = sessionmaker(bind=engine)
-    return Session()
+model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
+feature_names_path = os.path.join(os.path.dirname(__file__), 'feature_names.txt')
+
+
+def load_feature_names():
+    with open(feature_names_path, 'r') as f:
+        feature_names = [line.strip() for line in f]
+    return feature_names
 
 
 def retrain_model():
     print("Retraining the model...")
-    # Connect to the database
-    db_session = get_session()
+    Session = get_session()
 
     # Fetch the data from the predictions table
-    data = get_predicted_data(db_session)
+    data = get_predicted_data(Session)
 
     # Drop non-numeric columns
     non_numeric_cols = ['timestamp', 'id']
@@ -37,9 +40,11 @@ def retrain_model():
     feature_names = X.columns.tolist()
 
     # Save feature names to a file
-    with open('feature_names.txt', 'w') as f:
+    with open(feature_names_path, 'w') as f:
         for name in feature_names:
             f.write(f"{name}\n")
+
+    print(f"Feature names saved to {feature_names_path}")
 
     smote = SMOTE(random_state=42)
     x_resampled, y_resampled = smote.fit_resample(X, y)
@@ -80,14 +85,13 @@ def retrain_model():
         print(f"Run ID: {run_id}")
 
         # Save the model to a file
-        model_path = 'model.pkl'
         joblib.dump(model, model_path)
 
         print(f"Model saved to {model_path}")
 
         # Log the training timestamp
-        db_session.add(RetrainingLog())
-        db_session.commit()
+        Session.add(RetrainingLog())
+        Session.commit()
 
         print(f"Model retrained and saved to {model_path}")
 

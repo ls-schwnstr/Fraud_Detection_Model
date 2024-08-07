@@ -2,7 +2,7 @@ from app import app
 import mlflow
 import os
 
-mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')  # Updated port
+mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5005')  # Updated port
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 mlflow.set_experiment('experiment')
 
