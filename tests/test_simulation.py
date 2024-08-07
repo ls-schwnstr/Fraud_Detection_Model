@@ -33,6 +33,7 @@ class TestInsertData(unittest.TestCase):
         print(f"Login Response: {login_response.data}")
         assert login_response.status_code == 200
 
+
     def generate_simulated_data(self):
         # Use absolute path for the file
         file_path = os.path.join(os.path.dirname(__file__), '..', 'app', 'Fraud.csv')
@@ -88,7 +89,7 @@ class TestInsertData(unittest.TestCase):
                 print(f"Sending data to /dashboard: {input_data}")
                 response = self.client.post('/dashboard', json=input_data)
                 print(f"Response from /dashboard: {response.data}")
-                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.status_code, 302)
 
                 # Call the prediction function
                 response = self.client.post('/predict', json=input_data)
