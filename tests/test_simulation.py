@@ -8,7 +8,7 @@ import os
 import numpy as np
 
 # Mocking MLflow functions for testing
-mlflow.set_tracking_uri("http://localhost:5004")
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5004"))
 
 DATABASE_URL = 'sqlite:///fraud_detection.db'
 engine = create_engine(DATABASE_URL, echo=True)
