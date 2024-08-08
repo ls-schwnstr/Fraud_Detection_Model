@@ -4,11 +4,8 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from imblearn.over_sampling import SMOTE
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from app.db import get_predicted_data, RetrainingLog, get_session
 import os
-import datetime
 
 
 model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
@@ -19,19 +16,6 @@ def load_feature_names():
     with open(feature_names_path, 'r') as f:
         feature_names = [line.strip() for line in f]
     return feature_names
-
-
-def get_current_date():
-    simulated_date = os.getenv('SIMULATED_DATE')
-    if simulated_date:
-        return datetime.datetime.strptime(simulated_date, '%Y-%m-%d')
-    return datetime.datetime.now()
-
-
-def should_retrain():
-    current_date = get_current_date()
-    last_retrained_date = get_last_retrained_date()  # Implement this function to get the last retraining date
-    return (current_date - last_retrained_date).days >= 30
 
 
 def retrain_model():
