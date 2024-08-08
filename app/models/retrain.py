@@ -12,6 +12,7 @@ model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
 feature_names_path = os.path.join(os.path.dirname(__file__), 'feature_names.txt')
 mlflow.set_tracking_uri("http://localhost:5005")
 
+
 def load_feature_names():
     with open(feature_names_path, 'r') as f:
         feature_names = [line.strip() for line in f]
