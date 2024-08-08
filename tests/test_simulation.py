@@ -3,6 +3,7 @@ from unittest.mock import patch
 import time
 from datetime import datetime, timedelta
 import os
+import mlflow
 from sqlalchemy import create_engine
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
@@ -12,6 +13,7 @@ from app.db import RetrainingLog
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
 DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
+mlflow.set_tracking_uri("http://localhost:5005")
 
 Session = sessionmaker(bind=engine)
 
