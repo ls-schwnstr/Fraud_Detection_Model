@@ -33,16 +33,21 @@ class TestMonthlyRetraining(unittest.TestCase):
         # Setup environment (e.g., authentication, initialization)
         pass
 
-    def generate_simulated_data(self, week):
-        # Generate data for a specific week
+
+    def generate_simulated_data(self):
+        # Use absolute path for the file
         file_path = os.path.join(os.path.dirname(__file__), '..', 'app', 'Fraud.csv')
         original_data = pd.read_csv(file_path, delimiter=";", nrows=1000)
 
+        # Ensure 'amount' column is numeric, coercing errors to NaN
         original_data['amount'] = pd.to_numeric(original_data['amount'], errors='coerce')
+
+        # Handle NaN values if there are any
         if original_data['amount'].isnull().any():
             median_amount = original_data['amount'].median()
             original_data['amount'].fillna(median_amount, inplace=True)
 
+        # Remove 'isFraud' and 'isFlaggedFraud' columns for simulated future data
         original_data.drop(['isFraud', 'isFlaggedFraud'], axis=1, inplace=True)
 
         def introduce_variation(data, week):
@@ -53,17 +58,21 @@ class TestMonthlyRetraining(unittest.TestCase):
                 data['newbalanceOrig'] *= (1 + np.random.normal(0.2, 0.1, size=data.shape[0]))
             return data
 
-        sampled_data = original_data.sample(n=2, random_state=week).copy()
-        simulated_data = introduce_variation(sampled_data, week)
-        simulated_data["week"] = week
+        # Generate data for each week
+        all_data = pd.DataFrame()
+        for week in range(1, 53):
+            sampled_data = original_data.sample(n=2, random_state=week).copy()
+            simulated_data = introduce_variation(sampled_data, week)
+            simulated_data["week"] = week  # Add week column
+            all_data = pd.concat([all_data, simulated_data])
 
-        return simulated_data
+        return all_data
 
     @patch('datetime.datetime')
     def test_monthly_retraining_trigger(self, mock_datetime):
         # Simulate weekly data insertion
         for week in range(1, 53):  # Simulate for a whole year
-            mock_datetime.now.return_value = datetime.datetime(2024, 1, 1) + datetime.timedelta(weeks=week-1)
+            mock_datetime.now.return_value = datetime.datetime(2024, 1, 1) + datetime.timedelta(weeks=week - 1)
             current_date = mock_datetime.now()
             print(f"Testing for {current_date.strftime('%Y-%m-%d')}")
 
@@ -77,9 +86,6 @@ class TestMonthlyRetraining(unittest.TestCase):
                 # In a real test, check logs or the state of your system to verify retraining occurred
             else:
                 print(f"Month start not detected: {current_date.strftime('%Y-%m-%d')}")
-
-            # Optionally wait or sleep between tests if needed
-            # time.sleep(1)  # Adjust as necessary
 
     def insert_data(self, df):
         # Insert data into the application
