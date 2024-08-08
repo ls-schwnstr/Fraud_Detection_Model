@@ -22,13 +22,26 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Set up MLflow environment variables
-        run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+      - name: Set up environment variables
+        run: echo "MLFLOW_TRACKING_URI=http://localhost:5005" >> $GITHUB_ENV
 
-      - name: Start MLflow server
+      - name: Run MLflow
         run: |
-          mkdir -p mlruns
-          mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5004 &
+          mkdir -p ${{ github.workspace }}/mlruns
+          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5005 > ${{ github.workspace }}/mlruns/mlflow.log 2>&1 &
+        env:
+          MLFLOW_TRACKING_URI: http://localhost:5005
+
+      - name: Wait for MLflow server to be ready
+        run: |
+          for i in {1..10}; do
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:5005/ | grep -q "200"; then
+              echo "MLflow server is up and running"
+              break
+            fi
+            echo "Waiting for MLflow server to start ..."
+            sleep 5
+          done
 
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
