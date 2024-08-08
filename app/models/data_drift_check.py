@@ -130,4 +130,5 @@ def get_latest_drift_metrics():
 
 
 if __name__ == "__main__":
-    check_for_data_drift()
+    check_for_data_drift(session)
+    
