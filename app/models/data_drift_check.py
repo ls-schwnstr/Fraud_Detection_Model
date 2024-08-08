@@ -13,6 +13,7 @@ import os
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'fraud_detection.db'))
 DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
+mlflow.set_tracking_uri("http://localhost:5005")
 
 Session = sessionmaker(bind=engine)
 session = Session()
