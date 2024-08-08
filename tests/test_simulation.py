@@ -77,7 +77,7 @@ class TestMonthlyRetraining(unittest.TestCase):
             print(f"Testing for {current_date.strftime('%Y-%m-%d')}")
 
             # Generate and insert data for the current week
-            simulated_data = self.generate_simulated_data(week)
+            simulated_data = self.generate_simulated_data()
             self.insert_data(simulated_data)
 
             # Check if it's the start of the month to verify retraining trigger
