@@ -31,7 +31,7 @@ jobs:
 
       - name: Run MLflow
         run: |
-          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host 0.0.0.0 --port 5005 &
+          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5005 &
         env:
           MLFLOW_TRACKING_URI: http://localhost:5005
 
