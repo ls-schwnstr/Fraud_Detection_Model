@@ -18,13 +18,6 @@ mlflow.set_tracking_uri("http://localhost:5005")
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Log a simple experiment and run
-with mlflow.start_experiment("test_experiment"):
-    with mlflow.start_run():
-        mlflow.log_param("param1", "value1")
-        mlflow.log_metric("metric1", 1.0)
-        print("Experiment and run logged.")
-
 
 def calculate_descriptive_statistics(data):
     statistics = {}

@@ -26,9 +26,6 @@ jobs:
       - name: Set up environment variables
         run: echo "MLFLOW_TRACKING_URI=http://localhost:5005" >> $GITHUB_ENV
 
-      - name: Create mlruns directory
-        run: mkdir -p ${{ github.workspace }}/mlruns
-
       - name: Run MLflow
         run: |
           mkdir -p ${{ github.workspace }}/mlruns
