@@ -2,6 +2,7 @@ name: Monthly Retraining
 
 on:
   schedule:
+    - cron: '*/1 * * * *'
     - cron: '0 0 1 * *'  # Run at midnight UTC on the first day of every month
 
 jobs:
