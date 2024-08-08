@@ -1,11 +1,8 @@
 name: Monthly Retraining
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 0 1 * *'  # Run on the first day of every month at midnight UTC
+    - cron: '0 0 1 * *'  # Run at midnight UTC on the first day of every month
 
 jobs:
   retrain:
