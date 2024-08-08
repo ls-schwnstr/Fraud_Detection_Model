@@ -29,9 +29,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Simulate data over months
-        run: |
-          python simulate_data.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
+      #- name: Simulate data over months
+       # run: |
+        #  python tests/simulate_data.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
 
       - name: Check if cron job was triggered
         run: |
