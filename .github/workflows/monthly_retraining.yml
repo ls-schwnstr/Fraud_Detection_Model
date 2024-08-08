@@ -37,3 +37,9 @@ jobs:
         run: |
           python app/models/retrain.py
 
+      - name: Upload MLflow artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: mlflow-artifacts
+          path: ${{ github.workspace }}/mlruns/
+
