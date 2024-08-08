@@ -2,10 +2,11 @@ import unittest
 from unittest.mock import patch
 import datetime
 import time
-import app.db
+from sqlalchemy import MetaData, Table
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql import select
 
 # Database setup
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
@@ -19,11 +20,29 @@ def get_session():
     return Session()
 
 
-def check_logs_for_retraining(current_date_str):
-    session = get_session()
-    # Retrieve the latest retraining event based on timestamp
-    latest_retraining = session.query(app.db.RetrainingLog).order_by(app.db.RetrainingLog.retraining_timestamp.desc()).first()
-    print("Latest retraining event: ", latest_retraining.retraining_timestamp)
+def check_logs_for_retraining(engine, current_time):
+    # Load the table metadata
+    metadata = MetaData()
+    metadata.reflect(bind=engine)
+
+    # Assuming 'ReTrainingLog' is the name of your table
+    retraining_log_table = Table('ReTrainingLog', metadata, autoload_with=engine)
+
+    # Query to get the most recent retraining timestamp
+    query = select([retraining_log_table.c.retraining_timestamp]).order_by(
+        retraining_log_table.c.retraining_timestamp.desc()).limit(1)
+
+    with engine.connect() as connection:
+        result = connection.execute(query).fetchone()
+
+    # Check if the result matches the current time
+    if result:
+        retraining_time = result[0]
+        print(f"Most recent retraining timestamp: {retraining_time}")
+        return retraining_time == current_time
+    else:
+        print("No retraining logs found.")
+        return False
 
 
 class TestMonthlyRetrainingTrigger(unittest.TestCase):
