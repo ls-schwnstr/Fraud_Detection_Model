@@ -1,9 +1,7 @@
 import unittest
-from unittest.mock import patch
 import datetime
 import pandas as pd
 from sqlalchemy import create_engine
-import mlflow
 from app import app
 import os
 import numpy as np
@@ -12,14 +10,11 @@ import warnings
 # Ignore DeprecationWarning messages
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-# Mocking MLflow functions for testing
-mlflow.set_tracking_uri("http://localhost:5005")
-
+# Setup the database connection
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
 print(f"Database path: {db_path}")
 DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
-
 
 class TestMonthlyRetraining(unittest.TestCase):
 
@@ -33,8 +28,7 @@ class TestMonthlyRetraining(unittest.TestCase):
         # Setup environment (e.g., authentication, initialization)
         pass
 
-
-    def generate_simulated_data(self):
+    def generate_simulated_data(self, week):
         # Use absolute path for the file
         file_path = os.path.join(os.path.dirname(__file__), '..', 'app', 'Fraud.csv')
         original_data = pd.read_csv(file_path, delimiter=";", nrows=1000)
@@ -58,26 +52,29 @@ class TestMonthlyRetraining(unittest.TestCase):
                 data['newbalanceOrig'] *= (1 + np.random.normal(0.2, 0.1, size=data.shape[0]))
             return data
 
-        # Generate data for each week
-        all_data = pd.DataFrame()
+        # Use fixed start and end dates
+        start_date = datetime.datetime(2024, 1, 1)
+        end_date = start_date + datetime.timedelta(weeks=week - 1)
+
+        sampled_data = original_data.sample(n=1, random_state=week).copy()
+        simulated_data = introduce_variation(sampled_data, week)
+        simulated_data['date'] = end_date.strftime('%Y-%m-%d')
+        simulated_data['week'] = week
+
+        return simulated_data
+
+    def test_monthly_retraining_trigger(self):
+        # Fixed start date for testing
+        start_date = datetime.datetime(2024, 1, 1)
+
         for week in range(1, 53):
-            sampled_data = original_data.sample(n=2, random_state=week).copy()
-            simulated_data = introduce_variation(sampled_data, week)
-            simulated_data["week"] = week  # Add week column
-            all_data = pd.concat([all_data, simulated_data])
-
-        return all_data
-
-    @patch('datetime.datetime')
-    def test_monthly_retraining_trigger(self, mock_datetime):
-        # Simulate weekly data insertion
-        for week in range(1, 53):  # Simulate for a whole year
-            mock_datetime.now.return_value = datetime.datetime(2024, 1, 1) + datetime.timedelta(weeks=week - 1)
-            current_date = mock_datetime.now()
+            current_date = start_date + datetime.timedelta(weeks=week - 1)
             print(f"Testing for {current_date.strftime('%Y-%m-%d')}")
 
             # Generate and insert data for the current week
-            simulated_data = self.generate_simulated_data()
+            simulated_data = self.generate_simulated_data(week)
+            print(f"Simulated data for week {week}:\n{simulated_data}")
+
             self.insert_data(simulated_data)
 
             # Check if it's the start of the month to verify retraining trigger
@@ -111,7 +108,6 @@ class TestMonthlyRetraining(unittest.TestCase):
             self.assertIn(predict_response.status_code, [200, 500])
 
         print(f'Inserted data for week {df["week"].iloc[0]}')
-
 
 if __name__ == '__main__':
     unittest.main()
