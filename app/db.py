@@ -224,6 +224,7 @@ def get_reference_data(session):
     print("get reference data")
     last_retraining = session.query(RetrainingLog).order_by(desc(RetrainingLog.retraining_timestamp)).first()
     if not last_retraining:
+        print("no retraining so far")
         return pd.DataFrame()  # No retraining has been done, return an empty DataFrame
 
     last_retraining_time = last_retraining.retraining_timestamp
@@ -246,10 +247,7 @@ def get_reference_data(session):
 
 
 def get_new_data(session):
-    print("get new data")
-
     last_retraining = session.query(RetrainingLog).order_by(desc(RetrainingLog.retraining_timestamp)).first()
-    print("last retraining retrieved")
     if not last_retraining:
         print("no retraining so far")
         return pd.DataFrame()  # No retraining has been done, return an empty DataFrame
@@ -264,7 +262,6 @@ def get_new_data(session):
     new_data = session.query(Prediction).filter(Prediction.timestamp > last_retraining_time).all()
     print(f"Number of new data records retrieved: {len(new_data)}")
     new_data_df = pd.DataFrame([r.__dict__ for r in new_data])
-    print("new data converted to DataFrame")
 
     if '_sa_instance_state' in new_data_df.columns:
         new_data_df = new_data_df.drop(columns=['_sa_instance_state'])

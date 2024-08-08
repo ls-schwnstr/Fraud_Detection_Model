@@ -10,7 +10,7 @@ from app.models.model import train_model
 import os
 
 # Database setup
-db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
+db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'fraud_detection.db'))
 DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
 
@@ -79,6 +79,10 @@ def check_for_data_drift(session):
     new_data = get_new_data(session)
     reference_data = get_reference_data(session)
 
+    if new_data.empty:
+        print("No new data available for drift detection.")
+        return  # Exit early if there is no new data
+
     # Perform statistical tests
     ks_results = ks_test(new_data, reference_data)
     psi_results = calculate_psi(reference_data, new_data)
@@ -131,4 +135,3 @@ def get_latest_drift_metrics():
 
 if __name__ == "__main__":
     check_for_data_drift(session)
-    
