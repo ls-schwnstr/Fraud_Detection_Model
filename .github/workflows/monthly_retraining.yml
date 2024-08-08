@@ -1,4 +1,4 @@
-name: Monthly Retraining
+name: Monthly Retraining Trigger
 
 on:
   schedule:
