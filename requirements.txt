@@ -11,5 +11,4 @@ imblearn~=0.0
 SQLAlchemy~=2.0.31
 requests~=2.32.3
 Flask-Testing~=0.8.0
-
 simpy~=4.1.1
