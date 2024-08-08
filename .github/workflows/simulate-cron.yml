@@ -35,4 +35,4 @@ jobs:
 
       - name: Check if cron job was triggered
         run: |
-          python check_cron_trigger.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
+          python tests/check_cron_trigger.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
