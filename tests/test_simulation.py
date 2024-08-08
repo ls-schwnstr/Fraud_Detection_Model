@@ -47,7 +47,7 @@ class TestMonthlyRetrainingTrigger(unittest.TestCase):
     @patch('datetime.datetime')
     def test_monthly_retraining_trigger(self, mock_datetime):
         # Set a fixed start date
-        start_date = datetime.datetime(2024, 1, 1)
+        start_date = datetime(2024, 1, 1)
         mock_datetime.now.return_value = start_date
 
         # Simulate time passing by manually
