@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import threading
 from app.db import get_session
-
+from app.models.model import make_predictions
 
 # Load credentials from environment variables
 USERNAME = os.getenv('USERNAME')
@@ -161,7 +161,6 @@ def dashboard():
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    from app.models.model import make_predictions_and_check_drift
     from app.db import get_latest_processed_data
     db_session = get_session()
     try:
@@ -172,9 +171,8 @@ def predict():
 
         # Call the shared prediction function
         prediction = make_predictions(processed_data_df)
-        #prediction, drift_detected = make_predictions_and_check_drift(processed_data_df)
 
-        return render_template('prediction.html', prediction=int(prediction), drift_detected=drift_detected)
+        return render_template('prediction.html', prediction=int(prediction))
     except Exception as e:
         print(f"Error in /predict route: {e}")
         return jsonify({'error': str(e)}), 500
