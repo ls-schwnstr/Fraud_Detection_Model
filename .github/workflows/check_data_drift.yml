@@ -31,7 +31,8 @@ jobs:
 
       - name: Run MLflow
         run: |
-          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5005 &
+          mkdir -p ${{ github.workspace }}/mlruns
+          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5005 > ${{ github.workspace }}/mlruns/mlflow.log 2>&1 &
         env:
           MLFLOW_TRACKING_URI: http://localhost:5005
 
@@ -45,7 +46,7 @@ jobs:
             echo "Waiting for MLflow server to start ..."
             sleep 5
           done
-      
+
       - name: Check MLflow server status
         run: curl -I http://localhost:5005/
           
