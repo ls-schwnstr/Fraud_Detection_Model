@@ -45,6 +45,13 @@ jobs:
             echo "Waiting for MLflow server to start ..."
             sleep 5
           done
+      
+      - name: Check MLflow server status
+        run: curl -I http://localhost:5005/
+          
+      - name: View MLflow logs
+        run: tail -n 100 ${{ github.workspace }}/mlruns/mlflow.log
+
 
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
