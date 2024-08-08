@@ -43,7 +43,7 @@ jobs:
               echo "MLflow server is up and running"
               break
             fi
-            echo "Waiting for MLflow server to start..."
+            echo "Waiting for MLflow server to start ..."
             sleep 5
           done
 
