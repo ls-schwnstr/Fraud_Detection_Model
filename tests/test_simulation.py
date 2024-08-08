@@ -2,47 +2,39 @@ import unittest
 from unittest.mock import patch
 import datetime
 import time
-from sqlalchemy import MetaData, Table
+from datetime import datetime, timedelta
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql import select
+from app.db import RetrainingLog
 
 # Database setup
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
 DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
 
-
-# Session setup
-def get_session():
-    Session = sessionmaker(bind=engine)
-    return Session()
+Session = sessionmaker(bind=engine)
+session = Session()
 
 
-def check_logs_for_retraining(engine, current_time):
-    # Load the table metadata
-    metadata = MetaData()
-    metadata.reflect(bind=engine)
+def check_logs_for_retraining(date):
+    # Convert date to datetime object
+    target_date = datetime.strptime(date, '%Y-%m-%d')
 
-    # Assuming 'ReTrainingLog' is the name of your table
-    retraining_log_table = Table('ReTrainingLog', metadata, autoload_with=engine)
+    # Query the Retraining_log table
+    query = select([RetrainingLog]).where(
+        RetrainingLog.retraining_timestamp >= target_date,
+        RetrainingLog.retraining_timestamp < target_date + timedelta(days=1)
+    )
 
-    # Query to get the most recent retraining timestamp
-    query = select([retraining_log_table.c.retraining_timestamp]).order_by(
-        retraining_log_table.c.retraining_timestamp.desc()).limit(1)
+    result = session.execute(query).fetchall()
 
-    with engine.connect() as connection:
-        result = connection.execute(query).fetchone()
+    # Close the session
+    session.close()
 
-    # Check if the result matches the current time
-    if result:
-        retraining_time = result[0]
-        print(f"Most recent retraining timestamp: {retraining_time}")
-        return retraining_time == current_time
-    else:
-        print("No retraining logs found.")
-        return False
+    # Check if any rows were returned
+    return len(result) > 0
 
 
 class TestMonthlyRetrainingTrigger(unittest.TestCase):
