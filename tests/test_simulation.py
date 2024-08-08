@@ -7,6 +7,7 @@ from app import app
 import os
 import numpy as np
 import warnings
+import simpy
 
 # Ignore DeprecationWarning messages
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -55,37 +56,13 @@ class TestMonthlyRetraining(unittest.TestCase):
                 data['newbalanceOrig'] *= (1 + np.random.normal(0.2, 0.1, size=data.shape[0]))
             return data
 
-        # Use fixed start and end dates
-        start_date = datetime.datetime(2024, 1, 1)
-        end_date = start_date + datetime.timedelta(weeks=week - 1)
-
+        start_date = datetime.datetime(2024, 1, 1) + datetime.timedelta(weeks=week - 1)
         sampled_data = original_data.sample(n=1, random_state=week).copy()
         simulated_data = introduce_variation(sampled_data, week)
-        simulated_data['date'] = end_date.strftime('%Y-%m-%d')
+        simulated_data['date'] = start_date.strftime('%Y-%m-%d')
         simulated_data['week'] = week
 
         return simulated_data
-
-    def test_monthly_retraining_trigger(self):
-        # Fixed start date for testing
-        start_date = datetime.datetime(2024, 1, 1)
-
-        for week in range(1, 53):
-            current_date = start_date + datetime.timedelta(weeks=week - 1)
-            print(f"Testing for {current_date.strftime('%Y-%m-%d')}")
-
-            # Generate and insert data for the current week
-            simulated_data = self.generate_simulated_data(week)
-            print(f"Simulated data for week {week}:\n{simulated_data}")
-
-            self.insert_data(simulated_data)
-
-            # Check if it's the start of the month to verify retraining trigger
-            if current_date.day == 1:
-                print(f"Month start detected: {current_date.strftime('%Y-%m-%d')}")
-                # In a real test, check logs or the state of your system to verify retraining occurred
-            else:
-                print(f"Month start not detected: {current_date.strftime('%Y-%m-%d')}")
 
     def insert_data(self, df):
         # Insert data into the application
@@ -99,18 +76,34 @@ class TestMonthlyRetraining(unittest.TestCase):
                 'newbalanceDest': row['newbalanceDest'],
                 'type': row['type']
             }
-
-            print(f"Sending data to /dashboard: {input_data}")
             response = self.client.post('/dashboard', json=input_data)
-            print(f"Response from /dashboard: {response.data}")
             self.assertEqual(response.status_code, 302)
 
             # Check the prediction response
             predict_response = self.client.get('/predict')
-            print(f"Response from /predict: {predict_response.data}")
             self.assertIn(predict_response.status_code, [200, 500])
 
-        print(f'Inserted data for week {df["week"].iloc[0]}')
+    def test_monthly_retraining_trigger(self):
+        env = simpy.Environment()
+        start_date = datetime.datetime(2024, 1, 1)
+
+        def simulate_weeks(env):
+            for week in range(1, 53):
+                current_date = start_date + datetime.timedelta(weeks=week - 1)
+                simulated_data = self.generate_simulated_data(week)
+                self.insert_data(simulated_data)
+
+                # Check if it's the start of the month to verify retraining trigger
+                if current_date.day == 1:
+                    print(f"Month start detected: {current_date.strftime('%Y-%m-%d')}")
+                    # In a real test, check logs or the state of your system to verify retraining occurred
+                else:
+                    print(f"Month start not detected: {current_date.strftime('%Y-%m-%d')}")
+
+                yield env.timeout(1)  # Simulate passage of time for each week
+
+        env.process(simulate_weeks(env))
+        env.run()
 
 if __name__ == '__main__':
     unittest.main()
