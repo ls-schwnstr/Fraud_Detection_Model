@@ -1,0 +1,38 @@
+name: Simulate Cron Job
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Start date for simulation (YYYY-MM-DD)'
+        required: true
+        default: '2024-01-01'
+      end_date:
+        description: 'End date for simulation (YYYY-MM-DD)'
+        required: true
+        default: '2024-12-31'
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Simulate data over months
+        run: |
+          python simulate_data.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
+
+      - name: Check if cron job was triggered
+        run: |
+          python check_cron_trigger.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
