@@ -60,7 +60,7 @@ class TestMonthlyRetrainingTrigger(unittest.TestCase):
             print(f"Simulating time for {mock_datetime.now().strftime('%Y-%m-%d')}")
 
             # Add delay to allow workflow to trigger retraining
-            time.sleep(3)  # 5 minutes delay, adjust as needed
+            time.sleep(200)  # 5 minutes delay, adjust as needed
 
             # Check for the latest retraining log up to the end of the first day of the month
             latest_log = get_latest_retraining_log(end_of_day)
