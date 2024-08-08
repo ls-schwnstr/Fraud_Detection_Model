@@ -31,7 +31,7 @@ jobs:
           mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5004 &
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)/app" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
       - name: Run Monthly Retraining
         run: |
