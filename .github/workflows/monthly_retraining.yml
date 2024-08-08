@@ -33,5 +33,5 @@ jobs:
       - name: Run Monthly Retraining
         working-directory: app/models
         run: |
-          python app/models/retrain.py
+          python retrain.py
 
