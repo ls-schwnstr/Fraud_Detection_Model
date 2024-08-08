@@ -1,5 +1,6 @@
 import unittest
 import datetime
+import mlflow
 import pandas as pd
 from sqlalchemy import create_engine
 from app import app
@@ -12,9 +13,11 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # Setup the database connection
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
-print(f"Database path: {db_path}")
 DATABASE_URL = f'sqlite:///{db_path}'
 engine = create_engine(DATABASE_URL, echo=True)
+# Set the correct MLflow tracking URI
+mlflow.set_tracking_uri("http://localhost:5005")
+
 
 class TestMonthlyRetraining(unittest.TestCase):
 
