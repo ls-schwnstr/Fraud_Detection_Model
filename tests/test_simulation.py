@@ -1,6 +1,5 @@
 import unittest
 from unittest.mock import patch
-import datetime
 import time
 from datetime import datetime, timedelta
 import os
@@ -53,7 +52,8 @@ class TestMonthlyRetrainingTrigger(unittest.TestCase):
         # Simulate time passing by manually
         for month in range(1, 13):  # Simulate for a whole year
             # Set mock datetime to the start of the next month
-            mock_datetime.now.return_value = start_date + datetime.timedelta(days=(month * 30))
+            current_date = start_date + timedelta(days=(month * 30))  # Simulate month passing
+            mock_datetime.now.return_value = current_date
             print(f"Simulating time for {mock_datetime.now().strftime('%Y-%m-%d')}")
 
             time.sleep(1)
