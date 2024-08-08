@@ -6,7 +6,7 @@ from imblearn.over_sampling import SMOTE
 import joblib
 import mlflow
 import mlflow.sklearn
-from .data_quality import check_for_data_drift
+from .data_drift_check import check_for_data_drift
 from app.db import get_session, get_predicted_data, RetrainingLog, add_predicted_data
 import os
 
@@ -186,9 +186,9 @@ def make_predictions_and_check_drift(processed_data_df):
         db_session.commit()
 
         # Check for data drift
-        drift_detected = check_for_data_drift(db_session)
+        #drift_detected = check_for_data_drift(db_session)
 
-        return predictions[0], drift_detected
+        return predictions[0] #, drift_detected
 
     except Exception as e:
         print(f"Error during prediction: {e}")

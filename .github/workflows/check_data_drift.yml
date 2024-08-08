@@ -1,17 +1,16 @@
-name: Simulation Test
+name: Check Data and Retrain
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch: # Allows manual triggering for testing
 
 jobs:
-  test:
+  check-and-retrain:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -47,11 +46,6 @@ jobs:
             sleep 5
           done
 
-      - name: Run Simulation Tests
-        run: python -m unittest discover -s tests -p "test_simulation.py"
-
-      - name: Upload mlflow.db artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: mlflow-db
-          path: ${{ github.workspace }}/mlruns/mlflow.db
+      - name: Run Data Drift Check
+        run: |
+          python app/models/data_drift_check.py

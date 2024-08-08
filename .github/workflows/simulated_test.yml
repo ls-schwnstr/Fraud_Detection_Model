@@ -1,0 +1,55 @@
+name: Check Data and Retrain
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+
+jobs:
+  check-and-retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install Flask-Testing
+          pip install mlflow
+
+      - name: Set up environment variables
+        run: echo "MLFLOW_TRACKING_URI=http://localhost:5005" >> $GITHUB_ENV
+
+      - name: Create mlruns directory
+        run: mkdir -p ${{ github.workspace }}/mlruns
+
+      - name: Run MLflow
+        run: |
+          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host 0.0.0.0 --port 5005 &
+        env:
+          MLFLOW_TRACKING_URI: http://localhost:5005
+
+      - name: Wait for MLflow server to be ready
+        run: |
+          for i in {1..10}; do
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:5005/ | grep -q "200"; then
+              echo "MLflow server is up and running"
+              break
+            fi
+            echo "Waiting for MLflow server to start ..."
+            sleep 5
+          done
+
+      - name: Run Simulation Tests
+        run: python -m unittest discover -s tests -p "test_simulation.py"
+
+      - name: Upload mlflow.db artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: mlflow-db
+          path: ${{ github.workspace }}/mlruns/mlflow.db

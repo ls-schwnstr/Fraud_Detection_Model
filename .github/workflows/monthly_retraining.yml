@@ -2,8 +2,8 @@ name: Monthly Retraining Trigger
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
-    #- cron: '0 0 1 * *'  # Run at midnight UTC on the first day of every month
+    - cron: '0 0 1 * *'  # Run at midnight UTC on the first day of every month
+  workflow_dispatch: # Allows manual triggering for testing
 
 jobs:
   retrain:

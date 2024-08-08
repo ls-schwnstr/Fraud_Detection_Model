@@ -171,7 +171,8 @@ def predict():
         processed_data_df = get_latest_processed_data(db_session)
 
         # Call the shared prediction function
-        prediction, drift_detected = make_predictions_and_check_drift(processed_data_df)
+        prediction = make_predictions(processed_data_df)
+        #prediction, drift_detected = make_predictions_and_check_drift(processed_data_df)
 
         return render_template('prediction.html', prediction=int(prediction), drift_detected=drift_detected)
     except Exception as e:

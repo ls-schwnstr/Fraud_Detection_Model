@@ -116,3 +116,7 @@ def get_latest_drift_metrics():
         "psi": psi,
         "kl_divergence": kl_divergence
     }
+
+
+if __name__ == "__main__":
+    check_for_data_drift()
