@@ -29,6 +29,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
       #- name: Simulate data over months
        # run: |
         #  python tests/simulate_data.py --start-date ${{ github.event.inputs.start_date }} --end-date ${{ github.event.inputs.end_date }}
