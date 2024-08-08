@@ -1,4 +1,4 @@
-name: Check Data and Retrain
+name: Check Data Drift
 
 on:
   schedule:

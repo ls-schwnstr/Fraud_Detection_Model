@@ -1,4 +1,4 @@
-name: Check Data and Retrain
+name: Run Simulation Tests
 
 on:
   schedule:
