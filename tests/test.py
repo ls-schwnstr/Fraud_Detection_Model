@@ -1,12 +1,42 @@
 import unittest
 from datetime import datetime, timedelta
+import mlflow
 import numpy as np
 import pandas as pd
 from app import app as flask_app
 from app.db import RetrainingLog, get_session
-import mlflow
 import os
+import requests
+
 from app.models.model import train_model
+
+repo_owner = os.getenv('REPO_OWNER')
+repo_name = os.getenv('REPO_NAME')
+
+# Define the workflow trigger function
+def trigger_github_workflow(timestamp):
+    github_token = os.getenv("PAT_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {github_token}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+
+    repo = f"{repo_owner}/{repo_name}"  # Replace with your repo information
+    workflow_id = "simulated-test.yml"  # The filename of your workflow
+    url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow_id}/dispatches"
+
+    payload = {
+        "ref": "main",
+        "inputs": {
+            "data_timestamp": timestamp.isoformat()
+        }
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    if response.status_code == 204:
+        print("Workflow triggered successfully")
+    else:
+        print(f"Failed to trigger workflow: {response.status_code} - {response.text}")
 
 
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))

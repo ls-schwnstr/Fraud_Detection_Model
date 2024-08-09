@@ -6,6 +6,8 @@ on:
 jobs:
   check-and-retrain:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
