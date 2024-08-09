@@ -1,0 +1,36 @@
+name: Data Drift Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      data_timestamp:
+        description: 'Timestamp of the data'
+        required: true
+        type: string
+
+jobs:
+  check-data-drift:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+    - name: Run data drift check
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        DATA_TIMESTAMP: ${{ github.event.inputs.data_timestamp }}
+      run: |
+        python app/models/data_drift_check.py

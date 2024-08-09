@@ -3,15 +3,22 @@ from mlflow import MlflowClient
 from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
 import numpy as np
 import mlflow
+import os
 from app.db import get_reference_data, get_new_data, get_session
 from app.models.model import train_model
-import os
 
-# Database setup
-db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'fraud_detection.db'))
+# Load environment variables
+db_path = os.getenv('DATABASE_URL')
 mlflow.set_tracking_uri("http://localhost:5005")
-session = get_session()
 
+# Update get_session to use the DATABASE_URL
+def get_session():
+    # Assuming `DATABASE_URL` is in the form of SQLite or another supported connection string
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    engine = create_engine(db_path)
+    Session = sessionmaker(bind=engine)
+    return Session()
 
 def calculate_descriptive_statistics(data):
     statistics = {}
@@ -25,14 +32,12 @@ def calculate_descriptive_statistics(data):
         }
     return statistics
 
-
 def ks_test(incoming_data, reference_data):
     ks_results = {}
     for column in ['amount', 'oldbalanceOrg', 'newbalanceOrig', 'oldbalanceDest', 'newbalanceDest']:
         ks_stat, p_value = ks_2samp(reference_data[column], incoming_data[column])
         ks_results[column] = {'ks_stat': ks_stat, 'p_value': p_value}
     return ks_results
-
 
 def chi_square_test(incoming_data, reference_data, column):
     if column not in reference_data.columns or column not in incoming_data.columns:
@@ -41,11 +46,7 @@ def chi_square_test(incoming_data, reference_data, column):
     chi2_stat, p_value, dof, ex = chi2_contingency(contingency_table)
     return {'chi2_stat': chi2_stat, 'p_value': p_value}
 
-
 def calculate_psi(expected, actual, buckets=10):
-    print("Reference data types:\n", expected.dtypes)
-    print("New data types:\n", actual.dtypes)
-
     def scale_range(input, min, max):
         input += -(np.min(input))
         input /= np.max(input) / (max - min)
@@ -61,14 +62,12 @@ def calculate_psi(expected, actual, buckets=10):
     psi_value = np.sum((actual_percents - expected_percents) * np.log(actual_percents / expected_percents))
     return psi_value
 
-
 def calculate_kl_divergence(reference_data, incoming_data, column, bins=10):
     reference_hist, bin_edges = np.histogram(reference_data[column], bins=bins, density=True)
     incoming_hist, _ = np.histogram(incoming_data[column], bins=bin_edges, density=True)
 
     kl_divergence = entropy(reference_hist, incoming_hist)
     return kl_divergence
-
 
 def check_for_data_drift(timestamp, session):
     new_data = get_new_data(session)
@@ -107,7 +106,6 @@ def check_for_data_drift(timestamp, session):
 
     return drift_detected
 
-
 def get_latest_drift_metrics():
     client = MlflowClient()
     experiment_id = client.get_experiment_by_name("Data Drift Check").experiment_id
@@ -127,6 +125,7 @@ def get_latest_drift_metrics():
         "kl_divergence": kl_divergence
     }
 
-
 if __name__ == "__main__":
-    check_for_data_drift(session)
+    timestamp = os.getenv('DATA_TIMESTAMP', None)
+    session = get_session()
+    check_for_data_drift(timestamp, session)

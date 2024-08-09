@@ -5,6 +5,8 @@ from app import app
 import os
 import pandas as pd
 import threading
+
+from app.api_call import trigger_github_workflow
 from app.db import get_session
 from app.models.data_drift_check import check_for_data_drift
 from app.models.model import make_predictions
@@ -201,7 +203,8 @@ def predict():
         # Call the shared prediction function
         prediction = make_predictions(processed_data_df, timestamp)
 
-        check_for_data_drift(timestamp, db_session)
+        # Trigger GitHub Actions workflow for data drift
+        trigger_github_workflow(timestamp)
 
         return render_template('prediction.html', prediction=int(prediction))
     except Exception as e:
