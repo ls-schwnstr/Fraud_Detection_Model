@@ -6,11 +6,12 @@ def trigger_github_workflow(timestamp):
     # GitHub repository information
     repo_owner = os.getenv('REPO_OWNER')
     repo_name = os.getenv('REPO_NAME')
-    workflow_id = 'data-drift-check.yml'  # Adjust if needed
+    workflow_id = 'data-drift-check.yml'
     token = os.getenv('PAT_TOKEN')
 
     # API endpoint
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/actions/workflows/{workflow_id}/dispatches'
+    print(f"URL: {url}")
 
     # Payload
     data = {
@@ -20,12 +21,16 @@ def trigger_github_workflow(timestamp):
         }
     }
 
+    print(f"Data: {data}")
+
     # Headers
     headers = {
         'Authorization': f'token {token}',
         'Accept': 'application/vnd.github+json',
         'Content-Type': 'application/json'
     }
+
+    print(f"Headers: {headers}")
 
     # Make the request
     response = requests.post(url, headers=headers, data=json.dumps(data))
