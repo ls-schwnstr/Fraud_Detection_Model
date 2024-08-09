@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import joblib
 import mlflow
 from sklearn.metrics import classification_report, confusion_matrix
@@ -19,7 +21,8 @@ def load_feature_names():
     return feature_names
 
 
-def retrain_model():
+def retrain_model(timestamp=None):
+
     print("Retraining the model...")
     Session = get_session()
 
@@ -88,8 +91,10 @@ def retrain_model():
 
         print(f"Model saved to {model_path}")
 
-        # Log the training timestamp
-        Session.add(RetrainingLog())
+        # Log the training timestamp using the modified constructor
+        new_log = RetrainingLog(timestamp)
+        Session.add(new_log)
+        print("Retraining timestamp logged to database")
         Session.commit()
 
         print(f"Model retrained and saved to {model_path}")

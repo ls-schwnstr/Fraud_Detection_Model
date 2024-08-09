@@ -3,20 +3,14 @@ from mlflow import MlflowClient
 from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
 import numpy as np
 import mlflow
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from app.db import get_reference_data, get_new_data
+from app.db import get_reference_data, get_new_data, get_session
 from app.models.model import train_model
 import os
 
 # Database setup
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'fraud_detection.db'))
-DATABASE_URL = f'sqlite:///{db_path}'
-engine = create_engine(DATABASE_URL, echo=True)
 mlflow.set_tracking_uri("http://localhost:5005")
-
-Session = sessionmaker(bind=engine)
-session = Session()
+session = get_session()
 
 
 def calculate_descriptive_statistics(data):
@@ -76,7 +70,7 @@ def calculate_kl_divergence(reference_data, incoming_data, column, bins=10):
     return kl_divergence
 
 
-def check_for_data_drift(session):
+def check_for_data_drift(timestamp, session):
     new_data = get_new_data(session)
     reference_data = get_reference_data(session)
 
@@ -107,7 +101,7 @@ def check_for_data_drift(session):
 
     if drift_detected:
         print("Data drift detected. Triggering retraining.")
-        train_model()
+        train_model(timestamp=timestamp, retraining_type='data_drift')
     else:
         print("No data drift detected.")
 

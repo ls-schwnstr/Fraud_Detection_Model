@@ -31,15 +31,6 @@
             Prediction result is unclear.
         {% endif %}
     </div>
-    {% if drift_detected %}
-        <div class="drift-message">
-            Data drift detected! Retraining is triggered.
-        </div>
-    {% else %}
-        <div class="drift-message">
-            No data drift detected.
-        </div>
-    {% endif %}
     <a href="{{ url_for('dashboard') }}">Return to Dashboard</a>
 </body>
 </html>

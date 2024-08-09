@@ -1,8 +1,8 @@
-from datetime import timezone
+from datetime import timezone, datetime
 import sqlalchemy
 from sqlalchemy import DateTime, func, create_engine, Column, Integer, Float, String, Boolean, desc, text
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 import pandas as pd
 import os
 
@@ -15,7 +15,7 @@ Base = declarative_base()
 
 # Session setup
 def get_session():
-    Session = sessionmaker(bind=engine)
+    Session = scoped_session(sessionmaker(bind=engine))
     return Session()
 
 
@@ -30,7 +30,7 @@ class RawData(Base):
     oldbalanceDest = Column(Float)
     newbalanceDest = Column(Float)
     type = Column(String)
-    timestamp = Column(DateTime(timezone=True), default=func.now())  # Add timestamp
+    timestamp = Column(DateTime(timezone=True), default=func.now(), nullable=False)  # Add timestamp
 
 
 # Define the raw_data model
@@ -47,7 +47,7 @@ class ProcessedData(Base):
     type_DEBIT = Column(Integer)
     type_PAYMENT = Column(Integer)
     type_TRANSFER = Column(Integer)
-    timestamp = Column(DateTime(timezone=True), default=func.now())  # Add timestamp
+    timestamp = Column(DateTime(timezone=True), default=func.now(), nullable=False)  # Add timestamp
 
 
 # Define the prediction model
@@ -65,21 +65,33 @@ class Prediction(Base):
     type_PAYMENT = Column(Integer)
     type_TRANSFER = Column(Integer)
     isFraud = Column(Integer)
-    timestamp = Column(DateTime(timezone=True), default=func.now())
+    timestamp = Column(DateTime(timezone=True), default=func.now(), nullable=False)
 
 
 # Define the Retraining model
 class RetrainingLog(Base):
     __tablename__ = 'retraining_log'
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True)
     retraining_timestamp = Column(DateTime(timezone=True), default=func.now(), nullable=False)
+    retraining_type = Column(String, nullable=False)
+    run_id = Column(String, nullable=False)
+
+    #def __init__(self, retraining_timestamp=None):
+     #   # Call the superclass constructor
+      #  super(RetrainingLog, self).__init__()
+       # if retraining_timestamp is None:
+        #    retraining_timestamp = datetime.utcnow()
+        #self.retraining_timestamp = retraining_timestamp
+
 
 
 # Create the table
 Base.metadata.create_all(engine)
 
 
-def add_raw_data(session, data):
+def add_raw_data(session, data, timestamp=None):
+    if timestamp is None:
+        timestamp = datetime.utcnow()
     try:
         # Create a new RawData instance
         raw_data_entry = RawData(
@@ -89,7 +101,8 @@ def add_raw_data(session, data):
             newbalanceOrig=data['newbalanceOrig'],
             oldbalanceDest=data['oldbalanceDest'],
             newbalanceDest=data['newbalanceDest'],
-            type=data['type']
+            type=data['type'],
+            timestamp=timestamp
         )
         # Add and commit the entry to the database
         session.add(raw_data_entry)
@@ -124,7 +137,7 @@ def get_latest_processed_data(session):
         return []
 
 
-def add_processed_data(session, data):
+def add_processed_data(session, data, timestamp=None):
     try:
         # Extract transaction type from data
         type_CASH_OUT = int(data.get('CASH_OUT', 0))
@@ -143,7 +156,8 @@ def add_processed_data(session, data):
             type_CASH_OUT=type_CASH_OUT,
             type_DEBIT=type_DEBIT,
             type_PAYMENT=type_PAYMENT,
-            type_TRANSFER=type_TRANSFER
+            type_TRANSFER=type_TRANSFER,
+            timestamp=timestamp if timestamp else func.now()
         )
 
         # Add the new entry to the session and commit
@@ -156,7 +170,7 @@ def add_processed_data(session, data):
         session.rollback()
 
 
-def add_predicted_data(session, data):
+def add_predicted_data(session, data, timestamp=None):
     try:
         # Convert data to a DataFrame if it's a dictionary
         if isinstance(data, dict):
@@ -165,20 +179,27 @@ def add_predicted_data(session, data):
 
         # Check if data is a DataFrame
         if isinstance(data, pd.DataFrame):
+            print(data.head())
             print("it is a dataframe")
             for index, row in data.iterrows():
+
+                # Prepare the timestamp
+                entry_timestamp = timestamp if timestamp is not None else datetime.now()
+
+                # Create a new Prediction instance
                 predicted_data_entry = Prediction(
-                    step=row['step'],
-                    amount=row['amount'],
-                    oldbalanceOrg=row['oldbalanceOrg'],
-                    newbalanceOrig=row['newbalanceOrig'],
-                    oldbalanceDest=row['oldbalanceDest'],
-                    newbalanceDest=row['newbalanceDest'],
-                    type_CASH_OUT=row.get('type_CASH_OUT', 0),
-                    type_DEBIT=row.get('type_DEBIT', 0),
-                    type_PAYMENT=row.get('type_PAYMENT', 0),
-                    type_TRANSFER=row.get('type_TRANSFER', 0),
-                    isFraud=row['isFraud']
+                    step=row.get('step', 0),
+                    amount=row.get('amount', 0.0),
+                    oldbalanceOrg=row.get('oldbalanceOrg', 0.0),
+                    newbalanceOrig=row.get('newbalanceOrig', 0.0),
+                    oldbalanceDest=row.get('oldbalanceDest', 0.0),
+                    newbalanceDest=row.get('newbalanceDest', 0.0),
+                    type_CASH_OUT=int(row.get('type_CASH_OUT', False)),
+                    type_DEBIT=int(row.get('type_DEBIT', False)),
+                    type_PAYMENT=int(row.get('type_PAYMENT', False)),
+                    type_TRANSFER=int(row.get('type_TRANSFER', False)),
+                    isFraud=int(row.get('isFraud', 0)),
+                    timestamp=entry_timestamp
                 )
                 session.add(predicted_data_entry)
         else:

@@ -1,11 +1,15 @@
 import traceback
+from datetime import datetime
+import pytz
 from flask import render_template, request, redirect, url_for, session as flask_session, flash, jsonify
 from app import app
 import os
 import pandas as pd
 import threading
 from app.db import get_session
+from app.models.data_drift_check import check_for_data_drift
 from app.models.model import make_predictions
+
 
 # Load credentials from environment variables
 USERNAME = os.getenv('USERNAME')
@@ -18,22 +22,22 @@ model_path = os.path.join(os.path.dirname(__file__), 'models', 'model.pkl')
 training_status = {'status': 'not_started'}
 
 
-def background_train():
+def background_train(timestamp=None):
     from app.models.model import preprocess_data_for_training, train_model, add_predicted_data
     global training_status
     training_status['status'] = 'in_progress'
     try:
         db_session = get_session()
         print("Starting model training...")
-        new_data = pd.read_csv(file_path, delimiter=';', nrows=500)
+        new_data = pd.read_csv(file_path, delimiter=';', nrows=1000)
         processed_data = preprocess_data_for_training(new_data)
         print("Preprocessed data succesfully")
 
         # Save Fraud.csv to predictions table
-        add_predicted_data(db_session, processed_data)
+        add_predicted_data(db_session, processed_data, timestamp=timestamp)
         print("Added preprocessed data sucessfully")
 
-        run_id = train_model()
+        run_id = train_model(timestamp=timestamp, retraining_type='monthly')
         print(f'Training complete with run_id: {run_id}')
         training_status['status'] = 'complete'
     except Exception as e:
@@ -49,7 +53,14 @@ def login():
         password = request.form['password']
         if username == USERNAME and password == PASSWORD:
             flask_session['username'] = username
-            return redirect(url_for('train'))
+            # Get the timestamp from the form or request args
+            timestamp = request.args.get('timestamp')
+            if timestamp:
+                # Redirect to /train with the timestamp
+                return redirect(url_for('train', timestamp=timestamp))
+            else:
+                # Redirect to /train without a timestamp
+                return redirect(url_for('train'))
         else:
             flash('Invalid username or password')
     return render_template('login.html')
@@ -58,20 +69,23 @@ def login():
 @app.route('/train', methods=['GET', 'POST'])
 def train():
     if 'username' in flask_session:
+        # Get the timestamp from the query string
+        timestamp = request.args.get('timestamp')
+        if timestamp:
+            timestamp = datetime.fromisoformat(timestamp)
+            print(f"Received timestamp in /train route: {timestamp}")
+        else:
+            timestamp = datetime.now()
+            print(f"No timestamp provided in /train route. Using current timestamp: {timestamp}")
+
+        # Proceed with the rest of your training logic
         if os.path.isfile(model_path):
-            # If model already exists
             return redirect(url_for('dashboard'))
         elif training_status['status'] == 'complete':
-            # If training is complete, redirect to dashboard
             return redirect(url_for('dashboard'))
         elif training_status['status'] != 'in_progress':
-            # Start the model training in the background if not already in progress
-            training_thread = threading.Thread(target=background_train)
+            training_thread = threading.Thread(target=background_train, args=(timestamp,))
             training_thread.start()
-            return render_template('training.html')
-        else:
-            # If training is in progress, show the training page
-            flash('Model training is still in progress. Please wait.')
             return render_template('training.html')
     else:
         print('User not in session, redirecting to login')
@@ -108,12 +122,20 @@ def dashboard():
                             'newbalanceDest': float(request.form['newbalanceDest']),
                             'type': request.form['type']
                         }
+                    # Get the timestamp from the query string
+                    timestamp = request.args.get('timestamp')
+                    if timestamp:
+                        timestamp = datetime.fromisoformat(timestamp)
+                        print(f"Received timestamp in /dashboard route: {timestamp}")
+                    else:
+                        timestamp = datetime.now()
+                        print(f"No timestamp provided in /dashboard route. Using current timestamp: {timestamp}")
 
                     # Print the input data for debugging
                     print(f"Received input data: {input_data}")
 
                     # Add data to database
-                    add_raw_data(db_session, input_data)
+                    add_raw_data(db_session, input_data, timestamp)
 
                     # Retrieve the raw data for preprocessing
                     raw_data_entry = get_latest_raw_data(db_session)
@@ -136,12 +158,12 @@ def dashboard():
                     processed_data_dict = processed_data_df.to_dict(orient='records')[0]
 
                     # Add data to the database
-                    add_processed_data(db_session, processed_data_dict)
+                    add_processed_data(db_session, processed_data_dict, timestamp)
 
                     # Commit the session to save the processed data
                     db_session.commit()
 
-                    return redirect(url_for('predict'))
+                    return redirect(url_for('predict', timestamp=timestamp))
 
                 except Exception as e:
                     print(f"An error occurred: {str(e)}")
@@ -163,6 +185,14 @@ def dashboard():
 def predict():
     from app.db import get_latest_processed_data
     db_session = get_session()
+    # Get the timestamp from the query string
+    timestamp = request.args.get('timestamp')
+    if timestamp:
+        timestamp = datetime.fromisoformat(timestamp)
+        print(f"Received timestamp in /predict route: {timestamp}")
+    else:
+        timestamp = datetime.now()
+        print(f"No timestamp provided for /predict. Using current timestamp: {timestamp}")
     try:
         print("Received prediction request")
 
@@ -170,7 +200,9 @@ def predict():
         processed_data_df = get_latest_processed_data(db_session)
 
         # Call the shared prediction function
-        prediction = make_predictions(processed_data_df)
+        prediction = make_predictions(processed_data_df, timestamp)
+
+        check_for_data_drift(timestamp, db_session)
 
         return render_template('prediction.html', prediction=int(prediction))
     except Exception as e:

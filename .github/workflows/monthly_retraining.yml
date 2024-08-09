@@ -48,7 +48,7 @@ jobs:
 
       - name: Run Monthly Retraining
         run: |
-          python app/models/retrain.py
+          python app/models/run_train_model.py
 
       - name: Upload MLflow artifacts
         uses: actions/upload-artifact@v3

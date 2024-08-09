@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -42,7 +44,7 @@ def preprocess_data_for_training(data):
     return data
 
 
-def train_model():
+def train_model(timestamp=None, retraining_type=None):
     # Connect to the SQLite database
     db_session = get_session()
 
@@ -111,11 +113,14 @@ def train_model():
         model_path = get_model_path()
         joblib.dump(model, model_path)
 
-
         print(f"Model saved to {model_path}")
 
         # Log the training timestamp
-        db_session.add(RetrainingLog())
+        if timestamp is None:
+            timestamp = datetime.utcnow()
+        retraining_log = RetrainingLog(retraining_timestamp=timestamp, retraining_type=retraining_type, run_id=run_id)
+        db_session.add(retraining_log)
+        print(f"Retraining log added to the database. {RetrainingLog}")
         db_session.commit()
 
         return run_id
@@ -140,12 +145,12 @@ def preprocess_input_data(data):
     return data
 
 
-def make_predictions(processed_data_df):
+def make_predictions(processed_data_df, timestamp):
     db_session = get_session()
     feature_names = load_feature_names()
 
     try:
-        print("Making predictions and checking for data drift...")
+        print("Making predictions...")
 
         # Reorder columns if necessary
         processed_data_df = processed_data_df[feature_names]
@@ -180,7 +185,9 @@ def make_predictions(processed_data_df):
         processed_data_dict['isFraud'] = predictions[0]
 
         # Use the refactored function to save the predicted data
-        add_predicted_data(db_session, processed_data_dict)
+        add_predicted_data(db_session, processed_data_dict, timestamp)
+
+
 
         db_session.commit()
 
