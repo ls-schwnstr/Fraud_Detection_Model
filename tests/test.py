@@ -7,12 +7,7 @@ from app import app as flask_app
 from app.db import RetrainingLog, get_session
 import os
 import requests
-
 from app.models.model import train_model
-
-
-
-
 
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
 mlflow.set_tracking_uri("http://localhost:5005")

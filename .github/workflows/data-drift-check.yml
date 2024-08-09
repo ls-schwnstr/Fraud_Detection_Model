@@ -3,6 +3,10 @@ name: Data Drift Check
 on:
   workflow_dispatch:
     inputs:
+      data_timestamp:
+        description: 'Timestamp for data drift check'
+        required: false
+        default: ''
 
 jobs:
   check-data-drift:
