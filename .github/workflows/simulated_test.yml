@@ -1,8 +1,7 @@
 name: Run Simulation Tests
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch:
 
 jobs:
   check-and-retrain:
@@ -44,7 +43,7 @@ jobs:
           done
 
       - name: Run Simulation Tests
-        run: python -m unittest discover -s tests -p "test_simulation.py"
+        run: python -m unittest discover -s tests -p "test.py"
 
       - name: Upload mlflow.db artifact
         uses: actions/upload-artifact@v2

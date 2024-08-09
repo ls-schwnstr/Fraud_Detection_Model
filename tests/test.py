@@ -1,5 +1,4 @@
 import unittest
-from unittest.mock import patch
 from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
@@ -7,9 +6,8 @@ from app import app as flask_app
 from app.db import RetrainingLog, get_session
 import mlflow
 import os
-
 from app.models.model import train_model
-from app.models.retrain import retrain_model
+
 
 db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fraud_detection.db'))
 mlflow.set_tracking_uri("http://localhost:5005")
