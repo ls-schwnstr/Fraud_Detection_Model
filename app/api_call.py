@@ -9,6 +9,10 @@ def trigger_github_workflow(timestamp):
     workflow_id = 'data-drift-check.yml'
     token = os.getenv('PAT_TOKEN')
 
+    if not token:
+        print("PAT_TOKEN is not set.")
+        return
+
     # API endpoint
     url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/actions/workflows/{workflow_id}/dispatches'
     print(f"URL: {url}")
