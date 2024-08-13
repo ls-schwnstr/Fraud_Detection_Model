@@ -31,6 +31,11 @@ jobs:
         echo "DB_USER=${{ secrets.DB_USER }}" >> $GITHUB_ENV
         echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
 
+    - name: Construct Database URL
+      run: |
+        DB_CONNECTION_URL="mssql+pyodbc://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server"
+        echo "DB_CONNECTION_URL=$DB_CONNECTION_URL" >> $GITHUB_ENV
+
     - name: Run MLflow
       run: |
         mkdir -p ${{ github.workspace }}/mlruns
@@ -54,7 +59,7 @@ jobs:
 
     - name: Run data drift check
       run: |
-        python app/models/data_drift_check.py "${{ github.event.inputs.timestamp }}"
+        python app/models/data_drift_check.py "${{ github.event.inputs.timestamp }}" "${{ env.DB_CONNECTION_URL }}"
 
     - name: Upload MLflow artifacts
       uses: actions/upload-artifact@v3
