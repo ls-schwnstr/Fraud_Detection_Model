@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9e96bbf16cf8481e8bdc87670200ae9b/artifacts
+end_time: 1723554679073
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9e96bbf16cf8481e8bdc87670200ae9b
+run_name: marvelous-fox-268
+run_uuid: 9e96bbf16cf8481e8bdc87670200ae9b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554679033
+status: 3
+tags: []
+user_id: lisaschweinester

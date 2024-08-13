@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/0f5b531dc9ac40998153d8a135311681/artifacts
+end_time: 1723554727163
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 0f5b531dc9ac40998153d8a135311681
+run_name: resilient-ram-601
+run_uuid: 0f5b531dc9ac40998153d8a135311681
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554727136
+status: 3
+tags: []
+user_id: lisaschweinester

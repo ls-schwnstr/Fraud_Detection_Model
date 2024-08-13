@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/43b2e9a3643340bf980264c7229ce1d9/artifacts
+end_time: 1723554704929
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 43b2e9a3643340bf980264c7229ce1d9
+run_name: able-midge-657
+run_uuid: 43b2e9a3643340bf980264c7229ce1d9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554704898
+status: 3
+tags: []
+user_id: lisaschweinester

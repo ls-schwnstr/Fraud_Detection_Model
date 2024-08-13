@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8db183c35c864b2da37d416a24b1c2f4/artifacts
+end_time: 1723554780992
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8db183c35c864b2da37d416a24b1c2f4
+run_name: lyrical-crow-384
+run_uuid: 8db183c35c864b2da37d416a24b1c2f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554780968
+status: 3
+tags: []
+user_id: lisaschweinester

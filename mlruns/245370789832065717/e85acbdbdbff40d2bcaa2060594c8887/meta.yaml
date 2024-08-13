@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e85acbdbdbff40d2bcaa2060594c8887/artifacts
+end_time: 1723554753115
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e85acbdbdbff40d2bcaa2060594c8887
+run_name: overjoyed-ray-242
+run_uuid: e85acbdbdbff40d2bcaa2060594c8887
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554753087
+status: 3
+tags: []
+user_id: lisaschweinester

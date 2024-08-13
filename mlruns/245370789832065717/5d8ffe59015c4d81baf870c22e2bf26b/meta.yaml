@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/5d8ffe59015c4d81baf870c22e2bf26b/artifacts
+end_time: 1723554738867
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 5d8ffe59015c4d81baf870c22e2bf26b
+run_name: wistful-lark-926
+run_uuid: 5d8ffe59015c4d81baf870c22e2bf26b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554738841
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,7 +1,6 @@
 from datetime import timezone, datetime
 import sqlalchemy
 from sqlalchemy import DateTime, func, create_engine, Column, Integer, Float, String, desc
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 import pandas as pd
 from sqlalchemy.ext.declarative import declarative_base
@@ -18,13 +17,11 @@ def get_db_connection_url():
     """
     db_user = os.getenv('DB_USER')
     db_password = os.getenv('DB_PASSWORD')
-    db_server = os.getenv('DB_SERVER')
-    db_name = os.getenv('DB_NAME')
 
-    if not db_user or not db_password or not db_server:
+    if not db_user or not db_password:
         raise ValueError("Database environment variables are not set properly.")
 
-    return f'mssql+pyodbc://{db_user}:{db_password}@{db_server}/{db_name}?driver=ODBC+Driver+17+for+SQL+Server'
+    return f'mssql+pyodbc://{db_user}:{db_password}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
 
 
 DATABASE_URL = get_db_connection_url()

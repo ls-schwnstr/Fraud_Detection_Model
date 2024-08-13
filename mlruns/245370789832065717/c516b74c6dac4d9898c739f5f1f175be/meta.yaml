@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c516b74c6dac4d9898c739f5f1f175be/artifacts
+end_time: 1723554767635
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c516b74c6dac4d9898c739f5f1f175be
+run_name: upset-stoat-491
+run_uuid: c516b74c6dac4d9898c739f5f1f175be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554767611
+status: 3
+tags: []
+user_id: lisaschweinester

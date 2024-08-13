@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/37465c585a5f42539f8179791a2b5162/artifacts
+end_time: 1723554791598
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 37465c585a5f42539f8179791a2b5162
+run_name: shivering-shrimp-852
+run_uuid: 37465c585a5f42539f8179791a2b5162
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554791527
+status: 3
+tags: []
+user_id: lisaschweinester

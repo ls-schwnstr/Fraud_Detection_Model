@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/cbcf447db82b4ec1be106d20f7c51552/artifacts
+end_time: 1723554776226
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: cbcf447db82b4ec1be106d20f7c51552
+run_name: gifted-eel-890
+run_uuid: cbcf447db82b4ec1be106d20f7c51552
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554776200
+status: 3
+tags: []
+user_id: lisaschweinester

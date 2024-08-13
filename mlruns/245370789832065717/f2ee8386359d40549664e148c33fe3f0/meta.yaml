@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f2ee8386359d40549664e148c33fe3f0/artifacts
+end_time: 1723554740935
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f2ee8386359d40549664e148c33fe3f0
+run_name: invincible-dog-819
+run_uuid: f2ee8386359d40549664e148c33fe3f0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554740905
+status: 3
+tags: []
+user_id: lisaschweinester

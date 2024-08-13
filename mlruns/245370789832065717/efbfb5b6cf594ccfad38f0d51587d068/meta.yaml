@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/efbfb5b6cf594ccfad38f0d51587d068/artifacts
+end_time: 1723554773876
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: efbfb5b6cf594ccfad38f0d51587d068
+run_name: fearless-grub-849
+run_uuid: efbfb5b6cf594ccfad38f0d51587d068
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554771451
+status: 3
+tags: []
+user_id: lisaschweinester

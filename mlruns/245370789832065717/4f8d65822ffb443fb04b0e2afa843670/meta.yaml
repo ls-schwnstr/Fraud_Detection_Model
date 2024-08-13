@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/4f8d65822ffb443fb04b0e2afa843670/artifacts
+end_time: 1723554738377
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 4f8d65822ffb443fb04b0e2afa843670
+run_name: smiling-crane-183
+run_uuid: 4f8d65822ffb443fb04b0e2afa843670
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554735778
+status: 3
+tags: []
+user_id: lisaschweinester

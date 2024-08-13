@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/18b9daaece5d4de4bdcf67ec1bdb6075/artifacts
+end_time: 1723554684359
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 18b9daaece5d4de4bdcf67ec1bdb6075
+run_name: monumental-cod-43
+run_uuid: 18b9daaece5d4de4bdcf67ec1bdb6075
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554684317
+status: 3
+tags: []
+user_id: lisaschweinester

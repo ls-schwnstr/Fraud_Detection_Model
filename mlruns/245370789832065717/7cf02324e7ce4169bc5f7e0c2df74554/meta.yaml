@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/7cf02324e7ce4169bc5f7e0c2df74554/artifacts
+end_time: 1723554733767
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 7cf02324e7ce4169bc5f7e0c2df74554
+run_name: unleashed-foal-718
+run_uuid: 7cf02324e7ce4169bc5f7e0c2df74554
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723554733738
+status: 3
+tags: []
+user_id: lisaschweinester
