@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/90e4717cba3b47d9bfe70a9f088e17ca/artifacts
+end_time: 1723553935301
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 90e4717cba3b47d9bfe70a9f088e17ca
+run_name: angry-conch-784
+run_uuid: 90e4717cba3b47d9bfe70a9f088e17ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553935276
+status: 3
+tags: []
+user_id: lisaschweinester

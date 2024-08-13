@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2490baa7447a414f90ac1a309ab70478/artifacts
+end_time: 1723553361521
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2490baa7447a414f90ac1a309ab70478
+run_name: thundering-auk-628
+run_uuid: 2490baa7447a414f90ac1a309ab70478
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553361497
+status: 3
+tags: []
+user_id: lisaschweinester

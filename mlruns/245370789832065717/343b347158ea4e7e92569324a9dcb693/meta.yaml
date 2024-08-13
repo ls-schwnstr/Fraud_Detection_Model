@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/343b347158ea4e7e92569324a9dcb693/artifacts
+end_time: 1723553941723
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 343b347158ea4e7e92569324a9dcb693
+run_name: legendary-mare-879
+run_uuid: 343b347158ea4e7e92569324a9dcb693
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553941698
+status: 3
+tags: []
+user_id: lisaschweinester

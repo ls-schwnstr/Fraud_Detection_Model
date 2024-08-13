@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/483749d56a9b4965aeb9a6e6e5d48a57/artifacts
+end_time: 1723553962446
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 483749d56a9b4965aeb9a6e6e5d48a57
+run_name: mysterious-gnat-125
+run_uuid: 483749d56a9b4965aeb9a6e6e5d48a57
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553962423
+status: 3
+tags: []
+user_id: lisaschweinester

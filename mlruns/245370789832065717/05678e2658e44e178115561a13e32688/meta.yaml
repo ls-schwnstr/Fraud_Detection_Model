@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/05678e2658e44e178115561a13e32688/artifacts
+end_time: 1723553945045
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 05678e2658e44e178115561a13e32688
+run_name: placid-hound-521
+run_uuid: 05678e2658e44e178115561a13e32688
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553945019
+status: 3
+tags: []
+user_id: lisaschweinester

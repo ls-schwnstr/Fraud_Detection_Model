@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/be2fb714eb734b4997b158ad45bf7d75/artifacts
+end_time: 1723553958216
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: be2fb714eb734b4997b158ad45bf7d75
+run_name: illustrious-dog-127
+run_uuid: be2fb714eb734b4997b158ad45bf7d75
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553955821
+status: 3
+tags: []
+user_id: lisaschweinester

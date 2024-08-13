@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f02c81499a7647659d0568fc16acb2c8/artifacts
+end_time: 1723553904849
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f02c81499a7647659d0568fc16acb2c8
+run_name: abrasive-rook-75
+run_uuid: f02c81499a7647659d0568fc16acb2c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553904805
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c75176a38dff4ec18347195a54e56649/artifacts
+end_time: 1723553922312
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c75176a38dff4ec18347195a54e56649
+run_name: clumsy-shoat-555
+run_uuid: c75176a38dff4ec18347195a54e56649
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553922285
+status: 3
+tags: []
+user_id: lisaschweinester

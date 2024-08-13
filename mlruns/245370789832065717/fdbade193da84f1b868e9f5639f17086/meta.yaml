@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/fdbade193da84f1b868e9f5639f17086/artifacts
+end_time: 1723553960390
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: fdbade193da84f1b868e9f5639f17086
+run_name: resilient-chimp-76
+run_uuid: fdbade193da84f1b868e9f5639f17086
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553960368
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/958ef2a573554825a29f8723620446c9/artifacts
+end_time: 1723553345653
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 958ef2a573554825a29f8723620446c9
+run_name: traveling-stoat-294
+run_uuid: 958ef2a573554825a29f8723620446c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553345628
+status: 3
+tags: []
+user_id: lisaschweinester

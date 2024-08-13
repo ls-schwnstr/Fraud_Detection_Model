@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9c331552040d4d4585daba1cbb02b805/artifacts
+end_time: 1723553356353
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9c331552040d4d4585daba1cbb02b805
+run_name: wistful-bird-920
+run_uuid: 9c331552040d4d4585daba1cbb02b805
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553356330
+status: 3
+tags: []
+user_id: lisaschweinester

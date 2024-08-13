@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/0cae22d0c8ea4057836f0e5f4382f92b/artifacts
+end_time: 1723553930610
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 0cae22d0c8ea4057836f0e5f4382f92b
+run_name: upbeat-conch-683
+run_uuid: 0cae22d0c8ea4057836f0e5f4382f92b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553930580
+status: 3
+tags: []
+user_id: lisaschweinester

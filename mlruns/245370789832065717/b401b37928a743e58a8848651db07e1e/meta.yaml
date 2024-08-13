@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/b401b37928a743e58a8848651db07e1e/artifacts
+end_time: 1723553354759
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: b401b37928a743e58a8848651db07e1e
+run_name: secretive-wren-249
+run_uuid: b401b37928a743e58a8848651db07e1e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553354736
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/95256a8e031849e4918e71b53a7d4adb/artifacts
+end_time: 1723553342777
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 95256a8e031849e4918e71b53a7d4adb
+run_name: classy-eel-202
+run_uuid: 95256a8e031849e4918e71b53a7d4adb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553339912
+status: 3
+tags: []
+user_id: lisaschweinester

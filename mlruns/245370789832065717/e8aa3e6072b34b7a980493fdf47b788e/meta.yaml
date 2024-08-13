@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e8aa3e6072b34b7a980493fdf47b788e/artifacts
+end_time: 1723553934085
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e8aa3e6072b34b7a980493fdf47b788e
+run_name: overjoyed-stoat-379
+run_uuid: e8aa3e6072b34b7a980493fdf47b788e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553934062
+status: 3
+tags: []
+user_id: lisaschweinester

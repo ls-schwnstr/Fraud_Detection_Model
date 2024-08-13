@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/044c75b587e241ea8ccd9d3b7540a4ac/artifacts
+end_time: 1723553911212
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 044c75b587e241ea8ccd9d3b7540a4ac
+run_name: learned-dolphin-346
+run_uuid: 044c75b587e241ea8ccd9d3b7540a4ac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553911188
+status: 3
+tags: []
+user_id: lisaschweinester

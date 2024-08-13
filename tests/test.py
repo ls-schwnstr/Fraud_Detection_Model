@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
 from app import app as flask_app
-from app.db import RetrainingLog, get_session
+from app.db import RetrainingLog, get_session, get_db_connection_url
 import mlflow
 import os
 from app.models.model import train_model
@@ -13,8 +13,7 @@ mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004') 
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 mlflow.set_experiment('test')
 
-db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
-           '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
+db_path = get_db_connection_url()
 model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app', 'models', 'model.pkl'))
 
 
@@ -177,20 +176,18 @@ class TestRetraining(unittest.TestCase):
             # Check if it's the first of the month to trigger retraining
             if current_date.day == 1:
                 print(f"Triggering retraining for {current_date.strftime('%Y-%m-%d')}")
-                self.train_model(timestamp=current_date)
+                train_model(timestamp=current_date, retraining_type='monthly')  # Pass the simulated timestamp
                 retraining_dates.add(current_date.date())
 
             # Move to the next day
             current_date += timedelta(days=1)
 
         # Ensure the last week is included if it spans into the next year
-        last_week_num = datetime(2026, 12, 31).isocalendar()[1]
-        if last_week_num == 53:
-            last_week_year += 1
-            last_week_num = 1
-        if last_week_num != last_week:
-            print(f"Inserting data for the last week of Year {last_week_year}")
-            self.insert_data(df, last_week_num, timestamp=datetime(2026, 12, 31))
+        # Handle 53-week years
+            if week_num == 53 and week_year == 2026:
+                print(f"Inserting data for the 53rd week of {week_year}")
+                self.insert_data(df, week_num, timestamp=current_date)
+                drift_dates.add(current_date.date())  # Log the date for drift checks
 
         # Check if retraining logs are correctly recorded
         all_dates = {datetime(2026, m, 1).date() for m in range(1, 13)}

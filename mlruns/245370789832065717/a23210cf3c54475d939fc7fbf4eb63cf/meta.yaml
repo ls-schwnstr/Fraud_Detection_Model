@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/a23210cf3c54475d939fc7fbf4eb63cf/artifacts
+end_time: 1723553909697
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: a23210cf3c54475d939fc7fbf4eb63cf
+run_name: bouncy-squirrel-196
+run_uuid: a23210cf3c54475d939fc7fbf4eb63cf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723553909675
+status: 3
+tags: []
+user_id: lisaschweinester
