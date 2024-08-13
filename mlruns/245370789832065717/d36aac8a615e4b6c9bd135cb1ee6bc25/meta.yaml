@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d36aac8a615e4b6c9bd135cb1ee6bc25/artifacts
+end_time: 1723558312344
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d36aac8a615e4b6c9bd135cb1ee6bc25
+run_name: sneaky-seal-894
+run_uuid: d36aac8a615e4b6c9bd135cb1ee6bc25
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558312317
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/4dd2c5925ca6478aae7334980b0e1b4f/artifacts
+end_time: 1723558309718
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 4dd2c5925ca6478aae7334980b0e1b4f
+run_name: chill-mouse-416
+run_uuid: 4dd2c5925ca6478aae7334980b0e1b4f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558307232
+status: 3
+tags: []
+user_id: lisaschweinester

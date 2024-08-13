@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c55159d9f83a4a0b80aabec397f7ca82/artifacts
+end_time: 1723558192554
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c55159d9f83a4a0b80aabec397f7ca82
+run_name: bustling-fish-575
+run_uuid: c55159d9f83a4a0b80aabec397f7ca82
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558192525
+status: 3
+tags: []
+user_id: lisaschweinester

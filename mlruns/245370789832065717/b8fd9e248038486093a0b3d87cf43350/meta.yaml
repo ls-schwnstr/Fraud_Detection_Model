@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/b8fd9e248038486093a0b3d87cf43350/artifacts
+end_time: 1723558248117
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: b8fd9e248038486093a0b3d87cf43350
+run_name: chill-deer-548
+run_uuid: b8fd9e248038486093a0b3d87cf43350
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558248091
+status: 3
+tags: []
+user_id: lisaschweinester

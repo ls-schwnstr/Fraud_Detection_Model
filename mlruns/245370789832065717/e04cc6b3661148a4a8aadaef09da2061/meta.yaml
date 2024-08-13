@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e04cc6b3661148a4a8aadaef09da2061/artifacts
+end_time: 1723558305299
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e04cc6b3661148a4a8aadaef09da2061
+run_name: sedate-whale-261
+run_uuid: e04cc6b3661148a4a8aadaef09da2061
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558305225
+status: 3
+tags: []
+user_id: lisaschweinester

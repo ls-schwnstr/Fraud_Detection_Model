@@ -2,15 +2,18 @@ import requests
 import json
 import os
 import time
-from app.db import get_db_connection_url
 
 
 def trigger_github_workflow(timestamp):
     # GitHub repository information
     repo_owner = os.getenv('REPO_OWNER')
     repo_name = os.getenv('REPO_NAME')
+    db_user = os.getenv('DB_USER')
+    db_password = os.getenv('DB_PASSWORD')
     workflow_id = 'data-drift-check.yml'  # Adjust if needed
     token = os.getenv('PAT_TOKEN')
+    db_connection_url = (f'mssql+pyodbc://{db_user}:{db_password}@fraud-detection-server.database.windows.net:1433'
+                         '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 
     if not token:
         print("PAT_TOKEN is not set.")
@@ -24,6 +27,7 @@ def trigger_github_workflow(timestamp):
         'ref': 'main',  # Branch name
         'inputs': {
             'timestamp': timestamp.isoformat(),  # Use the correct format
+            'db_connection_url': db_connection_url()
         }
     }
 

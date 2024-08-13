@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/afc2ca8beb5f4a94a4f3b750f984ff8d/artifacts
+end_time: 1723558231249
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: afc2ca8beb5f4a94a4f3b750f984ff8d
+run_name: rumbling-foal-852
+run_uuid: afc2ca8beb5f4a94a4f3b750f984ff8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558231223
+status: 3
+tags: []
+user_id: lisaschweinester

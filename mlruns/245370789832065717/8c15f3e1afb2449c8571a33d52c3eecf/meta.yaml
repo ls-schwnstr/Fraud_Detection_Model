@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8c15f3e1afb2449c8571a33d52c3eecf/artifacts
+end_time: 1723558255938
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8c15f3e1afb2449c8571a33d52c3eecf
+run_name: tasteful-goat-634
+run_uuid: 8c15f3e1afb2449c8571a33d52c3eecf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558255912
+status: 3
+tags: []
+user_id: lisaschweinester

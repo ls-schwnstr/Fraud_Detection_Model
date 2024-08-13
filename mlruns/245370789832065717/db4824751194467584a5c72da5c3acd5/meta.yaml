@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/db4824751194467584a5c72da5c3acd5/artifacts
+end_time: 1723558301720
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: db4824751194467584a5c72da5c3acd5
+run_name: debonair-roo-193
+run_uuid: db4824751194467584a5c72da5c3acd5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558301693
+status: 3
+tags: []
+user_id: lisaschweinester

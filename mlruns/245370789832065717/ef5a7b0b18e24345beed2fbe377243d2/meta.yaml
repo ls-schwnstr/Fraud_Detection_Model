@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ef5a7b0b18e24345beed2fbe377243d2/artifacts
+end_time: 1723558311262
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ef5a7b0b18e24345beed2fbe377243d2
+run_name: traveling-kite-368
+run_uuid: ef5a7b0b18e24345beed2fbe377243d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558311230
+status: 3
+tags: []
+user_id: lisaschweinester

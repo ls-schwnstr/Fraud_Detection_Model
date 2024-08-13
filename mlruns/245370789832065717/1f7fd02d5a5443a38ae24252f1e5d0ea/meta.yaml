@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/1f7fd02d5a5443a38ae24252f1e5d0ea/artifacts
+end_time: 1723558226223
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 1f7fd02d5a5443a38ae24252f1e5d0ea
+run_name: exultant-yak-677
+run_uuid: 1f7fd02d5a5443a38ae24252f1e5d0ea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558226191
+status: 3
+tags: []
+user_id: lisaschweinester

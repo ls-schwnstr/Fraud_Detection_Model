@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d1057e8214a147a08ea7d09b45ee5d68/artifacts
+end_time: 1723558100102
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d1057e8214a147a08ea7d09b45ee5d68
+run_name: welcoming-hen-803
+run_uuid: d1057e8214a147a08ea7d09b45ee5d68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558100075
+status: 3
+tags: []
+user_id: lisaschweinester

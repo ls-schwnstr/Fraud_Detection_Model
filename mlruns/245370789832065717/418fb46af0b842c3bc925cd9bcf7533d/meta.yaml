@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/418fb46af0b842c3bc925cd9bcf7533d/artifacts
+end_time: 1723558143186
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 418fb46af0b842c3bc925cd9bcf7533d
+run_name: capricious-shrimp-65
+run_uuid: 418fb46af0b842c3bc925cd9bcf7533d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558143158
+status: 3
+tags: []
+user_id: lisaschweinester

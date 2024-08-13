@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f99eb548ec3d48be90c0b3fbb68c4c85/artifacts
+end_time: 1723558195672
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f99eb548ec3d48be90c0b3fbb68c4c85
+run_name: gregarious-sheep-337
+run_uuid: f99eb548ec3d48be90c0b3fbb68c4c85
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558195645
+status: 3
+tags: []
+user_id: lisaschweinester

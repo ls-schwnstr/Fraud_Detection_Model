@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6c8c9659bd3e4d13bca87f25e2805325/artifacts
+end_time: 1723558204187
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6c8c9659bd3e4d13bca87f25e2805325
+run_name: powerful-ray-740
+run_uuid: 6c8c9659bd3e4d13bca87f25e2805325
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558201299
+status: 3
+tags: []
+user_id: lisaschweinester

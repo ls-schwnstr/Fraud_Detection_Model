@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f270bb4d54d24f6cbe40f55a4ee72bad/artifacts
+end_time: 1723558134470
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f270bb4d54d24f6cbe40f55a4ee72bad
+run_name: stately-kit-82
+run_uuid: f270bb4d54d24f6cbe40f55a4ee72bad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558134434
+status: 3
+tags: []
+user_id: lisaschweinester

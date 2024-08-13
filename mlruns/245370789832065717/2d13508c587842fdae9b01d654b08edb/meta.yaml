@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2d13508c587842fdae9b01d654b08edb/artifacts
+end_time: 1723558271406
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2d13508c587842fdae9b01d654b08edb
+run_name: exultant-shad-240
+run_uuid: 2d13508c587842fdae9b01d654b08edb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558271378
+status: 3
+tags: []
+user_id: lisaschweinester

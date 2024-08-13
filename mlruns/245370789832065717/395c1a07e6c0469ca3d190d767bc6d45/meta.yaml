@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/395c1a07e6c0469ca3d190d767bc6d45/artifacts
+end_time: 1723558121436
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 395c1a07e6c0469ca3d190d767bc6d45
+run_name: delightful-mole-866
+run_uuid: 395c1a07e6c0469ca3d190d767bc6d45
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558121405
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6d068ffb163d4e578252aa132b462160/artifacts
+end_time: 1723558149448
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6d068ffb163d4e578252aa132b462160
+run_name: efficient-dove-160
+run_uuid: 6d068ffb163d4e578252aa132b462160
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558149417
+status: 3
+tags: []
+user_id: lisaschweinester

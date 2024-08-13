@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/bbfc4b9ee1454eceaf162c590bae79ec/artifacts
+end_time: 1723558310165
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: bbfc4b9ee1454eceaf162c590bae79ec
+run_name: bittersweet-goat-963
+run_uuid: bbfc4b9ee1454eceaf162c590bae79ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558310137
+status: 3
+tags: []
+user_id: lisaschweinester

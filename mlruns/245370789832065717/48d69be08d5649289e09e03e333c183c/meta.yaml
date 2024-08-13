@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/48d69be08d5649289e09e03e333c183c/artifacts
+end_time: 1723558306419
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 48d69be08d5649289e09e03e333c183c
+run_name: puzzled-stag-612
+run_uuid: 48d69be08d5649289e09e03e333c183c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558306391
+status: 3
+tags: []
+user_id: lisaschweinester

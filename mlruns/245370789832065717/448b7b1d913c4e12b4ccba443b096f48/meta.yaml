@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/448b7b1d913c4e12b4ccba443b096f48/artifacts
+end_time: 1723558264523
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 448b7b1d913c4e12b4ccba443b096f48
+run_name: industrious-fowl-35
+run_uuid: 448b7b1d913c4e12b4ccba443b096f48
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558264492
+status: 3
+tags: []
+user_id: lisaschweinester

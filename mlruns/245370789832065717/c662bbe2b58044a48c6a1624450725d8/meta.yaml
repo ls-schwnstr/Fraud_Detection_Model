@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c662bbe2b58044a48c6a1624450725d8/artifacts
+end_time: 1723558107994
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c662bbe2b58044a48c6a1624450725d8
+run_name: charming-owl-532
+run_uuid: c662bbe2b58044a48c6a1624450725d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558107968
+status: 3
+tags: []
+user_id: lisaschweinester

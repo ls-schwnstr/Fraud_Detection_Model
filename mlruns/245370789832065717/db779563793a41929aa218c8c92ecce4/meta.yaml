@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/db779563793a41929aa218c8c92ecce4/artifacts
+end_time: 1723558265898
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: db779563793a41929aa218c8c92ecce4
+run_name: enchanting-flea-779
+run_uuid: db779563793a41929aa218c8c92ecce4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558265872
+status: 3
+tags: []
+user_id: lisaschweinester

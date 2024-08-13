@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/711e0053cbb14a08a0ac9336458a2b3b/artifacts
+end_time: 1723558148308
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 711e0053cbb14a08a0ac9336458a2b3b
+run_name: sedate-dove-298
+run_uuid: 711e0053cbb14a08a0ac9336458a2b3b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558148269
+status: 3
+tags: []
+user_id: lisaschweinester

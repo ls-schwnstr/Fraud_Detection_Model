@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/629dcfb74894449bbbf702f830205b56/artifacts
+end_time: 1723558159940
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 629dcfb74894449bbbf702f830205b56
+run_name: amusing-kite-765
+run_uuid: 629dcfb74894449bbbf702f830205b56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558159905
+status: 3
+tags: []
+user_id: lisaschweinester
