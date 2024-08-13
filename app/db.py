@@ -17,6 +17,8 @@ def get_db_connection_url():
     """
     db_user = os.getenv('DB_USER')
     db_password = os.getenv('DB_PASSWORD')
+    print(f"DB_PASSWORD: {DB_PASSWORD}")
+    print(f"DB_USER: {db_user}")
 
     if not db_user or not db_password:
         raise ValueError("Database environment variables are not set properly.")
