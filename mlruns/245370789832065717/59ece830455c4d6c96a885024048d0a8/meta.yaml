@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/59ece830455c4d6c96a885024048d0a8/artifacts
+end_time: 1723559477751
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 59ece830455c4d6c96a885024048d0a8
+run_name: defiant-cow-417
+run_uuid: 59ece830455c4d6c96a885024048d0a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723559477723
+status: 3
+tags: []
+user_id: lisaschweinester
