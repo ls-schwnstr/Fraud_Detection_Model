@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Fraud Detection Dashboard</h1>
+
+    <!-- Prediction form -->
+    <form method="POST" action="/dashboard">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required><br>
+        <label for="oldbalanceOrg">Old Balance Origin:</label>
+        <input type="text" id="oldbalanceOrg" name="oldbalanceOrg" required><br>
+        <label for="newbalanceOrig">New Balance Origin:</label>
+        <input type="text" id="newbalanceOrig" name="newbalanceOrig" required><br>
+        <label for="oldbalanceDest">Old Balance Destination:</label>
+        <input type="text" id="oldbalanceDest" name="oldbalanceDest" required><br>
+        <label for="newbalanceDest">New Balance Destination:</label>
+        <input type="text" id="newbalanceDest" name="newbalanceDest" required><br>
+        <label for="type">Transaction Type:</label>
+        <select id="type" name="type" required>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="TRANSFER">TRANSFER</option>
+            <option value="CASH_OUT">CASH OUT</option>
+            <option value="DEBIT">DEBIT</option>
+        </select><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display the prediction result -->
+    {% if prediction_result %}
+    <h2>Prediction Result: {{ prediction_result }}</h2>
+    {% endif %}
+</body>
+</html>

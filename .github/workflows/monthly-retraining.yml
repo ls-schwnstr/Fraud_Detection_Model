@@ -1,0 +1,60 @@
+name: Monthly Retraining Trigger
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Run at midnight UTC on the first day of every month
+  workflow_dispatch: # Allows manual triggering for testing
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y unixodbc-dev
+          pip install -r requirements.txt
+
+      - name: Set up environment variables
+        run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+
+      - name: Run MLflow
+        run: |
+          mkdir -p ${{ github.workspace }}/mlruns
+          nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5004 > ${{ github.workspace }}/mlruns/mlflow.log 2>&1 &
+        env:
+          MLFLOW_TRACKING_URI: http://localhost:5004
+
+      - name: Wait for MLflow server to be ready
+        run: |
+          for i in {1..10}; do
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:5004/ | grep -q "200"; then
+              echo "MLflow server is up and running"
+              break
+            fi
+            echo "Waiting for MLflow server to start ..."
+            sleep 5
+          done
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+      - name: Run Monthly Retraining
+        run: |
+          python app/models/run_train_model.py
+
+      - name: Upload MLflow artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: mlflow-artifacts
+          path: ${{ github.workspace }}/mlruns/
+
+

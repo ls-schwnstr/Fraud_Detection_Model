@@ -1,0 +1,12 @@
+flask~=3.0.3
+pandas~=2.2.2
+numpy~=1.26.4
+mlflow~=2.15.1
+scipy~=1.13.1
+joblib~=1.4.2
+scikit-learn~=1.5.1
+imblearn~=0.0
+python-dotenv~=1.0.1
+requests~=2.32.3
+SQLAlchemy~=2.0.32
+pyodbc~=4.0.32

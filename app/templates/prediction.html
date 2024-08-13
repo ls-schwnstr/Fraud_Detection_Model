@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .message {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .drift-message {
+            font-size: 1em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <div class="message">
+        {% if prediction == 0 %}
+            The transaction is not a fraud.
+        {% elif prediction == 1 %}
+            The transaction is a fraud.
+        {% else %}
+            Prediction result is unclear.
+        {% endif %}
+    </div>
+    <a href="{{ url_for('dashboard') }}">Return to Dashboard</a>
+</body>
+</html>

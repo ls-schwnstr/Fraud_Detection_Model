@@ -1,0 +1,10 @@
+oldbalanceOrg
+oldbalanceDest
+type_CASH_OUT
+type_DEBIT
+type_TRANSFER
+step
+amount
+newbalanceOrig
+newbalanceDest
+type_PAYMENT
