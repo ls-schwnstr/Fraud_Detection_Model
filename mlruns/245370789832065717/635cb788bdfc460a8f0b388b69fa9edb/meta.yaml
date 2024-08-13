@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/635cb788bdfc460a8f0b388b69fa9edb/artifacts
+end_time: 1723558969732
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 635cb788bdfc460a8f0b388b69fa9edb
+run_name: shivering-finch-854
+run_uuid: 635cb788bdfc460a8f0b388b69fa9edb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558969701
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6c47f7a859494728b2f31b3f55062a6a/artifacts
+end_time: 1723558822919
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6c47f7a859494728b2f31b3f55062a6a
+run_name: dazzling-panda-902
+run_uuid: 6c47f7a859494728b2f31b3f55062a6a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558822888
+status: 3
+tags: []
+user_id: lisaschweinester

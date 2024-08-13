@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2707597bcfd941188b61432ddac21387/artifacts
+end_time: 1723558918311
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2707597bcfd941188b61432ddac21387
+run_name: intelligent-fox-343
+run_uuid: 2707597bcfd941188b61432ddac21387
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558918283
+status: 3
+tags: []
+user_id: lisaschweinester

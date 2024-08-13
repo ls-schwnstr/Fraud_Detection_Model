@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/1ec1e1cbcd604e6895b2a5d1b38ec06f/artifacts
+end_time: 1723558957390
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 1ec1e1cbcd604e6895b2a5d1b38ec06f
+run_name: amusing-rat-410
+run_uuid: 1ec1e1cbcd604e6895b2a5d1b38ec06f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558955159
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/08fc2148629143348e6422ebab356d86/artifacts
+end_time: 1723559378035
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 08fc2148629143348e6422ebab356d86
+run_name: upbeat-hawk-787
+run_uuid: 08fc2148629143348e6422ebab356d86
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723559378004
+status: 3
+tags: []
+user_id: lisaschweinester

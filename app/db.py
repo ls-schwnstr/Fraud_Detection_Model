@@ -1,6 +1,7 @@
 from datetime import timezone, datetime
 import sqlalchemy
 from sqlalchemy import DateTime, func, create_engine, Column, Integer, Float, String, desc
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 import pandas as pd
 from sqlalchemy.ext.declarative import declarative_base
@@ -9,23 +10,8 @@ import os
 # Load credentials from environment variables
 DB_PASSWORD = os.getenv('DB_PASSWORD')
 
-
 # Database setup
-def get_db_connection_url():
-    """
-    Returns the database connection URL using environment variables.
-    """
-    db_user = os.getenv('DB_USER')
-    db_password = os.getenv('DB_PASSWORD')
-
-    if not db_user or not db_password:
-        raise ValueError("Database environment variables are not set properly.")
-
-    return (f'mssql+pyodbc://{db_user}:{db_password}@fraud-detection-server.database.windows.net:1433'
-            f'/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
-
-
-DATABASE_URL = get_db_connection_url()
+DATABASE_URL = f"mssql+pyodbc://adminuser:{DB_PASSWORD}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server"
 engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 
@@ -94,11 +80,12 @@ class RetrainingLog(Base):
     run_id = Column(String, nullable=False)
 
     #def __init__(self, retraining_timestamp=None):
-    #   # Call the superclass constructor
-    #  super(RetrainingLog, self).__init__()
-    # if retraining_timestamp is None:
-    #    retraining_timestamp = datetime.utcnow()
-    #self.retraining_timestamp = retraining_timestamp
+     #   # Call the superclass constructor
+      #  super(RetrainingLog, self).__init__()
+       # if retraining_timestamp is None:
+        #    retraining_timestamp = datetime.utcnow()
+        #self.retraining_timestamp = retraining_timestamp
+
 
 
 # Create the table
@@ -198,6 +185,7 @@ def add_predicted_data(session, data, timestamp=None):
             print(data.head())
             print("it is a dataframe")
             for index, row in data.iterrows():
+
                 # Prepare the timestamp
                 entry_timestamp = timestamp if timestamp is not None else datetime.now()
 
@@ -318,3 +306,7 @@ def get_new_data(session):
     new_data_df = new_data_df.drop(columns=['timestamp'], errors='ignore')
 
     return new_data_df
+
+
+
+

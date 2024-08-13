@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/088443a4731045bfab5de48c335f76ed/artifacts
+end_time: 1723558960319
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 088443a4731045bfab5de48c335f76ed
+run_name: vaunted-snake-247
+run_uuid: 088443a4731045bfab5de48c335f76ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558960292
+status: 3
+tags: []
+user_id: lisaschweinester

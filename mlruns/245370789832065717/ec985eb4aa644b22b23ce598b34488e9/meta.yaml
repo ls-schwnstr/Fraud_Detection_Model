@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ec985eb4aa644b22b23ce598b34488e9/artifacts
+end_time: 1723558940169
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ec985eb4aa644b22b23ce598b34488e9
+run_name: puzzled-moth-815
+run_uuid: ec985eb4aa644b22b23ce598b34488e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558937565
+status: 3
+tags: []
+user_id: lisaschweinester

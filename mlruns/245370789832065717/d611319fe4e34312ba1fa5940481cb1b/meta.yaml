@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d611319fe4e34312ba1fa5940481cb1b/artifacts
+end_time: 1723559021655
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d611319fe4e34312ba1fa5940481cb1b
+run_name: bold-dog-367
+run_uuid: d611319fe4e34312ba1fa5940481cb1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723559021623
+status: 3
+tags: []
+user_id: lisaschweinester

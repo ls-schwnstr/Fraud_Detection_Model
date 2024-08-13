@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c667105fe5284930bee3ad36d6ad59d2/artifacts
+end_time: 1723559380759
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c667105fe5284930bee3ad36d6ad59d2
+run_name: merciful-steed-497
+run_uuid: c667105fe5284930bee3ad36d6ad59d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723559380730
+status: 3
+tags: []
+user_id: lisaschweinester

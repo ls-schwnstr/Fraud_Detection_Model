@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/b177b9c1fb04405d989d745a75dbec51/artifacts
+end_time: 1723558920892
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: b177b9c1fb04405d989d745a75dbec51
+run_name: skittish-crab-491
+run_uuid: b177b9c1fb04405d989d745a75dbec51
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558920865
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
 from app import app as flask_app
-from app.db import RetrainingLog, get_session, get_db_connection_url
+from app.db import RetrainingLog, get_session
 import mlflow
 import os
 from app.models.model import train_model
@@ -13,7 +13,8 @@ mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004') 
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 mlflow.set_experiment('test')
 
-db_path = get_db_connection_url()
+db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
+           '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app', 'models', 'model.pkl'))
 
 

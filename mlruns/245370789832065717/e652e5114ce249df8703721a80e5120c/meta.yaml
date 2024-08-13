@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e652e5114ce249df8703721a80e5120c/artifacts
+end_time: 1723558992473
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e652e5114ce249df8703721a80e5120c
+run_name: popular-crow-785
+run_uuid: e652e5114ce249df8703721a80e5120c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558990211
+status: 3
+tags: []
+user_id: lisaschweinester

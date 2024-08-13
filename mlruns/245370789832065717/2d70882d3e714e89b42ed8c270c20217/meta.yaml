@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2d70882d3e714e89b42ed8c270c20217/artifacts
+end_time: 1723558978503
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2d70882d3e714e89b42ed8c270c20217
+run_name: peaceful-fish-644
+run_uuid: 2d70882d3e714e89b42ed8c270c20217
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558978473
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -8,11 +8,9 @@ def trigger_github_workflow(timestamp):
     # GitHub repository information
     repo_owner = os.getenv('REPO_OWNER')
     repo_name = os.getenv('REPO_NAME')
-    db_user = os.getenv('DB_USER')
-    db_password = os.getenv('DB_PASSWORD')
     workflow_id = 'data-drift-check.yml'  # Adjust if needed
     token = os.getenv('PAT_TOKEN')
-    db_connection_url = (f'mssql+pyodbc://{db_user}:{db_password}@fraud-detection-server.database.windows.net:1433'
+    db_connection_url = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
                          '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 
     if not token:
@@ -27,7 +25,7 @@ def trigger_github_workflow(timestamp):
         'ref': 'main',  # Branch name
         'inputs': {
             'timestamp': timestamp.isoformat(),  # Use the correct format
-            'db_connection_url': db_connection_url()
+            'db_connection_url': db_connection_url
         }
     }
 

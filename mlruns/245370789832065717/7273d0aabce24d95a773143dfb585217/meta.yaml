@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/7273d0aabce24d95a773143dfb585217/artifacts
+end_time: 1723558689889
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 7273d0aabce24d95a773143dfb585217
+run_name: angry-mole-180
+run_uuid: 7273d0aabce24d95a773143dfb585217
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558689862
+status: 3
+tags: []
+user_id: lisaschweinester

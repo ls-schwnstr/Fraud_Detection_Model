@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/117b8af6be8f40bb9c02f9bdc7a89f00/artifacts
+end_time: 1723559024158
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 117b8af6be8f40bb9c02f9bdc7a89f00
+run_name: rebellious-stoat-264
+run_uuid: 117b8af6be8f40bb9c02f9bdc7a89f00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723559024126
+status: 3
+tags: []
+user_id: lisaschweinester

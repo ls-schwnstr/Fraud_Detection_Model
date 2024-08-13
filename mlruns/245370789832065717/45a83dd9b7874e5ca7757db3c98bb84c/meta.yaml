@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/45a83dd9b7874e5ca7757db3c98bb84c/artifacts
+end_time: 1723558962359
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 45a83dd9b7874e5ca7757db3c98bb84c
+run_name: glamorous-calf-168
+run_uuid: 45a83dd9b7874e5ca7757db3c98bb84c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558962330
+status: 3
+tags: []
+user_id: lisaschweinester

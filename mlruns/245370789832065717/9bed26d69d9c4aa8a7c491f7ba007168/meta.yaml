@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9bed26d69d9c4aa8a7c491f7ba007168/artifacts
+end_time: 1723559012004
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9bed26d69d9c4aa8a7c491f7ba007168
+run_name: overjoyed-rook-977
+run_uuid: 9bed26d69d9c4aa8a7c491f7ba007168
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723559011973
+status: 3
+tags: []
+user_id: lisaschweinester

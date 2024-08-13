@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/7c4fc961b1db4f739fc39ee530557b12/artifacts
+end_time: 1723558966274
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 7c4fc961b1db4f739fc39ee530557b12
+run_name: victorious-doe-665
+run_uuid: 7c4fc961b1db4f739fc39ee530557b12
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723558966247
+status: 3
+tags: []
+user_id: lisaschweinester
