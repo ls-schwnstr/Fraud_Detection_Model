@@ -11,7 +11,6 @@ from app.models.model import train_model
 
 # Database setup
 DATABASE_URL = get_db_connection_url()
-print("Database URL:", DATABASE_URL)
 mlflow.set_tracking_uri("http://localhost:5004")
 session = get_session()
 
