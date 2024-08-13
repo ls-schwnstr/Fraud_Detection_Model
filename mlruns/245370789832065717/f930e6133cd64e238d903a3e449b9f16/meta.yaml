@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f930e6133cd64e238d903a3e449b9f16/artifacts
+end_time: 1723557309093
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f930e6133cd64e238d903a3e449b9f16
+run_name: kindly-sow-827
+run_uuid: f930e6133cd64e238d903a3e449b9f16
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557309068
+status: 3
+tags: []
+user_id: lisaschweinester

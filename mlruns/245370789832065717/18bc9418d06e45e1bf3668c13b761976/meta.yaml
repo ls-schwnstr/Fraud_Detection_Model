@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/18bc9418d06e45e1bf3668c13b761976/artifacts
+end_time: 1723557281625
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 18bc9418d06e45e1bf3668c13b761976
+run_name: rogue-bee-712
+run_uuid: 18bc9418d06e45e1bf3668c13b761976
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557278813
+status: 3
+tags: []
+user_id: lisaschweinester

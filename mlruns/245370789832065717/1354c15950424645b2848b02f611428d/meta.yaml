@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/1354c15950424645b2848b02f611428d/artifacts
+end_time: 1723557286321
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 1354c15950424645b2848b02f611428d
+run_name: burly-snail-894
+run_uuid: 1354c15950424645b2848b02f611428d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557286294
+status: 3
+tags: []
+user_id: lisaschweinester

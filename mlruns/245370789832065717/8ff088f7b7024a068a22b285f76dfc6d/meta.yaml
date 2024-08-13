@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8ff088f7b7024a068a22b285f76dfc6d/artifacts
+end_time: 1723557355832
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8ff088f7b7024a068a22b285f76dfc6d
+run_name: big-vole-930
+run_uuid: 8ff088f7b7024a068a22b285f76dfc6d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557355808
+status: 3
+tags: []
+user_id: lisaschweinester

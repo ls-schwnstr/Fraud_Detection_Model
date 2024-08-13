@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/7fc108a309ed4a5ca52ef9a7e1dfcbff/artifacts
+end_time: 1723557305815
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 7fc108a309ed4a5ca52ef9a7e1dfcbff
+run_name: silent-chimp-808
+run_uuid: 7fc108a309ed4a5ca52ef9a7e1dfcbff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557302879
+status: 3
+tags: []
+user_id: lisaschweinester

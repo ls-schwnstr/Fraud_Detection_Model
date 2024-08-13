@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/de1ea451f9b7483da98c39b00d5bf9ec/artifacts
+end_time: 1723557323331
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: de1ea451f9b7483da98c39b00d5bf9ec
+run_name: bemused-loon-298
+run_uuid: de1ea451f9b7483da98c39b00d5bf9ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557323307
+status: 3
+tags: []
+user_id: lisaschweinester

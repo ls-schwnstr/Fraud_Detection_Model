@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9aeb43084f5d4f128f290bdca38e5b3a/artifacts
+end_time: 1723557383148
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9aeb43084f5d4f128f290bdca38e5b3a
+run_name: legendary-goat-352
+run_uuid: 9aeb43084f5d4f128f290bdca38e5b3a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557383124
+status: 3
+tags: []
+user_id: lisaschweinester

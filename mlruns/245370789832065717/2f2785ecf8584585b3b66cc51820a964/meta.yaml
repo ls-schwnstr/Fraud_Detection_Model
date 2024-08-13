@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2f2785ecf8584585b3b66cc51820a964/artifacts
+end_time: 1723557384870
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2f2785ecf8584585b3b66cc51820a964
+run_name: redolent-koi-652
+run_uuid: 2f2785ecf8584585b3b66cc51820a964
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557384844
+status: 3
+tags: []
+user_id: lisaschweinester

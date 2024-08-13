@@ -11,7 +11,6 @@ def trigger_github_workflow(timestamp):
     repo_name = os.getenv('REPO_NAME')
     workflow_id = 'data-drift-check.yml'  # Adjust if needed
     token = os.getenv('PAT_TOKEN')
-    db_connection_url = get_db_connection_url()
 
     if not token:
         print("PAT_TOKEN is not set.")
@@ -25,7 +24,6 @@ def trigger_github_workflow(timestamp):
         'ref': 'main',  # Branch name
         'inputs': {
             'timestamp': timestamp.isoformat(),  # Use the correct format
-            'db_connection_url': db_connection_url
         }
     }
 

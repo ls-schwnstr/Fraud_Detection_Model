@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/357685bc1d444cfeb9574bb9b1077249/artifacts
+end_time: 1723557352563
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 357685bc1d444cfeb9574bb9b1077249
+run_name: powerful-fowl-58
+run_uuid: 357685bc1d444cfeb9574bb9b1077249
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557352537
+status: 3
+tags: []
+user_id: lisaschweinester

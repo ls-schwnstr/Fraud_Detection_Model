@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/cb0c948358c64efd857be9092ff84e9d/artifacts
+end_time: 1723557360596
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: cb0c948358c64efd857be9092ff84e9d
+run_name: monumental-rat-429
+run_uuid: cb0c948358c64efd857be9092ff84e9d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557360571
+status: 3
+tags: []
+user_id: lisaschweinester

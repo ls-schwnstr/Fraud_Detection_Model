@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/a5bfd92ae27c448d94cd5f04eedb45ff/artifacts
+end_time: 1723557335215
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: a5bfd92ae27c448d94cd5f04eedb45ff
+run_name: suave-sheep-998
+run_uuid: a5bfd92ae27c448d94cd5f04eedb45ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723557335189
+status: 3
+tags: []
+user_id: lisaschweinester
