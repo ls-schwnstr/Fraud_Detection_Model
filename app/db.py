@@ -17,13 +17,12 @@ def get_db_connection_url():
     """
     db_user = os.getenv('DB_USER')
     db_password = os.getenv('DB_PASSWORD')
-    print(f"DB_PASSWORD: {DB_PASSWORD}")
-    print(f"DB_USER: {db_user}")
 
     if not db_user or not db_password:
         raise ValueError("Database environment variables are not set properly.")
 
-    return f'mssql+pyodbc://{db_user}:{db_password}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
+    return (f'mssql+pyodbc://{db_user}:{db_password}@fraud-detection-server.database.windows.net:1433'
+            f'/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 
 
 DATABASE_URL = get_db_connection_url()

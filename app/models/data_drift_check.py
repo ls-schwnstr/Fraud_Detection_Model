@@ -11,6 +11,7 @@ from app.models.model import train_model
 
 # Database setup
 DATABASE_URL = get_db_connection_url()
+print("Database URL:", DATABASE_URL)
 mlflow.set_tracking_uri("http://localhost:5004")
 session = get_session()
 
@@ -73,6 +74,7 @@ def calculate_kl_divergence(reference_data, incoming_data, column, bins=10):
 
 
 def check_for_data_drift(timestamp, db_connection_url):
+    print(f"URL:{db_connection_url}")
     engine = create_engine(db_connection_url)
     Session = sessionmaker(bind=engine)
     session = Session()
