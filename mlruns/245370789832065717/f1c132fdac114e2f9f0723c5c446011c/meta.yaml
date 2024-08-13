@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f1c132fdac114e2f9f0723c5c446011c/artifacts
+end_time: 1723560367985
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f1c132fdac114e2f9f0723c5c446011c
+run_name: merciful-shrike-618
+run_uuid: f1c132fdac114e2f9f0723c5c446011c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560367931
+status: 4
+tags: []
+user_id: lisaschweinester

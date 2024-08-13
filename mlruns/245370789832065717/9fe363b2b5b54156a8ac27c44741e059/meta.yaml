@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9fe363b2b5b54156a8ac27c44741e059/artifacts
+end_time: 1723560070542
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9fe363b2b5b54156a8ac27c44741e059
+run_name: intelligent-vole-286
+run_uuid: 9fe363b2b5b54156a8ac27c44741e059
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560070513
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/236cc08c177443dbb15d541ba0719113/artifacts
+end_time: 1723560362129
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 236cc08c177443dbb15d541ba0719113
+run_name: upset-fish-894
+run_uuid: 236cc08c177443dbb15d541ba0719113
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560362097
+status: 3
+tags: []
+user_id: lisaschweinester

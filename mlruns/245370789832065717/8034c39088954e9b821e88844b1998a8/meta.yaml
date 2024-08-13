@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8034c39088954e9b821e88844b1998a8/artifacts
+end_time: 1723560078422
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8034c39088954e9b821e88844b1998a8
+run_name: invincible-yak-616
+run_uuid: 8034c39088954e9b821e88844b1998a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560076078
+status: 3
+tags: []
+user_id: lisaschweinester

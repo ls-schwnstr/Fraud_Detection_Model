@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ce1c25e4763b4f27b7cde785309e8310/artifacts
+end_time: 1723560361655
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ce1c25e4763b4f27b7cde785309e8310
+run_name: sassy-wasp-344
+run_uuid: ce1c25e4763b4f27b7cde785309e8310
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560359401
+status: 3
+tags: []
+user_id: lisaschweinester

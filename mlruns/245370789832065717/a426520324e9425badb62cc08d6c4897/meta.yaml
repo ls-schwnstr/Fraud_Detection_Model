@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/a426520324e9425badb62cc08d6c4897/artifacts
+end_time: 1723560072004
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: a426520324e9425badb62cc08d6c4897
+run_name: auspicious-slug-300
+run_uuid: a426520324e9425badb62cc08d6c4897
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560071973
+status: 3
+tags: []
+user_id: lisaschweinester

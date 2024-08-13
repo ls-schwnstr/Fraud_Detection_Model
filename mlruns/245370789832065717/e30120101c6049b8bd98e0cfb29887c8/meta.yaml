@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e30120101c6049b8bd98e0cfb29887c8/artifacts
+end_time: 1723560081046
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e30120101c6049b8bd98e0cfb29887c8
+run_name: resilient-fish-212
+run_uuid: e30120101c6049b8bd98e0cfb29887c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560081017
+status: 3
+tags: []
+user_id: lisaschweinester

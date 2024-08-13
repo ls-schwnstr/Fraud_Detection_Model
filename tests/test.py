@@ -184,11 +184,15 @@ class TestRetraining(unittest.TestCase):
             current_date += timedelta(days=1)
 
         # Ensure the last week is included if it spans into the next year
-        # Handle 53-week years
-            if week_num == 53 and week_year == 2026:
-                print(f"Inserting data for the 53rd week of {week_year}")
-                self.insert_data(df, week_num, timestamp=current_date)
-                drift_dates.add(current_date.date())  # Log the date for drift checks
+        last_day_of_year = datetime(2026, 12, 31)
+        last_week_num = last_day_of_year.isocalendar()[1]
+        if last_week_num == 53:
+            last_week_year += 1
+            last_week_num = 1
+        if last_week_num != last_week:
+            print(f"Inserting data for the last week of Year {last_week_year}")
+            self.insert_data(df, last_week_num, timestamp=last_day_of_year)
+            drift_dates.add(current_date.date())  # Log the date for drift checks
 
         # Check if retraining logs are correctly recorded
         all_dates = {datetime(2026, m, 1).date() for m in range(1, 13)}

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/02d56316bac4486c8d31ff66f21bdf6e/artifacts
+end_time: 1723560082147
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 02d56316bac4486c8d31ff66f21bdf6e
+run_name: legendary-horse-326
+run_uuid: 02d56316bac4486c8d31ff66f21bdf6e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560082117
+status: 3
+tags: []
+user_id: lisaschweinester

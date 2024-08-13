@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/cfb877bc23cc4bb3be0d94701041326b/artifacts
+end_time: 1723560346247
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: cfb877bc23cc4bb3be0d94701041326b
+run_name: melodic-kite-490
+run_uuid: cfb877bc23cc4bb3be0d94701041326b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560343376
+status: 3
+tags: []
+user_id: lisaschweinester
