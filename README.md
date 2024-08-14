@@ -11,8 +11,7 @@ This repository contains a complete implementation of a fraud detection system u
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Data Drift Detection and Retraining](#data-drift-detection-and-retraining)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Introduction
 
