@@ -62,7 +62,7 @@ Start the MLflow server by running:
 ```bash
 mlflow server --backend-store-uri sqlite:///mlruns/mlflow.db --default-artifact-root=mlruns/artifacts --host localhost --port 5004
 ```
-You can view local experiments at [](http://localhost:5004) and check the MLflow artifacts in the GitHub Actions workflows.
+You can view local experiments at http://localhost:5004 and check the MLflow artifacts in the GitHub Actions workflows.
 
 ### Setting up an Azure SQL Database
 1. **Create an Azure SQL Database**
