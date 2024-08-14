@@ -138,7 +138,7 @@ class TestRetraining(unittest.TestCase):
         drift_dates = set()
         last_week = None
         last_week_year = None
-        week_counter = 0  # Counter to track weeks for data insertion
+        week_counter = 0
 
         # Authenticate the user and pass the timestamp
         self.authenticate(timestamp=start_date)
@@ -160,10 +160,10 @@ class TestRetraining(unittest.TestCase):
                 week_year += 1
                 week_num = 1
 
-            # Insert data every third week
+            # Insert data if it's the first day of the week and it's a new week
             if current_date.weekday() == 0:  # Monday is the first day of the week
                 week_counter += 1
-                if week_counter % 3 == 0:  # Check if it's the third week
+                if week_counter % 4 == 0:  # Check if it's the fourth week
                     if last_week != week_num or last_week_year != week_year:  # Check if we haven't already inserted data for this week
                         print(f"Inserting data for Week {week_num} of Year {week_year}")
                         self.insert_data(df, week_num, timestamp=current_date)

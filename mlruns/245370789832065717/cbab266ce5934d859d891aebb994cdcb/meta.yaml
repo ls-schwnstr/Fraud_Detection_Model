@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/cbab266ce5934d859d891aebb994cdcb/artifacts
+end_time: 1723620716062
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: cbab266ce5934d859d891aebb994cdcb
+run_name: unruly-ray-370
+run_uuid: cbab266ce5934d859d891aebb994cdcb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723620712694
+status: 3
+tags: []
+user_id: lisaschweinester
