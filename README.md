@@ -15,7 +15,7 @@ This repository contains a complete implementation of a fraud detection system u
 
 ## Introduction
 
-This project aims to build a scalable fraud detection system that monitors transaction data, checks for data drift, and retrains the machine learning model as necessary. The system is containerized using Docker and deployed using GitHub Actions.
+This project aims to build a scalable fraud detection system that monitors transaction data, checks for data drift, and retrains the machine learning model as necessary. The system is deployed using GitHub Actions.
 
 ## Features
 
