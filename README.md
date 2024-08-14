@@ -65,14 +65,13 @@ mlflow server --backend-store-uri sqlite:///mlruns/mlflow.db --default-artifact-
 You can view local experiments at http://localhost:5004 and check the MLflow artifacts in the GitHub Actions workflows.
 
 ### Setting up an Azure SQL Database
-1. **Create an Azure SQL Database**
-- Go to the [Azure portal](https://portal.azure.com/).
+1. **Create an Azure SQL Database [here](https://portal.azure.com/)**
 2. **Configure Firewall Rules**
 3. **Obtain the Connection URL**
 4. **Update the db_path**
- - Use the connection URL obtained in the previous step to set the `db_path` variable in the data-drift-check workflow and in the db.py. For example:
+Use the connection URL obtained in the previous step to set the `db_path` variable in the data-drift-check workflow and in the db.py. For example:
 
- - ```env
+ - ```python
      db_path=mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server
      ```
 
