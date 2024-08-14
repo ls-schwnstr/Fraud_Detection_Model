@@ -8,10 +8,10 @@ from sqlalchemy.ext.declarative import declarative_base
 import os
 
 # Load credentials from environment variables
-DB_PASSWORD = os.getenv('DB_PASSWORD')
+db_password = os.getenv('DB_PASSWORD')
 
 # Database setup
-DATABASE_URL = f"mssql+pyodbc://adminuser:{DB_PASSWORD}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server"
+DATABASE_URL = f"mssql+pyodbc://adminuser:{db_password}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server"
 engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 

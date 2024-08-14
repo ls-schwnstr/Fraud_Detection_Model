@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6f7b92a956124d66b4beed86ecc7a0df/artifacts
+end_time: 1723560757920
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6f7b92a956124d66b4beed86ecc7a0df
+run_name: magnificent-gnu-570
+run_uuid: 6f7b92a956124d66b4beed86ecc7a0df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560757806
+status: 3
+tags: []
+user_id: lisaschweinester

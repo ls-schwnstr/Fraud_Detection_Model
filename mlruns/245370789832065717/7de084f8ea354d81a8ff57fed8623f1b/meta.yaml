@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/7de084f8ea354d81a8ff57fed8623f1b/artifacts
+end_time: 1723560817994
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 7de084f8ea354d81a8ff57fed8623f1b
+run_name: hilarious-fox-825
+run_uuid: 7de084f8ea354d81a8ff57fed8623f1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560817956
+status: 3
+tags: []
+user_id: lisaschweinester

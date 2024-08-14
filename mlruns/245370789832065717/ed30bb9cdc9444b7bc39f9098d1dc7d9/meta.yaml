@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ed30bb9cdc9444b7bc39f9098d1dc7d9/artifacts
+end_time: 1723566709674
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ed30bb9cdc9444b7bc39f9098d1dc7d9
+run_name: omniscient-tern-178
+run_uuid: ed30bb9cdc9444b7bc39f9098d1dc7d9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723566709633
+status: 3
+tags: []
+user_id: lisaschweinester

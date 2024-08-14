@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ab0cb1ed619c4f2599a1b5baaed35674/artifacts
+end_time: 1723560743357
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ab0cb1ed619c4f2599a1b5baaed35674
+run_name: skillful-grub-105
+run_uuid: ab0cb1ed619c4f2599a1b5baaed35674
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560743326
+status: 3
+tags: []
+user_id: lisaschweinester

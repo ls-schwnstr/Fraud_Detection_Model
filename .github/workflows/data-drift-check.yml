@@ -7,11 +7,6 @@ on:
         description: 'Timestamp for the workflow'
         required: true
         default: '2024-08-11T00:00:00Z'
-      db_connection_url:
-        description: 'Database connection URL'
-        required: true
-        default: 'mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
-
 
 jobs:
   check-data-drift:
@@ -31,7 +26,14 @@ jobs:
         pip install -r requirements.txt
 
     - name: Set up environment variables
-      run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+      run: |
+        echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
+
+    - name: Construct Database URL
+      run: |
+        DB_CONNECTION_URL="mssql+pyodbc://adminuser:${{ secrets.DB_PASSWORD }}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server"
+        echo "DB_CONNECTION_URL=$DB_CONNECTION_URL" >> $GITHUB_ENV
 
     - name: Run MLflow
       run: |
@@ -56,7 +58,7 @@ jobs:
 
     - name: Run data drift check
       run: |
-        python app/models/data_drift_check.py "${{ github.event.inputs.timestamp }}" "${{ github.event.inputs.db_connection_url }}"
+        python app/models/data_drift_check.py "${{ github.event.inputs.timestamp }}" "${{ env.DB_CONNECTION_URL }}"
 
     - name: Upload MLflow artifacts
       uses: actions/upload-artifact@v3

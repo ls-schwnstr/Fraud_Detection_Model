@@ -1,5 +1,4 @@
 import sys
-
 import pandas as pd
 from mlflow import MlflowClient
 from scipy.stats import ks_2samp, chi2_contingency, skew, kurtosis, entropy
@@ -12,7 +11,8 @@ from app.models.model import train_model
 import os
 
 # Database setup
-db_path = 'mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
+db_password = os.getenv('DB_PASSWORD')
+db_path = f'mssql+pyodbc://adminuser:{db_password}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
 mlflow.set_tracking_uri("http://localhost:5004")
 session = get_session()
 

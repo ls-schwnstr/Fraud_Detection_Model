@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/0a664a48c2ae4357bf28718e68249005/artifacts
+end_time: 1723565642492
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 0a664a48c2ae4357bf28718e68249005
+run_name: burly-snipe-203
+run_uuid: 0a664a48c2ae4357bf28718e68249005
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723565642449
+status: 3
+tags: []
+user_id: lisaschweinester

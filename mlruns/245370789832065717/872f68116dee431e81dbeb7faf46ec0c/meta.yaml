@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/872f68116dee431e81dbeb7faf46ec0c/artifacts
+end_time: 1723566987549
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 872f68116dee431e81dbeb7faf46ec0c
+run_name: puzzled-ox-444
+run_uuid: 872f68116dee431e81dbeb7faf46ec0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723566987494
+status: 3
+tags: []
+user_id: lisaschweinester

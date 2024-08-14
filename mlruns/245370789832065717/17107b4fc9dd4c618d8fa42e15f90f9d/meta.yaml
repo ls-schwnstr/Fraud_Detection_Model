@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/17107b4fc9dd4c618d8fa42e15f90f9d/artifacts
+end_time: 1723560726117
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 17107b4fc9dd4c618d8fa42e15f90f9d
+run_name: charming-shrew-93
+run_uuid: 17107b4fc9dd4c618d8fa42e15f90f9d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560726088
+status: 3
+tags: []
+user_id: lisaschweinester

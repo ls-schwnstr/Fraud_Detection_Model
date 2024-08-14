@@ -12,8 +12,9 @@ from app.models.model import train_model
 mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')  # Updated port
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 mlflow.set_experiment('test')
+db_password = os.getenv('DB_PASSWORD')
 
-db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
+db_path = (f'mssql+pyodbc://adminuser:{db_password}@fraud-detection-server.database.windows.net:1433'
            '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app', 'models', 'model.pkl'))
 
@@ -75,7 +76,6 @@ class TestRetraining(unittest.TestCase):
         payload = {'timestamp': timestamp.isoformat()} if timestamp else {}
         response = cls.client.post('/dashboard', json=input_data, query_string=payload, follow_redirects=True)
         return response
-
 
     def train_model(self, timestamp=None):
         payload = {}
@@ -160,7 +160,7 @@ class TestRetraining(unittest.TestCase):
             # Get ISO week number and year
             week_num, week_year = current_date.isocalendar()[1], current_date.isocalendar()[0]
 
-            # Handle 53-week years
+            # Handle 53-week
             if week_num == 53:
                 week_year += 1
                 week_num = 1

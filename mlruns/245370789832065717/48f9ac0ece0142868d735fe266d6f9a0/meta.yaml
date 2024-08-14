@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/48f9ac0ece0142868d735fe266d6f9a0/artifacts
+end_time: 1723560759122
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 48f9ac0ece0142868d735fe266d6f9a0
+run_name: redolent-lark-369
+run_uuid: 48f9ac0ece0142868d735fe266d6f9a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560759035
+status: 3
+tags: []
+user_id: lisaschweinester

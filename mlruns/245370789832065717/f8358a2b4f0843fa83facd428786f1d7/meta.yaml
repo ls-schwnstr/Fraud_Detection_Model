@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f8358a2b4f0843fa83facd428786f1d7/artifacts
+end_time: 1723560738947
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f8358a2b4f0843fa83facd428786f1d7
+run_name: sneaky-goat-317
+run_uuid: f8358a2b4f0843fa83facd428786f1d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560738916
+status: 3
+tags: []
+user_id: lisaschweinester

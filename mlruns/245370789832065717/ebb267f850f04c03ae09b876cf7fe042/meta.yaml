@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ebb267f850f04c03ae09b876cf7fe042/artifacts
+end_time: 1723560766614
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ebb267f850f04c03ae09b876cf7fe042
+run_name: indecisive-shark-619
+run_uuid: ebb267f850f04c03ae09b876cf7fe042
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560766581
+status: 3
+tags: []
+user_id: lisaschweinester

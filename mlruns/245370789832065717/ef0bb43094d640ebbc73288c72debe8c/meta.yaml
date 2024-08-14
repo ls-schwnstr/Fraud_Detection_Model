@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ef0bb43094d640ebbc73288c72debe8c/artifacts
+end_time: 1723560708731
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ef0bb43094d640ebbc73288c72debe8c
+run_name: intrigued-owl-640
+run_uuid: ef0bb43094d640ebbc73288c72debe8c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560708699
+status: 3
+tags: []
+user_id: lisaschweinester

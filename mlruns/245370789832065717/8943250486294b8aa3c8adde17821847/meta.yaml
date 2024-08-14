@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8943250486294b8aa3c8adde17821847/artifacts
+end_time: 1723560714643
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8943250486294b8aa3c8adde17821847
+run_name: intrigued-sponge-44
+run_uuid: 8943250486294b8aa3c8adde17821847
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560714613
+status: 3
+tags: []
+user_id: lisaschweinester

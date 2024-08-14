@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ffdb72a97fd14cc8b912b6081f9e1eeb/artifacts
+end_time: 1723560774470
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ffdb72a97fd14cc8b912b6081f9e1eeb
+run_name: serious-wolf-60
+run_uuid: ffdb72a97fd14cc8b912b6081f9e1eeb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560771631
+status: 3
+tags: []
+user_id: lisaschweinester

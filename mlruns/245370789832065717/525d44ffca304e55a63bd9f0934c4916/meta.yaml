@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/525d44ffca304e55a63bd9f0934c4916/artifacts
+end_time: 1723560674724
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 525d44ffca304e55a63bd9f0934c4916
+run_name: dazzling-lark-286
+run_uuid: 525d44ffca304e55a63bd9f0934c4916
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723560674692
+status: 3
+tags: []
+user_id: lisaschweinester

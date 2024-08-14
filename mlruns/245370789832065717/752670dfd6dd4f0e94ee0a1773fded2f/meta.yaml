@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/752670dfd6dd4f0e94ee0a1773fded2f/artifacts
+end_time: 1723563086419
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 752670dfd6dd4f0e94ee0a1773fded2f
+run_name: glamorous-grouse-366
+run_uuid: 752670dfd6dd4f0e94ee0a1773fded2f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723563086377
+status: 3
+tags: []
+user_id: lisaschweinester
