@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e14bb0b2a6074e64bee253fa8d71d7f4/artifacts
+end_time: 1723615502113
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e14bb0b2a6074e64bee253fa8d71d7f4
+run_name: valuable-hog-290
+run_uuid: e14bb0b2a6074e64bee253fa8d71d7f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615502047
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/36594cf14565461ba6d534ae4395b7a1/artifacts
+end_time: 1723615545537
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 36594cf14565461ba6d534ae4395b7a1
+run_name: big-goat-556
+run_uuid: 36594cf14565461ba6d534ae4395b7a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615545503
+status: 3
+tags: []
+user_id: lisaschweinester

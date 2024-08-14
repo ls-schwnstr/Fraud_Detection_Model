@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/45f15137384f4985869d78e99e9e4582/artifacts
+end_time: 1723615460290
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 45f15137384f4985869d78e99e9e4582
+run_name: gifted-worm-779
+run_uuid: 45f15137384f4985869d78e99e9e4582
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615458034
+status: 3
+tags: []
+user_id: lisaschweinester

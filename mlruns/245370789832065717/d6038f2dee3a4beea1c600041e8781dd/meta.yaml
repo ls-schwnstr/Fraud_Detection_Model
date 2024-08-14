@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d6038f2dee3a4beea1c600041e8781dd/artifacts
+end_time: 1723615555952
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d6038f2dee3a4beea1c600041e8781dd
+run_name: bald-sheep-193
+run_uuid: d6038f2dee3a4beea1c600041e8781dd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615553179
+status: 3
+tags: []
+user_id: lisaschweinester

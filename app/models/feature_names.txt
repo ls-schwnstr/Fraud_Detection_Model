@@ -2,9 +2,9 @@ step
 amount
 newbalanceOrig
 newbalanceDest
-type_CASH_OUT
+type_DEBIT
 type_PAYMENT
 oldbalanceOrg
 oldbalanceDest
-type_DEBIT
+type_CASH_OUT
 type_TRANSFER

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d7ff36abbc15475e9ad3639c5435ef1b/artifacts
+end_time: 1723615527605
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d7ff36abbc15475e9ad3639c5435ef1b
+run_name: rebellious-owl-622
+run_uuid: d7ff36abbc15475e9ad3639c5435ef1b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615527569
+status: 3
+tags: []
+user_id: lisaschweinester

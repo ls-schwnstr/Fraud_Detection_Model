@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d93594e703034fbe98335ebdd1cea46d/artifacts
+end_time: 1723615514598
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d93594e703034fbe98335ebdd1cea46d
+run_name: welcoming-ant-713
+run_uuid: d93594e703034fbe98335ebdd1cea46d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615514560
+status: 3
+tags: []
+user_id: lisaschweinester

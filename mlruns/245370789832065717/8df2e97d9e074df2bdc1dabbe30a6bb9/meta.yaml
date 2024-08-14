@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8df2e97d9e074df2bdc1dabbe30a6bb9/artifacts
+end_time: 1723615505615
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8df2e97d9e074df2bdc1dabbe30a6bb9
+run_name: inquisitive-carp-664
+run_uuid: 8df2e97d9e074df2bdc1dabbe30a6bb9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615503168
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6762230d756641fbb5f7200d00dda257/artifacts
+end_time: 1723615520861
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6762230d756641fbb5f7200d00dda257
+run_name: bold-tern-317
+run_uuid: 6762230d756641fbb5f7200d00dda257
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615520825
+status: 3
+tags: []
+user_id: lisaschweinester

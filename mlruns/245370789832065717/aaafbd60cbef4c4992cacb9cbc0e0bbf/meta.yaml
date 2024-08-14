@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/aaafbd60cbef4c4992cacb9cbc0e0bbf/artifacts
+end_time: 1723615454271
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: aaafbd60cbef4c4992cacb9cbc0e0bbf
+run_name: gaudy-hare-678
+run_uuid: aaafbd60cbef4c4992cacb9cbc0e0bbf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615454235
+status: 3
+tags: []
+user_id: lisaschweinester

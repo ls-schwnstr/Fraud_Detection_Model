@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/dcae400be238471892f8013a4e240f60/artifacts
+end_time: 1723615512626
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: dcae400be238471892f8013a4e240f60
+run_name: luxuriant-gull-155
+run_uuid: dcae400be238471892f8013a4e240f60
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615509981
+status: 3
+tags: []
+user_id: lisaschweinester

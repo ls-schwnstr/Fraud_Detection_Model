@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/800967810f0d45f0ac51649acea6d552/artifacts
+end_time: 1723615500545
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 800967810f0d45f0ac51649acea6d552
+run_name: masked-lynx-361
+run_uuid: 800967810f0d45f0ac51649acea6d552
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615500499
+status: 3
+tags: []
+user_id: lisaschweinester

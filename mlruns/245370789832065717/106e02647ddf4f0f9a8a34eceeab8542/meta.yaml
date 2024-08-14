@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/106e02647ddf4f0f9a8a34eceeab8542/artifacts
+end_time: 1723615507707
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 106e02647ddf4f0f9a8a34eceeab8542
+run_name: worried-grouse-26
+run_uuid: 106e02647ddf4f0f9a8a34eceeab8542
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615507669
+status: 3
+tags: []
+user_id: lisaschweinester

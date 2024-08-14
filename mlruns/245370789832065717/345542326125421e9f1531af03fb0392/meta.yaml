@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/345542326125421e9f1531af03fb0392/artifacts
+end_time: 1723615562403
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 345542326125421e9f1531af03fb0392
+run_name: silent-fly-983
+run_uuid: 345542326125421e9f1531af03fb0392
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615562364
+status: 3
+tags: []
+user_id: lisaschweinester

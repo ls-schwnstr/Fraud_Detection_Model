@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9542cfcb8bca42ff888de81bfd43e0c9/artifacts
+end_time: 1723615537198
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9542cfcb8bca42ff888de81bfd43e0c9
+run_name: unequaled-loon-589
+run_uuid: 9542cfcb8bca42ff888de81bfd43e0c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615537162
+status: 3
+tags: []
+user_id: lisaschweinester

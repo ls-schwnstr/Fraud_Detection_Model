@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6457844d86ee473c8bb12fcab2b5b10a/artifacts
+end_time: 1723615520394
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6457844d86ee473c8bb12fcab2b5b10a
+run_name: youthful-gnat-941
+run_uuid: 6457844d86ee473c8bb12fcab2b5b10a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615517346
+status: 3
+tags: []
+user_id: lisaschweinester

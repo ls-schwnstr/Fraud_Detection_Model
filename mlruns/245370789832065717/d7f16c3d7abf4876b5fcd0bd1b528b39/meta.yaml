@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d7f16c3d7abf4876b5fcd0bd1b528b39/artifacts
+end_time: 1723615491670
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d7f16c3d7abf4876b5fcd0bd1b528b39
+run_name: sincere-dove-887
+run_uuid: d7f16c3d7abf4876b5fcd0bd1b528b39
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615491636
+status: 3
+tags: []
+user_id: lisaschweinester

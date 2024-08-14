@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/5e4fd14211cd41d9acdbbd2b01a69135/artifacts
+end_time: 1723615551090
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 5e4fd14211cd41d9acdbbd2b01a69135
+run_name: bold-gnu-68
+run_uuid: 5e4fd14211cd41d9acdbbd2b01a69135
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615551041
+status: 3
+tags: []
+user_id: lisaschweinester

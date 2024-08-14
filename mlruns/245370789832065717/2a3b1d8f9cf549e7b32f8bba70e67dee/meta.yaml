@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2a3b1d8f9cf549e7b32f8bba70e67dee/artifacts
+end_time: 1723615568751
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2a3b1d8f9cf549e7b32f8bba70e67dee
+run_name: overjoyed-gull-969
+run_uuid: 2a3b1d8f9cf549e7b32f8bba70e67dee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615568717
+status: 3
+tags: []
+user_id: lisaschweinester

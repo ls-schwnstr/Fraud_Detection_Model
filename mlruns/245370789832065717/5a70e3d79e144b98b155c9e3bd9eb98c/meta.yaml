@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/5a70e3d79e144b98b155c9e3bd9eb98c/artifacts
+end_time: 1723615493038
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 5a70e3d79e144b98b155c9e3bd9eb98c
+run_name: respected-donkey-951
+run_uuid: 5a70e3d79e144b98b155c9e3bd9eb98c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615493005
+status: 3
+tags: []
+user_id: lisaschweinester

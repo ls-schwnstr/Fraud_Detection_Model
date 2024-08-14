@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c97d7ead0cfe451f8f0a1aabbdca9271/artifacts
+end_time: 1723615474362
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c97d7ead0cfe451f8f0a1aabbdca9271
+run_name: languid-moose-408
+run_uuid: c97d7ead0cfe451f8f0a1aabbdca9271
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615474326
+status: 3
+tags: []
+user_id: lisaschweinester

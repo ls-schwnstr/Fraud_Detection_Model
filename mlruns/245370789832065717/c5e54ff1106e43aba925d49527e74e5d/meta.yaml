@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c5e54ff1106e43aba925d49527e74e5d/artifacts
+end_time: 1723615457134
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c5e54ff1106e43aba925d49527e74e5d
+run_name: legendary-vole-696
+run_uuid: c5e54ff1106e43aba925d49527e74e5d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615457096
+status: 3
+tags: []
+user_id: lisaschweinester

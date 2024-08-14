@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/56e68c1d639b48b495e0fdecb2960339/artifacts
+end_time: 1723615463400
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 56e68c1d639b48b495e0fdecb2960339
+run_name: burly-gull-351
+run_uuid: 56e68c1d639b48b495e0fdecb2960339
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723615463369
+status: 3
+tags: []
+user_id: lisaschweinester
