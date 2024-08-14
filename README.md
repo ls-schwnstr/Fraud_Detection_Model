@@ -35,8 +35,8 @@ This project aims to build a scalable fraud detection system that monitors trans
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your_username/fraud-detection.git
-cd fraud-detection
+git clone https://github.com/your_username/Fraud_Detection_Model.git
+cd Fraud_Detection_Model
 ```
 
 ### Set Up the Environment Variables
@@ -47,7 +47,6 @@ PASSWORD=your_password
 PAT_TOKEN=your_token
 REPO_OWNER=your_ownername
 REPO_NAME=your_reponame
-DB_NAME=fraud_detection_db
 ```
 
 ### Install Dependencies
