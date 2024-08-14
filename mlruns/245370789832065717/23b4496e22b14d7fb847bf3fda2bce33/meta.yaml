@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/23b4496e22b14d7fb847bf3fda2bce33/artifacts
+end_time: 1723603816834
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 23b4496e22b14d7fb847bf3fda2bce33
+run_name: blushing-bass-777
+run_uuid: 23b4496e22b14d7fb847bf3fda2bce33
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723603816787
+status: 3
+tags: []
+user_id: lisaschweinester

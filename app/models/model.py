@@ -62,8 +62,6 @@ def train_model(timestamp=None, retraining_type=None):
     # Save feature names
     feature_names = X.columns.tolist()
 
-    print("feature names retrieved")
-
     # Path to feature names file
     feature_names_path = get_feature_names_path()
 
@@ -71,8 +69,6 @@ def train_model(timestamp=None, retraining_type=None):
     with open(feature_names_path, 'w') as f:
         for name in feature_names:
             f.write(f"{name}\n")
-
-    print("feature names saved")
 
     smote = SMOTE(random_state=42)
     x_resampled, y_resampled = smote.fit_resample(X, y)

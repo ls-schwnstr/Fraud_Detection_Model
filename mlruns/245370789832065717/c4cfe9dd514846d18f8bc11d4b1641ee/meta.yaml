@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c4cfe9dd514846d18f8bc11d4b1641ee/artifacts
+end_time: 1723602661995
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c4cfe9dd514846d18f8bc11d4b1641ee
+run_name: debonair-donkey-378
+run_uuid: c4cfe9dd514846d18f8bc11d4b1641ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723602661958
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/ba2412ee0acd48818d781241e0102888/artifacts
+end_time: 1723602655323
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: ba2412ee0acd48818d781241e0102888
+run_name: abrasive-horse-473
+run_uuid: ba2412ee0acd48818d781241e0102888
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723602655291
+status: 3
+tags: []
+user_id: lisaschweinester

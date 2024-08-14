@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/1b8a6c721bd94d0799d2b8554517b998/artifacts
+end_time: 1723604755310
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 1b8a6c721bd94d0799d2b8554517b998
+run_name: learned-fowl-19
+run_uuid: 1b8a6c721bd94d0799d2b8554517b998
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723604755269
+status: 3
+tags: []
+user_id: lisaschweinester

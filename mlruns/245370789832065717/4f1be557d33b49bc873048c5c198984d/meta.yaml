@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/4f1be557d33b49bc873048c5c198984d/artifacts
+end_time: 1723608076029
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 4f1be557d33b49bc873048c5c198984d
+run_name: nebulous-mink-65
+run_uuid: 4f1be557d33b49bc873048c5c198984d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723608075995
+status: 3
+tags: []
+user_id: lisaschweinester

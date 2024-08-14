@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/dc8f60f9a57d44978f47bcc36eb92d3c/artifacts
+end_time: 1723602651399
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: dc8f60f9a57d44978f47bcc36eb92d3c
+run_name: abundant-fawn-914
+run_uuid: dc8f60f9a57d44978f47bcc36eb92d3c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723602647950
+status: 3
+tags: []
+user_id: lisaschweinester

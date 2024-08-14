@@ -67,9 +67,6 @@ class TestRetraining(unittest.TestCase):
 
         response = cls.client.post('/', data=data, query_string=query_string, follow_redirects=True)
 
-        print(f"Login response status code: {response.status_code}")
-        print(f"Login response data: {response.data.decode('utf-8')}")
-
     @classmethod
     def dashboard(cls, input_data, timestamp=None):
         payload = {'timestamp': timestamp.isoformat()} if timestamp else {}
@@ -87,7 +84,6 @@ class TestRetraining(unittest.TestCase):
 
     def wait_for_training_to_complete(self):
         import time
-        print("Waiting for model training to complete...")
         while True:
             response = self.client.get('/check-training-status')
             status = response.json.get('status', '')
@@ -142,13 +138,13 @@ class TestRetraining(unittest.TestCase):
         drift_dates = set()
         last_week = None
         last_week_year = None
+        retraining_counter = 0  # Counter to track weeks for retraining
 
         # Authenticate the user and pass the timestamp
         self.authenticate(timestamp=start_date)
 
         # Wait for training to complete before inserting data
         if not os.path.isfile(model_path):
-            print("model path", model_path)
             self.wait_for_training_to_complete()
         else:
             print("Model already exists. Skipping training.")
@@ -173,14 +169,15 @@ class TestRetraining(unittest.TestCase):
                     last_week = week_num
                     last_week_year = week_year
 
-            # Check if it's the first of the month to trigger retraining
-            if current_date.day == 1:
+            # Trigger retraining every third week
+            if retraining_counter % 3 == 0 and current_date.weekday() == 0:
                 print(f"Triggering retraining for {current_date.strftime('%Y-%m-%d')}")
-                train_model(timestamp=current_date, retraining_type='monthly')  # Pass the simulated timestamp
+                train_model(timestamp=current_date, retraining_type='biweekly')  # Pass the simulated timestamp
                 retraining_dates.add(current_date.date())
 
             # Move to the next day
             current_date += timedelta(days=1)
+            retraining_counter += 1
 
         # Ensure the last week is included if it spans into the next year
         last_day_of_year = datetime(2026, 12, 31)
@@ -189,13 +186,12 @@ class TestRetraining(unittest.TestCase):
             last_week_year += 1
             last_week_num = 1
         if last_week_num != last_week:
-            print(f"Inserting data for the last week of Year {last_week_year}")
             self.insert_data(df, last_week_num, timestamp=last_day_of_year)
             drift_dates.add(current_date.date())  # Log the date for drift checks
 
         # Check if retraining logs are correctly recorded
-        all_dates = {datetime(2026, m, 1).date() for m in range(1, 13)}
-        self.check_retraining_logs(all_dates, 'monthly')
+        all_dates = {start_date + timedelta(weeks=3 * i) for i in range((end_date - start_date).days // 7 + 1)}
+        self.check_retraining_logs(all_dates, 'biweekly')
 
         # Check if data drift logs are correctly recorded
         self.check_retraining_logs(drift_dates, 'data_drift')

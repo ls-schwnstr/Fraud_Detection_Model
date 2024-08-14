@@ -27,14 +27,11 @@ def background_train(timestamp=None):
     training_status['status'] = 'in_progress'
     try:
         db_session = get_session()
-        print("Starting model training...")
         new_data = pd.read_csv(file_path, delimiter=';', nrows=1000)
         processed_data = preprocess_data_for_training(new_data)
-        print("Preprocessed data succesfully")
 
         # Save Fraud.csv to predictions table
         add_predicted_data(db_session, processed_data, timestamp=timestamp)
-        print("Added preprocessed data sucessfully")
 
         run_id = train_model(timestamp=timestamp, retraining_type='monthly')
         print(f'Training complete with run_id: {run_id}')
@@ -125,13 +122,8 @@ def dashboard():
                     timestamp = request.args.get('timestamp')
                     if timestamp:
                         timestamp = datetime.fromisoformat(timestamp)
-                        print(f"Received timestamp in /dashboard route: {timestamp}")
                     else:
                         timestamp = datetime.now()
-                        print(f"No timestamp provided in /dashboard route. Using current timestamp: {timestamp}")
-
-                    # Print the input data for debugging
-                    print(f"Received input data: {input_data}")
 
                     # Add data to database
                     add_raw_data(db_session, input_data, timestamp)
@@ -143,12 +135,8 @@ def dashboard():
                     raw_data_dict = {column.name: getattr(raw_data_entry, column.name)
                                      for column in raw_data_entry.__table__.columns}
 
-                    # Print the retrieved raw data for debugging
-                    print(f"Retrieved raw data: {raw_data_dict}")
-
                     # Convert to DataFrame
                     raw_data_df = pd.DataFrame([raw_data_dict])
-                    print(f"Retrieved raw data DataFrame: {raw_data_df}")
 
                     # Process the data
                     processed_data_df = preprocess_input_data(raw_data_df)
@@ -165,7 +153,6 @@ def dashboard():
                     return redirect(url_for('predict', timestamp=timestamp))
 
                 except Exception as e:
-                    print(f"An error occurred: {str(e)}")
                     return f"An error occurred: {str(e)}", 500
 
             return render_template('dashboard.html')
@@ -188,13 +175,9 @@ def predict():
     timestamp = request.args.get('timestamp')
     if timestamp:
         timestamp = datetime.fromisoformat(timestamp)
-        print(f"Received timestamp in /predict route: {timestamp}")
     else:
         timestamp = datetime.now()
-        print(f"No timestamp provided for /predict. Using current timestamp: {timestamp}")
     try:
-        print("Received prediction request")
-
         # Retrieve the latest processed data entry
         processed_data_df = get_latest_processed_data(db_session)
 

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/1d9e96095b49492d9f2722017b904f7a/artifacts
+end_time: 1723604097859
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 1d9e96095b49492d9f2722017b904f7a
+run_name: enthused-foal-816
+run_uuid: 1d9e96095b49492d9f2722017b904f7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723604097820
+status: 3
+tags: []
+user_id: lisaschweinester

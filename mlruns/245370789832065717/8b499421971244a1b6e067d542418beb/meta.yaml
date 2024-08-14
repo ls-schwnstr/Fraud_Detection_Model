@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8b499421971244a1b6e067d542418beb/artifacts
+end_time: 1723602665985
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8b499421971244a1b6e067d542418beb
+run_name: welcoming-fawn-16
+run_uuid: 8b499421971244a1b6e067d542418beb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723602665947
+status: 3
+tags: []
+user_id: lisaschweinester

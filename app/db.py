@@ -76,14 +76,6 @@ class RetrainingLog(Base):
     retraining_type = Column(String, nullable=False)
     run_id = Column(String, nullable=False)
 
-    #def __init__(self, retraining_timestamp=None):
-     #   # Call the superclass constructor
-      #  super(RetrainingLog, self).__init__()
-       # if retraining_timestamp is None:
-        #    retraining_timestamp = datetime.utcnow()
-        #self.retraining_timestamp = retraining_timestamp
-
-
 
 # Create the table
 Base.metadata.create_all(engine)
@@ -174,13 +166,10 @@ def add_predicted_data(session, data, timestamp=None):
     try:
         # Convert data to a DataFrame if it's a dictionary
         if isinstance(data, dict):
-            print("it is a dictionary")
             data = pd.DataFrame([data])
 
         # Check if data is a DataFrame
         if isinstance(data, pd.DataFrame):
-            print(data.head())
-            print("it is a dataframe")
             for index, row in data.iterrows():
 
                 # Prepare the timestamp
@@ -206,7 +195,6 @@ def add_predicted_data(session, data, timestamp=None):
             raise ValueError("Unsupported data format")
 
         session.commit()
-        print("Predicted data added successfully.")
     except Exception as e:
         print(f"Error adding predicted data: {e}")
         session.rollback()
@@ -234,14 +222,10 @@ def add_retraining_log(session, timestamp, retraining_type, run_id):
 def get_predicted_data(session):
     """Retrieve the data from the predictions table."""
     try:
-        print("trying to retrieve data from prediction table")
         results = session.query(Prediction).all()
-
-        print("data retrieved")
 
         # Convert SQLAlchemy results to a DataFrame
         data_df = pd.DataFrame([r.__dict__ for r in results])
-        print("Data retrieved and converted successfully.")
 
         # Drop SQLAlchemy metadata column if it exists
         if '_sa_instance_state' in data_df.columns:
@@ -255,7 +239,6 @@ def get_predicted_data(session):
 
 
 def get_reference_data(session):
-    print("get reference data")
     last_retraining = session.query(RetrainingLog).order_by(desc(RetrainingLog.retraining_timestamp)).first()
     if not last_retraining:
         print("no retraining so far")

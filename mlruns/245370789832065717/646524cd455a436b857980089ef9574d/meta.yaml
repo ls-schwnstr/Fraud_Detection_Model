@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/646524cd455a436b857980089ef9574d/artifacts
+end_time: 1723605521103
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 646524cd455a436b857980089ef9574d
+run_name: burly-bird-686
+run_uuid: 646524cd455a436b857980089ef9574d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723605521061
+status: 3
+tags: []
+user_id: lisaschweinester

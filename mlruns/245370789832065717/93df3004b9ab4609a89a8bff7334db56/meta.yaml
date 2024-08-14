@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/93df3004b9ab4609a89a8bff7334db56/artifacts
+end_time: 1723602661385
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 93df3004b9ab4609a89a8bff7334db56
+run_name: caring-mule-669
+run_uuid: 93df3004b9ab4609a89a8bff7334db56
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723602661172
+status: 3
+tags: []
+user_id: lisaschweinester
