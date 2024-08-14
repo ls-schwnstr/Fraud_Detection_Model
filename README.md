@@ -38,6 +38,8 @@ This project aims to build a scalable fraud detection system that monitors trans
 git clone https://github.com/your_username/Fraud_Detection_Model.git
 cd Fraud_Detection_Model
 ```
+### Set Up a Tpken
+To trigger the workflows, you need to set up a Token (in this case called "PAT_TOKEN") for the repository.
 
 ### Set Up the Environment Variables
 
