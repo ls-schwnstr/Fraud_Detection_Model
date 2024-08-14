@@ -105,10 +105,6 @@ To manually insert data over the flask api, run run.py and open
   - **Method:** GET, POST
   - **Description:** Allows users to upload new data and get predictions.
 
-- **/check-training-status**
-  - **Method:** GET
-  - **Description:** Checks the current status of model training.
-
 ### Data Drift Detection and Retraining
 
 The project includes a mechanism for detecting data drift. The following methods are used:
