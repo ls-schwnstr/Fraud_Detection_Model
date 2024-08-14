@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/2add2a250f9a4f7885403610613b600c/artifacts
+end_time: 1723601796339
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 2add2a250f9a4f7885403610613b600c
+run_name: luxuriant-fox-272
+run_uuid: 2add2a250f9a4f7885403610613b600c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723601796303
+status: 3
+tags: []
+user_id: lisaschweinester

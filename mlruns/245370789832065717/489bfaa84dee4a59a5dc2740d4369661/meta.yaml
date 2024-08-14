@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/489bfaa84dee4a59a5dc2740d4369661/artifacts
+end_time: 1723601803909
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 489bfaa84dee4a59a5dc2740d4369661
+run_name: sneaky-ram-577
+run_uuid: 489bfaa84dee4a59a5dc2740d4369661
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723601801566
+status: 4
+tags: []
+user_id: lisaschweinester

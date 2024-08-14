@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/d318a3ecbd4f4c8da17fd453834e4d61/artifacts
+end_time: 1723601795854
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: d318a3ecbd4f4c8da17fd453834e4d61
+run_name: glamorous-jay-243
+run_uuid: d318a3ecbd4f4c8da17fd453834e4d61
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723601791349
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/3b496247855b4257b73d5340ce24e92b/artifacts
+end_time: 1723601800347
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 3b496247855b4257b73d5340ce24e92b
+run_name: suave-asp-50
+run_uuid: 3b496247855b4257b73d5340ce24e92b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723601800315
+status: 3
+tags: []
+user_id: lisaschweinester

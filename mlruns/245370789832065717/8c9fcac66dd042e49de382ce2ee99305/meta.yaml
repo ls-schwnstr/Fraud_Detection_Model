@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/8c9fcac66dd042e49de382ce2ee99305/artifacts
+end_time: 1723601797825
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 8c9fcac66dd042e49de382ce2ee99305
+run_name: sincere-carp-698
+run_uuid: 8c9fcac66dd042e49de382ce2ee99305
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723601797793
+status: 3
+tags: []
+user_id: lisaschweinester

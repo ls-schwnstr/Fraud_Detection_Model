@@ -8,12 +8,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.db import get_reference_data, get_new_data, get_session
 from app.models.model import train_model
-import os
 
-# Database setup
-db_password = os.getenv('DB_PASSWORD')
-db_path = f'mssql+pyodbc://adminuser:{db_password}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
+
+# Database & MLFlow setup
 mlflow.set_tracking_uri("http://localhost:5004")
+db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
+           '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 session = get_session()
 
 

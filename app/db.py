@@ -1,17 +1,14 @@
 from datetime import timezone, datetime
 import sqlalchemy
 from sqlalchemy import DateTime, func, create_engine, Column, Integer, Float, String, desc
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 import pandas as pd
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
-# Load credentials from environment variables
-db_password = os.getenv('DB_PASSWORD')
-
 # Database setup
-DATABASE_URL = f"mssql+pyodbc://adminuser:{db_password}@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server"
+DATABASE_URL = db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
+                          '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 engine = create_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 

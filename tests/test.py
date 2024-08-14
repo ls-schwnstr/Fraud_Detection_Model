@@ -9,12 +9,11 @@ import os
 from app.models.model import train_model
 
 
-mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')  # Updated port
+mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')
 mlflow.set_tracking_uri(mlflow_tracking_uri)
 mlflow.set_experiment('test')
-db_password = os.getenv('DB_PASSWORD')
 
-db_path = (f'mssql+pyodbc://adminuser:{db_password}@fraud-detection-server.database.windows.net:1433'
+db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
            '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app', 'models', 'model.pkl'))
 
