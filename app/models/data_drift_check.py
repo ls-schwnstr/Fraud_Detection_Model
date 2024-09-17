@@ -9,13 +9,11 @@ from sqlalchemy.orm import sessionmaker
 from app.db import get_reference_data, get_new_data, get_session
 from app.models.model import train_model
 
-
 # Database & MLFlow setup
-mlflow.set_tracking_uri("azure_blob://fraud.blob.core.windows.net/containerfraud?sp=racw&st=2024-09-17T16:39:30Z&se=2024-09-18T00:39:30Z&sv=2022-11-02&sr=c&sig=r6clHemk6yyU%2BiNM2f6nJs6T%2FzxFMUx4uZBkKIaHWq8%3D")
+mlflow.set_tracking_uri("http://localhost:5004")
 db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
            '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 session = get_session()
-
 
 
 def calculate_descriptive_statistics(data):

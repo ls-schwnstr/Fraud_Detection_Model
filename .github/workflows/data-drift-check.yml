@@ -62,7 +62,3 @@ jobs:
       run: |
         python app/models/data_drift_check.py "${{ github.event.inputs.timestamp }}" "${{ github.event.inputs.db_connection_url }}"
 
-    - name: Clean up artifacts
-      run: |
-        mkdir -p ${{ github.workspace }}/mlruns/cleaned
-        cp -r ${{ github.workspace }}/mlruns/artifacts/my_model ${{ github.workspace }}/mlruns/cleaned  # Adjust this to copy only needed files
