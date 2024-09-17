@@ -13,20 +13,19 @@
         .message {
             font-size: 1.5em;
             margin: 20px 0;
-            color: red;
         }
     </style>
     <script>
-        // Automatically redirect to the dashboard after 10 seconds (or adjust as needed)
+        // Automatically redirect to the dashboard after 5 seconds
         setTimeout(function() {
             window.location.href = "{{ url_for('dashboard') }}";
-        }, 10000); // 10 seconds
+        }, 5000); // 10 seconds
     </script>
 </head>
 <body>
     <h1>Retraining Complete</h1>
     <div class="message">
-        "You will be redirected to the dashboard."
+        You will be redirected to the dashboard.
     </div>
 </body>
 </html>

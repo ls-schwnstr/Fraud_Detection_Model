@@ -24,7 +24,7 @@
 </head>
 <body>
     <h1>Prediction Result</h1>
-    <br class="message">
+    <div class="message">
         {% if prediction == 0 %}
             The transaction is not a fraud.
         {% elif prediction == 1 %}
@@ -32,7 +32,9 @@
         {% else %}
             Prediction result is unclear.
         {% endif %}
-    <br class="message">
+    </div>
+    <div class="message">
         Please wait while the model is being retrained. You will be redirected shortly.
+        </div>
 </body>
 </html>
