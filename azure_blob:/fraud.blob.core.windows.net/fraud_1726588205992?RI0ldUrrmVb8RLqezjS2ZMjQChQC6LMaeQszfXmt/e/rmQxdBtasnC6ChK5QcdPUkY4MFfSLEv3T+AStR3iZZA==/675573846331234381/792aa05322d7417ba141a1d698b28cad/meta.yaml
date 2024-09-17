@@ -1,0 +1,15 @@
+artifact_uri: /Users/lisaschweinester/PycharmProjects/From_Model_To_Production2/azure_blob:/fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA==/675573846331234381/792aa05322d7417ba141a1d698b28cad/artifacts
+end_time: 1726589446449
+entry_point_name: ''
+experiment_id: '675573846331234381'
+lifecycle_stage: active
+run_id: 792aa05322d7417ba141a1d698b28cad
+run_name: bright-squirrel-506
+run_uuid: 792aa05322d7417ba141a1d698b28cad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726589446436
+status: 3
+tags: []
+user_id: lisaschweinester

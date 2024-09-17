@@ -1,0 +1,15 @@
+artifact_uri: /Users/lisaschweinester/PycharmProjects/From_Model_To_Production2/azure_blob:/fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA==/675573846331234381/f5237caac8f345abb4a101011b03aa44/artifacts
+end_time: 1726589571820
+entry_point_name: ''
+experiment_id: '675573846331234381'
+lifecycle_stage: active
+run_id: f5237caac8f345abb4a101011b03aa44
+run_name: shivering-pig-453
+run_uuid: f5237caac8f345abb4a101011b03aa44
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726589571808
+status: 3
+tags: []
+user_id: lisaschweinester
