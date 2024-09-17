@@ -131,8 +131,8 @@ class TestRetraining(unittest.TestCase):
 
     def test_retraining(self):
         df = generate_simulated_data()
-        start_date = datetime(2020, 1, 1)  # Start on January 1st, 2020
-        end_date = datetime(2020, 12, 31)  # End on December 31st, 2020
+        start_date = datetime(2021, 1, 1)  # Start on January 1st, 2021
+        end_date = datetime(2021, 12, 31)  # End on December 31st, 2021
 
         retraining_dates = set()  # To keep track of dates when retraining is triggered
         drift_dates = set()
@@ -181,7 +181,7 @@ class TestRetraining(unittest.TestCase):
             current_date += timedelta(days=1)
 
         # Ensure the last week is included if it spans into the next year
-        last_day_of_year = datetime(2026, 12, 31)
+        last_day_of_year = datetime(2021, 12, 31)
         last_week_num = last_day_of_year.isocalendar()[1]
         if last_week_num == 53:
             last_week_year += 1
@@ -191,7 +191,7 @@ class TestRetraining(unittest.TestCase):
             drift_dates.add(current_date.date())  # Log the date for drift checks
 
         # Check if retraining logs are correctly recorded
-        all_dates = {datetime(2026, m, 1).date() for m in range(1, 13)}
+        all_dates = {datetime(2021, m, 1).date() for m in range(1, 13)}
         self.check_retraining_logs(all_dates, 'monthly')
 
         # Check if data drift logs are correctly recorded

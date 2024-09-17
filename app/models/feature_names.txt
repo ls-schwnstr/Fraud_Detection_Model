@@ -1,6 +1,6 @@
+newbalanceOrig
 step
 amount
-newbalanceOrig
 oldbalanceDest
 type_CASH_OUT
 type_PAYMENT
