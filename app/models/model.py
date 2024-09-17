@@ -93,6 +93,9 @@ def train_model(timestamp=None, retraining_type=None):
         print("False Negatives: ", fn)
         print("True Positives:", tp)
 
+        # Print MLflow tracking URI
+        print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
+
         # Log parameters, metrics, and the model
         mlflow.log_param('model_type', 'RandomForest')
         mlflow.log_metric('True Negatives', tn)
@@ -103,6 +106,7 @@ def train_model(timestamp=None, retraining_type=None):
         mlflow.log_metric('recall', classification_report(y_test, y_pred, output_dict=True)['1']['recall'])
         mlflow.log_metric('f1-score', classification_report(y_test, y_pred, output_dict=True)['1']['f1-score'])
 
+        print("parameters logged")
         # Log the model without sanitizing signature
         mlflow.sklearn.log_model(model, 'model')
 
