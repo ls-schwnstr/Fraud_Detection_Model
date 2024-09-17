@@ -12,14 +12,13 @@ on:
         required: true
         default: 'mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
 
+
 jobs:
   check-data-drift:
     runs-on: ubuntu-latest
 
     env:
       PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-      MLFLOW_TRACKING_URI: http://localhost:5004
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -34,12 +33,36 @@ jobs:
         sudo apt-get install -y unixodbc-dev
         pip install -r requirements.txt
 
+    - name: Set up environment variables
+      run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+
+    - name: Run MLflow
+      run: |
+        mkdir -p ${{ github.workspace }}/mlruns
+        nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5004 > ${{ github.workspace }}/mlruns/mlflow.log 2>&1 &
+      env:
+        MLFLOW_TRACKING_URI: http://localhost:5004
+
+    - name: Wait for MLflow server to be ready
+      run: |
+        for i in {1..10}; do
+          if curl -s -o /dev/null -w "%{http_code}" http://localhost:5004/ | grep -q "200"; then
+            echo "MLflow server is up and running"
+            break
+          fi
+          echo "Waiting for MLflow server to start ..."
+          sleep 5
+        done
+
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+
+
     - name: Run data drift check
       run: |
         python app/models/data_drift_check.py "${{ github.event.inputs.timestamp }}" "${{ github.event.inputs.db_connection_url }}"
 
-    - name: Upload MLflow artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: mlflow-artifacts
-        path: ${{ github.workspace }}/mlruns/
+    - name: Clean up artifacts
+      run: |
+        mkdir -p ${{ github.workspace }}/mlruns/cleaned
+        cp -r ${{ github.workspace }}/mlruns/artifacts/my_model ${{ github.workspace }}/mlruns/cleaned  # Adjust this to copy only needed files
