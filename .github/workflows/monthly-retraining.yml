@@ -24,19 +24,19 @@ jobs:
           pip install -r requirements.txt
 
       - name: Set up environment variables
-        run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+        run: echo "MLFLOW_TRACKING_URI=azure_blob://fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA==" >> $GITHUB_ENV
 
       - name: Run MLflow
         run: |
           mkdir -p ${{ github.workspace }}/mlruns
           nohup mlflow server --backend-store-uri sqlite:///${{ github.workspace }}/mlruns/mlflow.db --default-artifact-root=${{ github.workspace }}/mlruns/artifacts --host localhost --port 5004 > ${{ github.workspace }}/mlruns/mlflow.log 2>&1 &
         env:
-          MLFLOW_TRACKING_URI: http://localhost:5004
+          MLFLOW_TRACKING_URI: azure_blob://fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA==
 
       - name: Wait for MLflow server to be ready
         run: |
           for i in {1..10}; do
-            if curl -s -o /dev/null -w "%{http_code}" http://localhost:5004/ | grep -q "200"; then
+            if curl -s -o /dev/null -w "%{http_code}" azure_blob://fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA== | grep -q "200"; then
               echo "MLflow server is up and running"
               break
             fi

@@ -34,7 +34,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Set up environment variables
-      run: echo "MLFLOW_TRACKING_URI=http://localhost:5004" >> $GITHUB_ENV
+      run: echo "MLFLOW_TRACKING_URI=azure_blob://fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA==" >> $GITHUB_ENV
 
     - name: Run MLflow
       run: |

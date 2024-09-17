@@ -1,6 +1,5 @@
 import traceback
 from datetime import datetime
-import flask
 from flask import render_template, request, redirect, url_for, session as flask_session, flash, jsonify
 from app import app
 import os
