@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/lisaschweinester/PycharmProjects/From_Model_To_Production2/mlruns/635592554822949485/862ee35facaa40cb8d78bde8f4758e68/artifacts
+end_time: 1726602504367
+entry_point_name: ''
+experiment_id: '635592554822949485'
+lifecycle_stage: active
+run_id: 862ee35facaa40cb8d78bde8f4758e68
+run_name: defiant-fawn-72
+run_uuid: 862ee35facaa40cb8d78bde8f4758e68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726602502024
+status: 3
+tags: []
+user_id: lisaschweinester

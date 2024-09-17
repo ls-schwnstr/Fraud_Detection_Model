@@ -1,0 +1,15 @@
+artifact_uri: wasbs://containerfraud@fraud.blob.core.windows.net/877227582735147837/3c96931508214f3bab62911bd4add6f4/artifacts?sp=racwd&st=2024-09-17T17:14:22Z&se=2024-09-18T01:14:22Z&sv=2022-11-02&sr=c&sig=05%2FJdclrDd7Q2jN2jRj0ppo3vmEplRaLwaJ1zVc1Mi4%3D
+end_time: 1726596233540
+entry_point_name: ''
+experiment_id: '877227582735147837'
+lifecycle_stage: active
+run_id: 3c96931508214f3bab62911bd4add6f4
+run_name: traveling-moth-531
+run_uuid: 3c96931508214f3bab62911bd4add6f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726596211639
+status: 3
+tags: []
+user_id: lisaschweinester

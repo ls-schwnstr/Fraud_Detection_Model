@@ -1,0 +1,15 @@
+artifact_uri: wasbs://containerfraud@fraud.blob.core.windows.net/877227582735147837/3bbff83a9e734770a26abf924f61668c/artifacts?sp=racwd&st=2024-09-17T17:14:22Z&se=2024-09-18T01:14:22Z&sv=2022-11-02&sr=c&sig=05%2FJdclrDd7Q2jN2jRj0ppo3vmEplRaLwaJ1zVc1Mi4%3D
+end_time: 1726597065835
+entry_point_name: ''
+experiment_id: '877227582735147837'
+lifecycle_stage: active
+run_id: 3bbff83a9e734770a26abf924f61668c
+run_name: spiffy-wolf-522
+run_uuid: 3bbff83a9e734770a26abf924f61668c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726597037940
+status: 3
+tags: []
+user_id: lisaschweinester

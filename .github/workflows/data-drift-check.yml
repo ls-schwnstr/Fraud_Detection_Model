@@ -18,7 +18,7 @@ jobs:
 
     env:
       PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-      MLFLOW_TRACKING_URI: "azure_blob://fraud.blob.core.windows.net/fraud_1726588205992?RI0ldUrrmVb8RLqezjS2ZMjQChQC6LMaeQszfXmt/e/rmQxdBtasnC6ChK5QcdPUkY4MFfSLEv3T+AStR3iZZA=="
+      MLFLOW_TRACKING_URI: http://localhost:5004
 
     steps:
     - name: Checkout code

@@ -1,0 +1,15 @@
+artifact_uri: wasbs://containerfraud@fraud.blob.core.windows.net/0/810b2852983547f1b8b26869ca7fe88b/artifacts?sp=racwd&st=2024-09-17T17:14:22Z&se=2024-09-18T01:14:22Z&sv=2022-11-02&sr=c&sig=05%2FJdclrDd7Q2jN2jRj0ppo3vmEplRaLwaJ1zVc1Mi4%3D
+end_time: 1726599558446
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 810b2852983547f1b8b26869ca7fe88b
+run_name: beautiful-goat-901
+run_uuid: 810b2852983547f1b8b26869ca7fe88b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726599429736
+status: 4
+tags: []
+user_id: lisaschweinester

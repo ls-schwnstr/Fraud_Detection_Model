@@ -1,0 +1,15 @@
+artifact_uri: wasbs://containerfraud@fraud.blob.core.windows.net/0/e78cacd6553149f08ba191e28091ef69/artifacts?sp=racwd&st=2024-09-17T17:14:22Z&se=2024-09-18T01:14:22Z&sv=2022-11-02&sr=c&sig=05%2FJdclrDd7Q2jN2jRj0ppo3vmEplRaLwaJ1zVc1Mi4%3D
+end_time: 1726599867748
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e78cacd6553149f08ba191e28091ef69
+run_name: bright-croc-399
+run_uuid: e78cacd6553149f08ba191e28091ef69
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1726599742377
+status: 4
+tags: []
+user_id: lisaschweinester

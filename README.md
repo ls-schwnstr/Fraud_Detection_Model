@@ -38,7 +38,7 @@ This project aims to build a scalable fraud detection system that monitors trans
 git clone https://github.com/your_username/Fraud_Detection_Model.git
 cd Fraud_Detection_Model
 ```
-### Set Up a Tpken
+### Set Up a Token
 To trigger the workflows, you need to set up a Token (in this case called "PAT_TOKEN") for the repository.
 
 ### Set Up the Environment Variables
@@ -62,7 +62,12 @@ pip install -r requirements.txt
 Start the MLflow server by running:
 
 ```bash
-mlflow server --backend-store-uri sqlite:///mlruns/mlflow.db --default-artifact-root=mlruns/artifacts --host localhost --port 5004
+mlflow server \
+    --host 0.0.0.0 \
+    --port 5004 \
+    --backend-store-uri 'mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server' \
+    --artifacts-destination 'azure-blob://fraud.blob.core.windows.net/containerfraud?sp=racwd&st=2024-09-17T17:14:22Z&se=2024-09-18T01:14:22Z&sv=2022-11-02&sr=c&sig=05%2FJdclrDd7Q2jN2jRj0ppo3vmEplRaLwaJ1zVc1Mi4%3D'
+
 ```
 You can view local experiments at http://localhost:5004 and check the MLflow artifacts in the GitHub Actions workflows.
 

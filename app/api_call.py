@@ -10,7 +10,7 @@ def trigger_github_workflow(timestamp):
     repo_name = os.getenv('REPO_NAME')
     workflow_id = 'data-drift-check.yml'
     token = os.getenv('PAT_TOKEN')
-    db_connection_url = db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows'
+    db_connection_url = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows'
                                    '.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
 
     if not token:

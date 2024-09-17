@@ -9,6 +9,16 @@ import mlflow
 import mlflow.sklearn
 from app.db import get_session, get_predicted_data, RetrainingLog, add_predicted_data, add_retraining_log
 import os
+from dotenv import load_dotenv
+
+
+load_dotenv()  # Load environment variables from .env file
+
+azure_connection_string = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
+
+# Configure MLflow to use Azure Blob Storage
+mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')  # Updated port
+mlflow.set_tracking_uri(mlflow_tracking_uri)
 
 
 def get_feature_names_path():
