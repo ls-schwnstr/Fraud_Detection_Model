@@ -16,6 +16,9 @@ on:
 jobs:
   check-data-drift:
     runs-on: ubuntu-latest
+
+    env:
+      PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -53,14 +56,6 @@ jobs:
 
     - name: Set PYTHONPATH
       run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
-
-    - name: List directories and environment variables
-      run: |
-        ls -alh ${{ github.workspace }}
-        echo "Current Working Directory:"
-        pwd
-        echo "Environment Variables:"
-        printenv
 
 
     - name: Run data drift check
