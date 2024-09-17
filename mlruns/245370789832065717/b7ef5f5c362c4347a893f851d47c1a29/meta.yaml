@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/b7ef5f5c362c4347a893f851d47c1a29/artifacts
+end_time: 1723625798511
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: b7ef5f5c362c4347a893f851d47c1a29
+run_name: dapper-gull-677
+run_uuid: b7ef5f5c362c4347a893f851d47c1a29
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723625798473
+status: 3
+tags: []
+user_id: lisaschweinester

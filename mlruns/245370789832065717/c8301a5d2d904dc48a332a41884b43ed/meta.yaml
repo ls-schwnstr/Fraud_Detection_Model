@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/c8301a5d2d904dc48a332a41884b43ed/artifacts
+end_time: 1723621959848
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: c8301a5d2d904dc48a332a41884b43ed
+run_name: loud-mouse-610
+run_uuid: c8301a5d2d904dc48a332a41884b43ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723621956858
+status: 3
+tags: []
+user_id: lisaschweinester

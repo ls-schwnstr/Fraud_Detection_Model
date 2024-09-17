@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/6e4a69211ec34da38ba9b6def9b7aa3b/artifacts
+end_time: 1723625797992
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 6e4a69211ec34da38ba9b6def9b7aa3b
+run_name: bemused-midge-970
+run_uuid: 6e4a69211ec34da38ba9b6def9b7aa3b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723625794978
+status: 3
+tags: []
+user_id: lisaschweinester

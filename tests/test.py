@@ -131,8 +131,8 @@ class TestRetraining(unittest.TestCase):
 
     def test_retraining(self):
         df = generate_simulated_data()
-        start_date = datetime(2026, 1, 1)  # Start on January 1st, 2026
-        end_date = datetime(2026, 12, 31)  # End on December 31st, 2026
+        start_date = datetime(2020, 1, 1)  # Start on January 1st, 2020
+        end_date = datetime(2020, 12, 31)  # End on December 31st, 2020
 
         retraining_dates = set()  # To keep track of dates when retraining is triggered
         drift_dates = set()

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/a632a9040f23498f8bc6fc40d2904a58/artifacts
+end_time: 1723621963684
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: a632a9040f23498f8bc6fc40d2904a58
+run_name: victorious-lamb-536
+run_uuid: a632a9040f23498f8bc6fc40d2904a58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723621963647
+status: 3
+tags: []
+user_id: lisaschweinester

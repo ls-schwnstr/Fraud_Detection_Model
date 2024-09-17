@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/9b170d7ae36448629d51bd20901be644/artifacts
+end_time: 1723623011161
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 9b170d7ae36448629d51bd20901be644
+run_name: gaudy-foal-577
+run_uuid: 9b170d7ae36448629d51bd20901be644
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723623011125
+status: 3
+tags: []
+user_id: lisaschweinester

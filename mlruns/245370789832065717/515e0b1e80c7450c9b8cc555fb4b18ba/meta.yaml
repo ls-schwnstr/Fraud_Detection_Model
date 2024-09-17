@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/515e0b1e80c7450c9b8cc555fb4b18ba/artifacts
+end_time: 1723622730192
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: 515e0b1e80c7450c9b8cc555fb4b18ba
+run_name: placid-lynx-928
+run_uuid: 515e0b1e80c7450c9b8cc555fb4b18ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723622730157
+status: 3
+tags: []
+user_id: lisaschweinester

@@ -14,15 +14,17 @@
             font-size: 1.5em;
             margin: 20px 0;
         }
-        .drift-message {
-            font-size: 1em;
-            color: red;
-        }
     </style>
+    <script>
+        // Automatically redirect to the "Please wait" page after 5 seconds
+        setTimeout(function() {
+            window.location.href = "{{ url_for('check_data_drift', timestamp=timestamp) }}";
+        }, 5000);  // Adjust the delay as needed
+    </script>
 </head>
 <body>
     <h1>Prediction Result</h1>
-    <div class="message">
+    <br class="message">
         {% if prediction == 0 %}
             The transaction is not a fraud.
         {% elif prediction == 1 %}
@@ -30,7 +32,7 @@
         {% else %}
             Prediction result is unclear.
         {% endif %}
-    </div>
-    <a href="{{ url_for('dashboard') }}">Return to Dashboard</a>
+    <br class="message">
+        Please wait while the model is being retrained. You will be redirected shortly.
 </body>
 </html>

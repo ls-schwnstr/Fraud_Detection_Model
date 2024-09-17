@@ -1,5 +1,6 @@
 import traceback
 from datetime import datetime
+import flask
 from flask import render_template, request, redirect, url_for, session as flask_session, flash, jsonify
 from app import app
 import os
@@ -184,11 +185,28 @@ def predict():
         # Call the shared prediction function
         prediction = make_predictions(processed_data_df, timestamp)
 
-        # Trigger GitHub Actions workflow for data drift
-        trigger_github_workflow(timestamp)
+        return render_template('prediction.html', prediction=int(prediction), timestamp=timestamp)
 
-        return render_template('prediction.html', prediction=int(prediction))
     except Exception as e:
         print(f"Error in /predict route: {e}")
         return jsonify({'error': str(e)}), 500
 
+
+@app.route('/check_data_drift', methods=['GET'])
+def check_data_drift():
+    # Get the timestamp from query string
+    timestamp = request.args.get('timestamp')
+    if timestamp:
+        timestamp = datetime.fromisoformat(timestamp)
+    else:
+        timestamp = datetime.now()
+
+    try:
+        # Trigger the GitHub workflow here
+        trigger_github_workflow(timestamp)
+
+        # After the workflow trigger, show the "redirection" page
+        return render_template('check_data_drift.html')
+
+    except Exception as e:
+        return f"An error occurred: {str(e)}", 500

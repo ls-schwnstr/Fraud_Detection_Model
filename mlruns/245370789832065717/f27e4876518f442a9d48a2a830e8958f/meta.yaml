@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/f27e4876518f442a9d48a2a830e8958f/artifacts
+end_time: 1723625031467
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: f27e4876518f442a9d48a2a830e8958f
+run_name: rare-fowl-969
+run_uuid: f27e4876518f442a9d48a2a830e8958f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723625028403
+status: 3
+tags: []
+user_id: lisaschweinester

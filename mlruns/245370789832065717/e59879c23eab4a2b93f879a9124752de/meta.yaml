@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/245370789832065717/e59879c23eab4a2b93f879a9124752de/artifacts
+end_time: 1723624596872
+entry_point_name: ''
+experiment_id: '245370789832065717'
+lifecycle_stage: active
+run_id: e59879c23eab4a2b93f879a9124752de
+run_name: bedecked-asp-235
+run_uuid: e59879c23eab4a2b93f879a9124752de
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1723624594293
+status: 3
+tags: []
+user_id: lisaschweinester
