@@ -46,9 +46,12 @@ To trigger the workflows, you need to set up a Token (in this case called "PAT_T
 ```env
 USERNAME=your_username
 PASSWORD=your_password
+REPO_OWNER=ls-schwnstr
+REPO_NAME=Fraud_Detection_Model
 PAT_TOKEN=your_token
-REPO_OWNER=your_ownername
-REPO_NAME=your_reponame
+AZURE_STORAGE_CONNECTION_STRING=your_connection_string
+AZURE_USERNAME=your_username
+AZURE_PASSWORD=your_password
 ```
 
 ### Install Dependencies
