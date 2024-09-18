@@ -1,10 +1,10 @@
+step
 oldbalanceOrg
+amount
 oldbalanceDest
 type_CASH_OUT
 type_PAYMENT
 newbalanceOrig
-step
-amount
 newbalanceDest
 type_DEBIT
 type_TRANSFER

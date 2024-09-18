@@ -11,8 +11,8 @@ from app.models.model import train_model
 
 # Database & MLFlow setup
 mlflow.set_tracking_uri("http://localhost:5004")
-db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
-           '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
+db_path = ('mssql+pyodbc://<your_username>:<your_password>@<server_name>.database.windows.net:1433/<db_name>?driver'
+           '=ODBC+Driver+17+for+SQL+Server')
 session = get_session()
 
 

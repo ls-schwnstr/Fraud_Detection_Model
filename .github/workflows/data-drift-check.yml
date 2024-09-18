@@ -10,7 +10,7 @@ on:
       db_connection_url:
         description: 'Database connection URL'
         required: true
-        default: 'mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server'
+        default: 'mssql+pyodbc://<your_username>:<your_password>@<server_name>.database.windows.net:1433/<db_name>?driver=ODBC+Driver+17+for+SQL+Server'
 
 
 jobs:

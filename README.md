@@ -63,12 +63,19 @@ Start the MLflow server by running:
 
 ```bash
 mlflow server \
-    --host 0.0.0.0 \
-    --port 5004 \
-    --backend-store-uri 'mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server' \
-    --artifacts-destination 'azure-blob://fraud.blob.core.windows.net/containerfraud?sp=racwd&st=2024-09-17T17:14:22Z&se=2024-09-18T01:14:22Z&sv=2022-11-02&sr=c&sig=05%2FJdclrDd7Q2jN2jRj0ppo3vmEplRaLwaJ1zVc1Mi4%3D'
-
+--host 0.0.0.0 \
+--port 5004 \
+--backend-store-uri 'mssql+pyodbc://<your_username>:<your_password>@<server_name>.database.windows.net:1433/<db_name>?driver=ODBC+Driver+17+for+SQL+Server' \
+--default-artifact-root 'wasbs://<container_name>@<storage_account_name>.blob.core.windows.net?<your_sas_token>'
 ```
+<your_username>: Replace with your Azure SQL database username.  
+<your_password>: Replace with your Azure SQL database password.  
+<server_name>: Replace with your Azure SQL server name.  
+<db_name>: Replace with your Azure SQL database name.  
+<container_name>: Replace with the name of your Azure Blob Storage container.  
+<storage_account_name>: Replace with your Azure Blob Storage account name.  
+<your_sas_token>: Replace with your SAS token for accessing Azure Blob Storage. 
+
 You can view local experiments at http://localhost:5004 and check the MLflow artifacts in the GitHub Actions workflows.
 
 ### Setting up an Azure SQL Database
@@ -77,11 +84,15 @@ You can view local experiments at http://localhost:5004 and check the MLflow art
 3. Obtain the Connection URL
 4. Update the db_path  
    Use the connection URL obtained in the previous step to set the `db_path` variable in the data-drift-
-   check workflow and in the db.py. For example:
+   check workflow and in the python files or create an environment variable.
 
- - ```python
-     db_path=mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server
-     ```
+### Azure Blob Storage for MLflow Artifacts
+1. Create an Azure Blob Storage account [here](https://portal.azure.com/)
+2. Create a container in the Azure Blob Storage account
+3. Obtain the SAS token
+4. Update the default-artifact-root  
+   Use the connection URL obtained in the previous step to set the `default-artifact-root` variable in the data-drift-
+   check workflow and in the db.py.
 
 ## Project Structure
 
@@ -110,7 +121,15 @@ To manually insert data over the flask api, run run.py and open
 
 - **/dashboard**
   - **Method:** GET, POST
-  - **Description:** Allows users to upload new data and get predictions.
+  - **Description:** Allows users to upload new data.
+
+- **/predict**
+  - **Method:** POST
+  - **Description:** Returns predictions for the uploaded data.
+
+- **/drift**
+  - **Method:** POST
+  - **Description:** Checks for data drift and retrains the model if necessary.
 
 ### Data Drift Detection and Retraining
 

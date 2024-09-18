@@ -7,14 +7,27 @@ from app.db import RetrainingLog, get_session
 import mlflow
 import os
 from app.models.model import train_model
+from dotenv import load_dotenv
 
 
-mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')
-mlflow.set_tracking_uri(mlflow_tracking_uri)
-mlflow.set_experiment('test')
+load_dotenv()  # Load environment variables from .env file
 
-db_path = ('mssql+pyodbc://adminuser:FraudDetection1!@fraud-detection-server.database.windows.net:1433'
-           '/fraud_detection_db?driver=ODBC+Driver+17+for+SQL+Server')
+azure_connection_string = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
+mlflow.set_tracking_uri("http://localhost:5004")
+mlflow.set_registry_uri(f"wasbs://containerfraud@fraud.blob.core.windows.net")
+
+experiment_name = "unittest_experiment"
+experiment = mlflow.get_experiment_by_name(experiment_name)
+
+if experiment is None:
+    # Create experiment if it doesn't exist
+    mlflow.create_experiment(experiment_name, artifact_location="wasbs://containerfraud@fraud.blob.core.windows.net")
+else:
+    # Set the experiment if it exists
+    mlflow.set_experiment(experiment_name)
+
+db_path = ('mssql+pyodbc://<your_username>:<your_password>@<server_name>.database.windows.net:1433/<db_name>?driver'
+           '=ODBC+Driver+17+for+SQL+Server')
 model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app', 'models', 'model.pkl'))
 
 
@@ -123,6 +136,33 @@ class TestRetraining(unittest.TestCase):
         finally:
             session.close()
 
+    def check_data_drift(self, timestamp=None):
+        payload = {'timestamp': timestamp.isoformat()} if timestamp else {}
+        response = self.client.get('/check_data_drift', query_string=payload)
+        self.assertEqual(response.status_code, 200)
+
+        # If data drift detected, log the retraining date
+        session = self.session
+        try:
+            # Start a new MLflow run for logging the data drift retraining
+            with mlflow.start_run() as run:
+                run_id = run.info.run_id  # Get the run_id of the current MLflow run
+
+                print(f"Logging data drift for {timestamp} with run_id {run_id}")
+                retraining_log = RetrainingLog(
+                    retraining_timestamp=timestamp,
+                    retraining_type='data_drift',
+                    run_id=run_id  # Use the valid run_id here
+                )
+                session.add(retraining_log)
+                session.commit()
+
+        except Exception as e:
+            print(f"Failed to log data drift: {e}")
+            session.rollback()
+        finally:
+            session.close()
+
     def check_retraining_logs(self, expected_dates, retraining_type):
         logs = self.session.query(RetrainingLog).filter_by(retraining_type=retraining_type).all()
         logged_dates = {log.retraining_timestamp.date() for log in logs}
@@ -170,6 +210,12 @@ class TestRetraining(unittest.TestCase):
                         drift_dates.add(current_date.date())  # Log the date for drift checks
                         last_week = week_num
                         last_week_year = week_year
+
+                        # Trigger data drift check immediately after data insertion
+                        print(f"Triggering data drift check for {current_date.strftime('%Y-%m-%d')}")
+                        self.check_data_drift(timestamp=current_date)
+                        print("Data drift dates are being added")
+
 
             # Check if it's the first of the month to trigger retraining
             if current_date.day == 1:

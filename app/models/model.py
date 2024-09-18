@@ -17,8 +17,7 @@ load_dotenv()  # Load environment variables from .env file
 azure_connection_string = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 
 # Configure MLflow to use Azure Blob Storage
-mlflow_tracking_uri = os.getenv("MLFLOW_TRACKING_URI", 'http://localhost:5004')  # Updated port
-mlflow.set_tracking_uri(mlflow_tracking_uri)
+mlflow.set_tracking_uri("http://localhost:5004")
 
 
 def get_feature_names_path():
@@ -82,6 +81,9 @@ def train_model(timestamp=None, retraining_type=None):
 
     smote = SMOTE(random_state=42)
     x_resampled, y_resampled = smote.fit_resample(X, y)
+
+    print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
+    print(f"Experiment Name: {mlflow.get_experiment_by_name('test')}")
 
     with mlflow.start_run() as run:
 
