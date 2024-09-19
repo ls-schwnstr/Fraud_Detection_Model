@@ -2,6 +2,8 @@
 
 This repository contains a complete implementation of a fraud detection system using Flask for the REST API, MLflow for experiment tracking, and an Azure SQL Database for data storage. This project includes automatic data drift detection and retraining of the model when necessary.
 
+The dataset can be downloaded from kaggle [here](https://www.kaggle.com/datasets/vardhansiramdasu/fraudulent-transactions-prediction/data)
+
 # Table of Contents
 
 - [Introduction](#introduction)
